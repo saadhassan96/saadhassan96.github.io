@@ -597,7 +597,7 @@ dd {
 
 @media (max-width: 700px) {
     #rig li {
-        width:33.3333%;
+        width:100%;
     }
 }
 
