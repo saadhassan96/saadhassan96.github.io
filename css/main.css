@@ -640,12 +640,12 @@ dd {
 
 /* Orange */
 .warning {
-  border-color: #ff9800;
-  color: orange;
+  border-color: maroon;
+  color: maroon;
 }
 
 .warning:hover {
-  background: #ff9800;
+  background: maroon;
   color: white;
 }
 
