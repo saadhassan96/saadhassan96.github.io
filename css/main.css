@@ -597,12 +597,12 @@ dd {
 
 @media (max-width: 700px) {
     #rig li {
-        width:33.33%;
+        width:33.3333%;
     }
 }
 
 @media (max-width: 550px) {
     #rig li {
-        width:50%;
+        width:33.3333%;
     }
 }
