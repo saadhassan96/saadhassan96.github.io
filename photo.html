@@ -2,109 +2,87 @@
 <html lang="en">
 
 <head>
-  <!-- Metadata for the Webpage -->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Saad Hassan</title>
+	<!-- Metadata for the Webpage -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Saad Hassan</title>
+	<!-- Favicons -- We recommend this site for generating favicons: https://www.favicon-generator.org/ -->
+	<link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="favicons/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	<!-- Bootstrap CSS files-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+	<!-- jQuery UI CSS (optional) -->
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<!-- Google web fonts -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+	<!-- Font Awesome Web Icons -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<!-- Academicons Courtesy of https://jpswalsh.github.io/academicons/ -->
+	<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+	<!-- Local styles -->
+	<link rel="stylesheet" href="css/main.css">
+	<!-- Teaching Panel styles -->
+	<link rel="stylesheet" href="css/teaching-panels.css">
+	<style>
+	/* plus glyph for showing collapsible panels */
 
-  <!-- Favicons -- We recommend this site for generating favicons: https://www.favicon-generator.org/ -->
-  <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="favicons/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
+	.panel-heading .accordion-plus-toggle:before {
+		font-style: normal;
+		font-variant: normal;
+		text-rendering: auto;
+		-webkit-font-smoothing: antialiased;
+		font-family: "Font Awesome 5 Free";
+		font-weight: 900;
+		content: "\f068";
+		float: right;
+		color: RGBA(119, 136, 153, .5);
+	}
 
-  <!-- Bootstrap CSS files-->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+	.panel-heading .accordion-plus-toggle.collapsed:before {
+		font-style: normal;
+		font-variant: normal;
+		text-rendering: auto;
+		-webkit-font-smoothing: antialiased;
+		font-family: "Font Awesome 5 Free";
+		font-weight: 900;
+		content: "\f067";
+		color: RGBA(119, 136, 153, .5);
+	}
+	/* sets the link to the width of the entire panel title */
 
-  <!-- jQuery UI CSS (optional) -->
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-
-  <!-- Google web fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome Web Icons -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
-  <!-- Academicons Courtesy of https://jpswalsh.github.io/academicons/ -->
-  <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
-
-  <!-- Local styles -->
-  <link rel="stylesheet" href="css/main.css">
-
-  <!-- Teaching Panel styles -->
-  <link rel="stylesheet" href="css/teaching-panels.css">
-
-
-  <style>
-    /* plus glyph for showing collapsible panels */
-    .panel-heading .accordion-plus-toggle:before {
-      font-style: normal;
-      font-variant: normal;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      font-family: "Font Awesome 5 Free";
-      font-weight: 900;
-      content: "\f068";
-      float: right;
-      color: RGBA(119, 136, 153, .5);
-    }
-
-    .panel-heading .accordion-plus-toggle.collapsed:before {
-      font-style: normal;
-      font-variant: normal;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      font-family: "Font Awesome 5 Free";
-      font-weight: 900;
-      content: "\f067";
-      color: RGBA(119, 136, 153, .5);
-    }
-
-    /* sets the link to the width of the entire panel title */
-    .panel-title>a {
-      display: block;
-    }
-  </style>
-
+	.panel-title>a {
+		display: block;
+	}
+	</style>
 </head>
 
 <body>
-
-  <!-- navbar include -->
-  <div id="navbar-include"></div>
-
-  <div class="spacer-div-3 hidden-xs hidden-xs"></div>
-
-  <!-- Main content    -->
-  <div id="main-container" class="container">
-
-    <div class="row">
-      <div class="col-sm-12">
-
-        <h2> A compilation of some moving quotes and static pixels.</h2>
-
-
-
-    <blockquote>The mystery of human existence lies not in just staying alive, but in finding something to live for.
-      <cite title="source title">&mdash; Fyodor Dostoyevsky, The Brothers Karamazov</cite>
-    </blockquote>
-
-
-        <!-- <blockquote>We think too much and feel too little. More than machinery, we need humanity; more than cleverness, we need kindness and gentleness. Without these qualities, life will be violent and all will be lost.
+	<!-- navbar include -->
+	<div id="navbar-include"></div>
+	<div class="spacer-div-3 hidden-xs hidden-xs"></div>
+	<!-- Main content    -->
+	<div id="main-container" class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h2> A compilation of some moving quotes and static pixels.</h2>
+				<blockquote>The mystery of human existence lies not in just staying alive, but in finding something to live for. <cite title="source title">&mdash; Fyodor Dostoyevsky, The Brothers Karamazov</cite> </blockquote>
+				<!-- <blockquote>We think too much and feel too little. More than machinery, we need humanity; more than cleverness, we need kindness and gentleness. Without these qualities, life will be violent and all will be lost.
           <cite title="source title">&mdash; Charlie Chaplin</cite>
         </blockquote>
 
@@ -112,24 +90,12 @@
         <blockquote>Look up at the stars and not down at your feet. Try to make sense of what you see, and wonder about what makes the universe exist. Be curious.
           <cite title="source title">&mdash; Stephen Hawking</cite>
         </blockquote> -->
-
-
-
-        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque temporibus sit tempora rem. Pariatur dolore minima, corporis deserunt. Est doloribus, explicabo, porro obcaecati delectus culpa. Tempore ipsum earum, praesentium cum animi accusamus porro, repellat debitis assumenda. Voluptates voluptatibus accusamus dignissimos iure sunt, autem dolorum impedit.</p> -->
-        <!-- <p>For more on my pedagogical approach, see my <a href="#" title="Read more" target="_blank">Teaching Philosophy</a>.</p> -->
-
-
-
-        <!-- <h3 class="push-down-3"><span>Courses Taught</span></h3> -->
-
-
-
-
-
-        <!-- <p class='text-right bright-blue'><span class="badge expander badge-bright-blue pointer">show all</span></p> -->
-
-<!-- start here -->
-<!-- <ul id="rig">
+				<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque temporibus sit tempora rem. Pariatur dolore minima, corporis deserunt. Est doloribus, explicabo, porro obcaecati delectus culpa. Tempore ipsum earum, praesentium cum animi accusamus porro, repellat debitis assumenda. Voluptates voluptatibus accusamus dignissimos iure sunt, autem dolorum impedit.</p> -->
+				<!-- <p>For more on my pedagogical approach, see my <a href="#" title="Read more" target="_blank">Teaching Philosophy</a>.</p> -->
+				<!-- <h3 class="push-down-3"><span>Courses Taught</span></h3> -->
+				<!-- <p class='text-right bright-blue'><span class="badge expander badge-bright-blue pointer">show all</span></p> -->
+				<!-- start here -->
+				<!-- <ul id="rig">
     <li>
         <a class="rig-cell" href="#">
             <img class="rig-img" src="img/niagra1.jpeg">
@@ -158,511 +124,205 @@
             <span class="rig-text">Curabitur tempus</span>
         </a>
     </li> -->
-<!-- </ul> -->
-
-<br>
-
-<blockquote>Bare Naked Trees in Concrete Jungle
-  <!-- <cite title="source title">&mdash; Stephen Hawking</cite> -->
-</blockquote>
-<ul id="rig">
-    <li>
-        <a class="rig-cell" href="#">
-            <img class="rig-img" src="img/nakestrees.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Bryant Park, New York, NY</span>
-        </a>
-    </li>
-    <li>
-        <a class="rig-cell" href="#">
-          <img class="rig-img" src="img/nyc2.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">One World Trade Center, New York, NY</span>
-        </a>
-    </li>
-    <li>
-        <a class="rig-cell" href="#">
-          <img class="rig-img" src="img/nyc3.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Vessel, New York, NY</span>
-        </a>
-    </li>
-
-</ul>
-
-<br>
-
-<blockquote> I think that I was quite a grown-up child, and I have been a pretty childish adult.
-  <cite title="source title">&mdash; Arundhati Roy</cite>
-</blockquote>
-
-<blockquote>931 Gwen's Inn
-  <!-- <cite title="source title">&mdash; Stephen Hawking</cite> -->
-</blockquote>
-<ul id="rig">
-    <li>
-        <a class="rig-cell" href="#">
-            <img class="rig-img" src="img/gwen1.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Gwen's Holistic House, New Orleans, LA</span>
-        </a>
-    </li>
-
-    <li>
-        <a class="rig-cell" href="#">
-          <img class="rig-img" src="img/gwen3.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Gwen's Holistic House, New Orleans, LA</span>
-        </a>
-    </li>
-
-    <li>
-        <a class="rig-cell" href="#">
-          <img class="rig-img" src="img/gwen2.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Gwen's Holistic House, New Orleans, LA</span>
-        </a>
-    </li>
-
-</ul>
-
-<br>
-
-<blockquote> One can only steer towards an ideal, The ideal is just as unattainable as the dream, but differs from the dream in that it concerns reality; it enables one, as a mathematical limit, to grade situations whether real or realizable, in order of value from least to greatest.
-  <cite title="source title">&mdash; Simone Weil, From The Communism of Love by Richard Gilman-Opalsky</cite>
-</blockquote>
-
-
-<blockquote>Rochester's Dystopia
-  <!-- <cite title="source title">&mdash; Stephen Hawking</cite> -->
-</blockquote>
-<ul id="rig">
-    <li>
-        <a class="rig-cell" href="#">
-            <img class="rig-img" src="img/rocdys1.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Memoria Art Gallery, Rochester, NY</span>
-        </a>
-    </li>
-    <li>
-        <a class="rig-cell" href="#">
-          <img class="rig-img" src="img/roc_dys3.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">River Walk, Rochester, NY</span>
-        </a>
-    </li>
-    <li>
-        <a class="rig-cell" href="#">
-          <img class="rig-img" src="img/roc_dys2.jpg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Anthology, East Avenue, Rochester, NY</span>
-        </a>
-    </li>
-
-</ul>
-
-<br>
-
-<br>
-
-<blockquote> There are moments when we resort to senseless formulations and advance absurd claims to hide straightforward feelings.
-  <cite title="source title">&mdash; Elena Ferrante, The Story of a New Name</cite>
-</blockquote>
-
-
-
-<blockquote>جیون کی گاڈی لوٹی
-  <!-- <cite title="source title">&mdash; Stephen Hawking</cite> -->
-</blockquote>
-<ul id="rig">
-
-
-    <li>
-        <a class="rig-cell" href="#">
-          <img class="rig-img" src="img/gaari2.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Skaneateles, NY</span>
-        </a>
-    </li>
-
-    <li>
-        <a class="rig-cell" href="#">
-            <img class="rig-img" src="img/gaari1.jpg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Artisan Works, Rochester, NY</span>
-        </a>
-    </li>
-
-    <li>
-        <a class="rig-cell" href="#">
-          <img class="rig-img" src="img/gaari3.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">New Orleans, LA</span>
-        </a>
-    </li>
-
-</ul>
-
-<br>
-
-
-<blockquote> We shouldn't be looking for heroes, we should be looking for good ideas.
-  <cite title="source title">&mdash; Noam Chomsky</cite>
-</blockquote>
-
-
-
-
-<blockquote>یہ شام پھر نہیں آیگی
-  <!-- <cite title="source title">&mdash; Stephen Hawking</cite> -->
-</blockquote>
-<ul id="rig">
-
-
-
-    <li>
-        <a class="rig-cell" href="#">
-            <img class="rig-img" src="img/aag.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">1000 Islands Campground, NY</span>
-        </a>
-    </li>
-
-    <li>
-        <a class="rig-cell" href="#">
-          <img class="rig-img" src="img/fire3.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">1000 Islands Campground, NY</span>
-        </a>
-    </li>
-
-    <li>
-        <a class="rig-cell" href="#">
-          <img class="rig-img" src="img/aag2.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">1000 Islands Campground, NY</span>
-        </a>
-    </li>
-
-</ul>
-
-<br>
-
-<br>
-
-
-
-<blockquote>After everything that's happened, how can the world still be so beautiful? Because it is.
-
-  <cite title="source title">&mdash; Margaret Atwood, Oryx and Crake </cite>
-</blockquote>
-
-<blockquote>Shamanic Revelation
-  <!-- <cite title="source title">&mdash; Stephen Hawking</cite> -->
-</blockquote>
-
-
-<ul id="rig">
-
-    <li>
-        <a class="rig-cell" href="#">
-            <img class="rig-img" src="img/hunza1.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Altit Fort, Gilgit Baltistan, Hunza, Pakistan</span>
-        </a>
-    </li>
-
-    <li>
-        <a class="rig-cell" href="#">
-          <img class="rig-img" src="img/hunza2.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Altit Fort, Gilgit Baltistan, Hunza, Pakistan</span>
-        </a>
-    </li>
-
-    <li>
-        <a class="rig-cell" href="#">
-          <img class="rig-img" src="img/hunza3.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Altit Fort, Gilgit Baltistan, Hunza, Pakistan</span>
-        </a>
-    </li>
-
-</ul>
-
-
-<br>
-
-<br>
-
-
-
-<blockquote>We think too much and feel too little. More than machinery we need humanity. More than cleverness we need kindness and gentleness. Without these qualities, life will be violent and all will be lost…
-  <cite title="source title">&mdash; Charlie Chaplin, The Final Speech from The Great Dictator</cite>
-</blockquote>
-
-<blockquote>Central Park is always a good idea.
-  <!-- <cite title="source title">&mdash; Stephen Hawking</cite> -->
-</blockquote>
-<ul id="rig">
-
-
-    <li>
-        <a class="rig-cell" href="#">
-          <img class="rig-img" src="img/park3.jpg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Central Park, New York, NY</span>
-        </a>
-    </li>
-
-
-    <li>
-        <a class="rig-cell" href="#">
-          <img class="rig-img" src="img/park2.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Central Park, New York, NY</span>
-        </a>
-    </li>
-
-    <li>
-        <a class="rig-cell" href="#">
-            <img class="rig-img" src="img/park1.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Central Park, New York, NY</span>
-        </a>
-    </li>
-
-
-</ul>
-
-<br>
-
-<br>
-
-<blockquote>Man is essentially a story-telling animal, but a teller of stories that aspire to truth.
-  <cite title="source title">&mdash; Alasdair MacIntyre, After Virtue: A Study in Moral Theory</cite>
-</blockquote>
-
-<blockquote>staying current.
-  <!-- <cite title="source title">&mdash; Stephen Hawking</cite> -->
-</blockquote>
-
-<ul id="rig">
-
-
-    <li>
-        <a class="rig-cell" href="#">
-          <img class="rig-img" src="img/hamlin1.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Hamlin Beach State Park, Hamlin , NY</span>
-        </a>
-    </li>
-
-
-    <li>
-        <a class="rig-cell" href="#">
-          <img class="rig-img" src="img/hamlin2.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Hamlin Beach State Park, Hamlin , NY</span>
-        </a>
-    </li>
-
-    <li>
-        <a class="rig-cell" href="#">
-            <img class="rig-img" src="img/hamlin3.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Hamlin Beach State Park, Hamlin , NY</span>
-        </a>
-    </li>
-
-
-</ul>
-
-<br>
-
-<br>
-
-<blockquote>One must still have chaos in oneself to be able to give birth to a dancing star.
-  <cite title="source title">&mdash; Friedrich Nietzsche</cite>
-</blockquote>
-
-<blockquote>Horsin. Around.
-  <!-- <cite title="source title">&mdash; Stephen Hawking</cite> -->
-</blockquote>
-
-<ul id="rig">
-
-
-    <li>
-        <a class="rig-cell" href="#">
-          <img class="rig-img" src="img/chess1.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Artisan Works, Rochester, NY</span>
-        </a>
-    </li>
-
-
-    <li>
-        <a class="rig-cell" href="#">
-          <img class="rig-img" src="img/chess2.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Artisan Works, Rochester, NY</span>
-        </a>
-    </li>
-
-    <li>
-        <a class="rig-cell" href="#">
-            <img class="rig-img" src="img/chess3.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Downtown, Rochester, NY</span>
-        </a>
-    </li>
-
-
-</ul>
-
-<br>
-
-<br>
-
-<blockquote>Natural science will in time incorporate into itself the science of man, just as the science of man will incorporate into itself natural science: there will be one science.
-
-  <cite title="source title">&mdash; Karl Marx, Private Property and Communism </cite>
-</blockquote>
-
-<blockquote>Photography in transition.
-  <!-- <cite title="source title">&mdash; Stephen Hawking</cite> -->
-</blockquote>
-
-<ul id="rig">
-
-
-
-
-    <li>
-        <a class="rig-cell" href="#">
-          <img class="rig-img" src="img/pit2.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Artisan Works, Rochester, NY</span>
-        </a>
-    </li>
-
-    <li>
-        <a class="rig-cell" href="#">
-          <img class="rig-img" src="img/pit.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Artisan Works, Rochester, NY</span>
-        </a>
-    </li>
-
-    <li>
-        <a class="rig-cell" href="#">
-            <img class="rig-img" src="img/pit3.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Artisan Works, Rochester, NY</span>
-        </a>
-    </li>
-
-
-</ul>
-
-<br>
-
-<br>
-
-<blockquote>No one can be independent of other people completely, so why not give up the attempt, she thought, go running in the other direction, depend on people for everything, allow them to depend on you, why not.
-
-  <cite title="source title">&mdash; Sally Rooney, Normal People </cite>
-</blockquote>
-
-<blockquote>Promise of a new dawn
-  <!-- <cite title="source title">&mdash; Stephen Hawking</cite> -->
-</blockquote>
-
-
-<ul id="rig">
-
-    <li>
-        <a class="rig-cell" href="#">
-            <img class="rig-img" src="img/sunsetbeach3.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Lake Ontario, Rochester, NY</span>
-        </a>
-    </li>
-
-    <li>
-        <a class="rig-cell" href="#">
-          <img class="rig-img" src="img/sunsetbeach1.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Lake Ontario, Rochester, NY</span>
-        </a>
-    </li>
-
-    <li>
-        <a class="rig-cell" href="#">
-          <img class="rig-img" src="img/sunsetbeach2.jpeg">
-            <span class="rig-overlay"></span>
-            <span class="rig-text">Lake Ontario, Rochester, NY</span>
-        </a>
-    </li>
-
-</ul>
-
-
-</ul>
-
-
-
-<!-- ends here -->
-
-
-
-
-
-
-
-
-
-
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Back-to-top button -->
-  <a role="button" id="topper" data-toggle="tooltip" data-placement="top" title="Top" class="btn scroll-link" href="#top"><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></a>
-
-  <!-- footer include -->
-  <div w3-include-html="footer.html"></div>
-
-  <!-- jQuery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-  <!-- Bootstrap JS Library -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-
-  <!-- html file include script | used for navbar and footer -->
-  <script src="js/w3data.js"></script>
-  <script>
-    w3IncludeHTML()
-  </script>
-
-  <!-- Local scripts -->
-  <script src="js/main.js"></script>
-
-  <script>
-    $(document).ready(function() {
-
-      $("#navbar-include").load("navbar.html", function() {
-
-        $("#home").removeClass("active");
-        $("#teaching").addClass("active");
-
-      });
-
-    });
-  </script>
-
+				<!-- </ul> -->
+				<br>
+				<blockquote>Bare Naked Trees in Concrete Jungle
+					<!-- <cite title="source title">&mdash; Stephen Hawking</cite> --></blockquote>
+				<ul id="rig">
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/nakestrees.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">Bryant Park, New York, NY</span> </a>
+					</li>
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/nyc2.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">One World Trade Center, New York, NY</span> </a>
+					</li>
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/nyc3.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">Vessel, New York, NY</span> </a>
+					</li>
+				</ul>
+				<br>
+				<blockquote> I think that I was quite a grown-up child, and I have been a pretty childish adult. <cite title="source title">&mdash; Arundhati Roy</cite> </blockquote>
+				<blockquote>931 Gwen's Inn
+					<!-- <cite title="source title">&mdash; Stephen Hawking</cite> --></blockquote>
+				<ul id="rig">
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/gwen1.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">Gwen's Holistic House, New Orleans, LA</span> </a>
+					</li>
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/gwen3.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">Gwen's Holistic House, New Orleans, LA</span> </a>
+					</li>
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/gwen2.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">Gwen's Holistic House, New Orleans, LA</span> </a>
+					</li>
+				</ul>
+				<br>
+				<blockquote> One can only steer towards an ideal, The ideal is just as unattainable as the dream, but differs from the dream in that it concerns reality; it enables one, as a mathematical limit, to grade situations whether real or realizable, in order of value from least to greatest. <cite title="source title">&mdash; Simone Weil, From The Communism of Love by Richard Gilman-Opalsky</cite> </blockquote>
+				<blockquote>Rochester's Dystopia
+					<!-- <cite title="source title">&mdash; Stephen Hawking</cite> --></blockquote>
+				<ul id="rig">
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/rocdys1.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">Memoria Art Gallery, Rochester, NY</span> </a>
+					</li>
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/roc_dys3.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">River Walk, Rochester, NY</span> </a>
+					</li>
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/roc_dys2.jpg"> <span class="rig-overlay"></span> <span class="rig-text">Anthology, East Avenue, Rochester, NY</span> </a>
+					</li>
+				</ul>
+				<br>
+				<br>
+				<blockquote> There are moments when we resort to senseless formulations and advance absurd claims to hide straightforward feelings. <cite title="source title">&mdash; Elena Ferrante, The Story of a New Name</cite> </blockquote>
+				<blockquote>جیون کی گاڈی لوٹی
+					<!-- <cite title="source title">&mdash; Stephen Hawking</cite> --></blockquote>
+				<ul id="rig">
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/gaari2.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">Skaneateles, NY</span> </a>
+					</li>
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/gaari1.jpg"> <span class="rig-overlay"></span> <span class="rig-text">Artisan Works, Rochester, NY</span> </a>
+					</li>
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/gaari3.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">New Orleans, LA</span> </a>
+					</li>
+				</ul>
+				<br>
+				<blockquote> We shouldn't be looking for heroes, we should be looking for good ideas. <cite title="source title">&mdash; Noam Chomsky</cite> </blockquote>
+				<blockquote>یہ شام پھر نہیں آیگی
+					<!-- <cite title="source title">&mdash; Stephen Hawking</cite> --></blockquote>
+				<ul id="rig">
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/aag.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">1000 Islands Campground, NY</span> </a>
+					</li>
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/fire3.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">1000 Islands Campground, NY</span> </a>
+					</li>
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/aag2.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">1000 Islands Campground, NY</span> </a>
+					</li>
+				</ul>
+				<br>
+				<br>
+				<blockquote>After everything that's happened, how can the world still be so beautiful? Because it is. <cite title="source title">&mdash; Margaret Atwood, Oryx and Crake </cite> </blockquote>
+				<blockquote>Shamanic Revelation
+					<!-- <cite title="source title">&mdash; Stephen Hawking</cite> --></blockquote>
+				<ul id="rig">
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/hunza1.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">Altit Fort, Gilgit Baltistan, Hunza, Pakistan</span> </a>
+					</li>
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/hunza2.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">Altit Fort, Gilgit Baltistan, Hunza, Pakistan</span> </a>
+					</li>
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/hunza3.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">Altit Fort, Gilgit Baltistan, Hunza, Pakistan</span> </a>
+					</li>
+				</ul>
+				<br>
+				<br>
+				<blockquote>We think too much and feel too little. More than machinery we need humanity. More than cleverness we need kindness and gentleness. Without these qualities, life will be violent and all will be lost… <cite title="source title">&mdash; Charlie Chaplin, The Final Speech from The Great Dictator</cite> </blockquote>
+				<blockquote>Central Park is always a good idea.
+					<!-- <cite title="source title">&mdash; Stephen Hawking</cite> --></blockquote>
+				<ul id="rig">
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/park3.jpg"> <span class="rig-overlay"></span> <span class="rig-text">Central Park, New York, NY</span> </a>
+					</li>
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/park2.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">Central Park, New York, NY</span> </a>
+					</li>
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/park1.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">Central Park, New York, NY</span> </a>
+					</li>
+				</ul>
+				<br>
+				<br>
+				<blockquote>Man is essentially a story-telling animal, but a teller of stories that aspire to truth. <cite title="source title">&mdash; Alasdair MacIntyre, After Virtue: A Study in Moral Theory</cite> </blockquote>
+				<blockquote>staying current.
+					<!-- <cite title="source title">&mdash; Stephen Hawking</cite> --></blockquote>
+				<ul id="rig">
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/hamlin1.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">Hamlin Beach State Park, Hamlin , NY</span> </a>
+					</li>
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/hamlin2.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">Hamlin Beach State Park, Hamlin , NY</span> </a>
+					</li>
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/hamlin3.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">Hamlin Beach State Park, Hamlin , NY</span> </a>
+					</li>
+				</ul>
+				<br>
+				<br>
+				<blockquote>One must still have chaos in oneself to be able to give birth to a dancing star. <cite title="source title">&mdash; Friedrich Nietzsche</cite> </blockquote>
+				<blockquote>Horsin. Around.
+					<!-- <cite title="source title">&mdash; Stephen Hawking</cite> --></blockquote>
+				<ul id="rig">
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/chess1.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">Artisan Works, Rochester, NY</span> </a>
+					</li>
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/chess2.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">Artisan Works, Rochester, NY</span> </a>
+					</li>
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/chess3.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">Downtown, Rochester, NY</span> </a>
+					</li>
+				</ul>
+				<br>
+				<br>
+				<blockquote>Natural science will in time incorporate into itself the science of man, just as the science of man will incorporate into itself natural science: there will be one science. <cite title="source title">&mdash; Karl Marx, Private Property and Communism </cite> </blockquote>
+				<blockquote>Photography in transition.
+					<!-- <cite title="source title">&mdash; Stephen Hawking</cite> --></blockquote>
+				<ul id="rig">
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/pit2.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">Artisan Works, Rochester, NY</span> </a>
+					</li>
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/pit.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">Artisan Works, Rochester, NY</span> </a>
+					</li>
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/pit3.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">Artisan Works, Rochester, NY</span> </a>
+					</li>
+				</ul>
+				<br>
+				<br>
+				<blockquote>No one can be independent of other people completely, so why not give up the attempt, she thought, go running in the other direction, depend on people for everything, allow them to depend on you, why not. <cite title="source title">&mdash; Sally Rooney, Normal People </cite> </blockquote>
+				<blockquote>Promise of a new dawn
+					<!-- <cite title="source title">&mdash; Stephen Hawking</cite> --></blockquote>
+				<ul id="rig">
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/sunsetbeach3.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">Lake Ontario, Rochester, NY</span> </a>
+					</li>
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/sunsetbeach1.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">Lake Ontario, Rochester, NY</span> </a>
+					</li>
+					<li>
+						<a class="rig-cell" href="#"> <img class="rig-img" src="img/sunsetbeach2.jpeg"> <span class="rig-overlay"></span> <span class="rig-text">Lake Ontario, Rochester, NY</span> </a>
+					</li>
+				</ul>
+				</ul>
+				<!-- ends here -->
+			</div>
+		</div>
+	</div>
+	<!-- Back-to-top button --><a role="button" id="topper" data-toggle="tooltip" data-placement="top" title="Top" class="btn scroll-link" href="#top"><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></a>
+	<!-- footer include -->
+	<div w3-include-html="footer.html"></div>
+	<!-- jQuery -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- Bootstrap JS Library -->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+	<!-- html file include script | used for navbar and footer -->
+	<script src="js/w3data.js"></script>
+	<script>
+	w3IncludeHTML()
+	</script>
+	<!-- Local scripts -->
+	<script src="js/main.js"></script>
+	<script>
+	$(document).ready(function() {
+		$("#navbar-include").load("navbar.html", function() {
+			$("#home").removeClass("active");
+			$("#teaching").addClass("active");
+		});
+	});
+	</script>
 </body>
 
 </html>
