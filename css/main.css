@@ -134,8 +134,8 @@ h4, h5, h6 {
 #projects .panel-heading.proj-7 {
   background-image: url("m-health.png");
 }
-#projects .panel-heading.proj-8 {
-  background-image: url("search.gif");
+#projects .panel-heading.proj-13 {
+  background-image: url("signing.png");
 }
 #projects .panel-heading.proj-9 {
   background-image: url(https://unsplash.it/300/200);
@@ -148,6 +148,9 @@ h4, h5, h6 {
 }
 #projects .panel-heading.proj-12 {
   background-image: url(https://unsplash.it/300/200);
+}
+#projects .panel-heading.proj-14 {
+  background-image: url("look-up.gif");
 }
 
 p, table, tr, td, ul, li, blockquote, nav, a, footer, dl, dt, dd {
