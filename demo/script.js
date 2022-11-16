@@ -60,17 +60,21 @@ for(var i = 0; i < tracks.length; i++) {
 
 
 function t(click){
+    buttons.style.backgroundColor = 'salmon';
     mode=1;
 }
 
 function h(click){
+    buttons.style.backgroundColor = 'salmon';
     mode=2;
 }
 
 function c(click){
+    buttons.style.backgroundColor = 'salmon';
     mode=3;
 }
 
 function s(click){
+    buttons.style.backgroundColor = 'salmon';
     mode=4;
 }
