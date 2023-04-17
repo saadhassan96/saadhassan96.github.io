@@ -163,6 +163,7 @@ p, table, tr, td, ul, li, blockquote, nav, a, footer, dl, dt, dd {
   font-size: 1rem;
   font-family: 'Gill Sans', 'verdana';
   font-weight: 330;
+  color: #000000;
 }
 
 dt {
@@ -210,13 +211,15 @@ blockquote footer {
 
 /* Links */
 #main-container a {
-  color: #1585cf;
-  font-weight: 350;
+  color: #3F3F6D;
+  /* text-decoration-line: underline; */
+  font-weight: 400;
+  padding-bottom: 2px;
 }
 
 #main-container a:hover {
-  color: #1585cf;
-  border-bottom: 1px dashed #1585cf;
+  color: #3F3F6D;
+  border-bottom: 1px dashed #3F3F6D;
   text-decoration: none;
   padding-bottom: 2px;
 }
