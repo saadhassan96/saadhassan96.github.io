@@ -157,7 +157,6 @@ h4, h5, h6 {
 p, table, tr, td, ul, li, blockquote, nav, a, footer, dl, dt, dd {
   font-size: 1rem;
   font-family: 'Gill Sans', 'verdana';
-
   font-weight: 330;
 }
 
@@ -207,7 +206,7 @@ blockquote footer {
 /* Links */
 #main-container a {
   color: #1585cf;
-  font-weight: 500;
+  font-weight: 350;
 }
 
 #main-container a:hover {
