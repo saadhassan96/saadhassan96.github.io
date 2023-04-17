@@ -13,7 +13,7 @@ html {
 
 body {
   font-size: 1rem;
-  font-family: "Open Sans", Arial, sans-serif;
+  font-family: 'Gill Sans', 'verdana';
   background: #FFFFFF;
   color: var(--graphite);
 }
@@ -61,7 +61,8 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Open Sans", Arial, sans-serif;
+  font-family: 'Gill Sans', 'verdana';
+
   /* color: #20364c; */
   color: var(--maroon) !important;
   font-weight: 600;
@@ -155,7 +156,8 @@ h4, h5, h6 {
 
 p, table, tr, td, ul, li, blockquote, nav, a, footer, dl, dt, dd {
   font-size: 1rem;
-  font-family: "Open Sans", Arial, sans-serif;
+  font-family: 'Gill Sans', 'verdana';
+
   font-weight: 400;
 }
 
