@@ -17,6 +17,11 @@ body {
   background: #FFFFFF;
   color: var(--graphite);
 }
+strong {
+  font-size: 1em;
+  font-weight: 600;
+}
+
 
 /* Colors */
 .dark-blue {
@@ -100,7 +105,7 @@ h4, h5, h6 {
 }
 
 #projects .panel-body h5 {
-  font-weight: 600;
+  font-weight: 400;
   color: var(--maroon) !important;
   font-size: 1.1rem;
 }
@@ -220,7 +225,7 @@ blockquote footer {
 #title {
   color: #20364c;
   margin-top: 2rem;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1.4rem;
   text-align: center;
 }
@@ -426,7 +431,7 @@ dd {
 /* plus glyph for showing collapsible panels */
 .panel-heading .accordion-plus-toggle:before {
   font-family: "Font Awesome 5 Free";
-  font-weight: 900;
+  font-weight: 400;
   content: "\f068";
   float: right;
   color: silver;
