@@ -525,7 +525,7 @@ dd {
 }
 #rig li {
     display: inline-block;
-    *display:inline;/*for IE6 - IE7*/
+    display:inline;
     width:25%;
     vertical-align:middle;
     box-sizing:border-box;
