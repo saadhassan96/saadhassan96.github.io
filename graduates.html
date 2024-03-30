@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undergraduates | Human-Computer Interaction</title>
+    <style>
+        body {
+            font-family: 'Verdana', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 40px;
+            background-color: white;
+        }
+
+        .navbar-left,
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-right a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: black;
+            padding-bottom: 5px;
+            position: relative;
+        }
+
+        .navbar-right a.active {
+            color: #333;
+            border-bottom: 2px solid #333;
+        }
+
+        .navbar-brand {
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+        }
+
+        footer {
+            padding: 20px 40px;
+            background-color: white;
+            border-top: 1px solid #ccc;
+        }
+
+        .custom-font {
+            font-family: 'Verdana', sans-serif;
+        }
+
+        main {
+            padding: 20px 40px;
+        }
+
+        .project-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .project-item {
+            text-align: center;
+        }
+
+        img.project-image {
+            max-width: 100px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="navbar-left">
+            <a href="undergraduates.html" class="navbar-brand">Human-Computer Interaction</a>
+        </div>
+        <div class="navbar-right">
+            <a href="hci.html" id="home">Home</a>
+            <a href="undergraduates.html" id="undergraduates">Undergraduates</a>
+            <a href="graduates.html" id="graduates">Graduates</a>
+            <a href="materials.html" id="materials">Materials</a>
+        </div>
+    </nav>
+
+    <main>
+        <section>
+            <h2 class="custom-font">Graduate Projects</h2>
+            <div class="project-container">
+                <div class="project-item">
+                    <img src="img/aag.jpeg" alt="Project 1 Image" class="project-image">
+                    <h3>ASL Instructors Perspectives on</h3>
+                    <h3>Sign- Language Recognition</h3>
+                    <p>Kanupriya Agarwal</p>
+                </div>
+                <div class="project-item">
+                    <img src="img/central.jpeg" alt="Project 2 Image" class="project-image">
+                    <h3>Understanding Technological Needs for</h3>
+                    <h3>the Betterment of Music Therapy</h3>
+                    <p>Caitlin Chen</p>
+                </div>
+                <div class="project-item">
+                    <img src="img/chess1.jpeg"" alt="Project 3 Image" class="project-image">
+                    <h3>Political Misinformation</h3>
+                    <p>Irem Buse Orsel</p>
+                </div>
+                <div class="project-item">
+                    <img src="img/suitcase.jpeg"" alt="Project 4 Image" class="project-image">
+                    <h3>Span-Searching Tool for Sign Language Comprehension</h3>
+                    <p>Xinzhao You</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div>
+                <section id="project-timeline">
+                <h2>Project Timeline</h2>
+                <article>
+                    <h3>Phase 1: Ideation</h3>
+                    
+                    <h4>Resources:</h4>
+                    <ul></ul> <!-- Placeholder for resources -->
+            
+                    <h4>Deliverables:</h4>
+                    <p>Discuss the idea with the instructor.</p>
+                </article>
+            
+                <!-- Phase 2: Literature Review -->
+                <article>
+                    <h3>Phase 2: Literature Review</h3>
+                    
+                    <h4>Resources:</h4>
+                    <ul>
+                        <li>Literature Reviews in HCI: A Review of Reviews</li>
+                        <li>Seven Research Contributions in HCI</li>
+                    </ul>
+            
+                    <h4>Deliverables:</h4>
+                    <p>Document literature review, research gaps, and research questions.</p>
+                </article>
+            
+                <!-- Phase 3: Prototyping and/or Study Design -->
+                <article>
+                    <h3>Phase 3: Prototyping and/or Study Design</h3>
+                    
+                    <h4>Resources:</h4>
+                    <ul></ul> <!-- Placeholder for resources -->
+            
+                    <h4>Deliverables:</h4>
+                    <p>Create a study guide. Include links to any prototype within the study guide.</p>
+                </article>
+            
+                <!-- Phase 4: Running the Study -->
+                <article>
+                    <h3>Phase 4: Running the Study</h3>
+                    
+                    <h4>Resources:</h4>
+                    <ul></ul> <!-- Placeholder for resources -->
+            
+                    <h4>Deliverables:</h4>
+                    <p>Conduct the study with your participants.</p>
+                </article>
+            
+                <!-- Phase 5: Data Analysis and Reporting -->
+                <article>
+                    <h3>Phase 5: Data Analysis and Reporting</h3>
+                    
+                    <h4>Resources:</h4>
+                    <ul></ul> <!-- Placeholder for resources -->
+            
+                    <h4>Deliverables:</h4>
+                    <p>A link to your prototype, final report, presentation slides, and poster.</p>
+                </article>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div>This is the course website for Tulane University's Human-Computer Interaction course.</div>
+        <div>CMPS 4661/6663 | HCI<br>Email feedback at saadhassan [at] tulane [dot] edu</div>
+    </footer>
+
+    <script>
+        let currentURL = window.location.href.split("/").pop();
+        let pageToId = {
+            "home.html": "home",
+            "undergraduates.html": "undergraduates",
+            "graduates.html": "graduates",
+            "materials.html": "materials",
+        };
+        let activeLink = document.getElementById(pageToId[currentURL]);
+        if (activeLink) {
+            activeLink.classList.add("active");
+        }
+    </script>
+</body>
+
+</html>
