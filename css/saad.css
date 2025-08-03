@@ -140,7 +140,7 @@ p {
   }
   .profile-image-container img {
     display: inline-block;
-    max-width: 40vw;  /* Reduced from 60vw to 40vw */
+    max-width: 50vw;  /* Reduced from 60vw to 40vw */
     height: auto;
   }
 }
