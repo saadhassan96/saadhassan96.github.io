@@ -1,0 +1,137 @@
+@media only screen and (min-width: 768px) { html, button, input, select, textarea { font-family: 'Open Sans', 'Helvetica', sans-serif }}
+
+body {
+    font-weight: 300;
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    font-size: 15px;
+}
+
+a,a:hover {
+    color: #9A3324;
+}
+
+p {
+    margin: 0 0 1em;
+}
+
+/* bootstrap properties */
+#topbar {
+  background-color: #006747;
+  background-image: none;
+  background-repeat: no-repeat;
+  filter: none;
+  border-color: #777777;
+}
+
+#topbar .navbar-brand {
+    color: #e0e0e0;
+    font-size: 2.3em;
+    /*font-family: 'Open Sans',Helvetica,sans-serif;*/
+    font-weight: 400;
+    /*text-transform: uppercase;*/
+}
+
+#topbar .navbar-brand p{
+    display: inline;
+    font-family: "Kai Ti";
+}
+
+#topbar .navbar-brand a {
+    color: #FFFFFF;
+}
+
+#topbar .navbar-brand a:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.navbar-brand,.navbar-nav li a {
+    line-height: 1.5em;
+    height: 1.5em;
+    padding-top: 0;
+}
+
+.label {
+    font-weight: normal;
+}
+
+.label-award {
+    background-color: #9A3324;
+    margin-right: 5px;
+}
+
+.paperimage {
+    width: 100%;
+    overflow: hidden;
+}
+
+.papers .paper-row {
+    margin-bottom: 2em;
+    vertical-align: top;
+    padding-left: 0px;
+}
+
+.vital-info {
+    margin-top: 1em;
+}
+
+.vital-info h4 {
+    margin-bottom: 5px;
+}
+
+.vital-info h5 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.olddate, .olddate a {
+    color: #AAAAAA;
+}
+
+.bio {
+    margin-top: 10px;
+}
+
+.btn-link {
+    padding: 2em 0px 2em 0px;
+    color: #bb0000;
+}
+
+.attribution {
+    font-size: smaller;
+    color: black;
+}
+
+.attribution a {
+    color: black;
+}
+
+.peopleicon {
+  height: 2.2em;
+  width: 2.2em;
+  margin: -6px 4px 10px 4px;
+  object-fit: cover;
+  /*filter: grayscale(70%);*/
+}
+
+.people div:last-child  {
+    margin-bottom: -12px;
+}
+
+.square-thumb {
+  width: 120px !important;     /* Or your preferred size */
+  height: 120px !important;
+  object-fit: cover !important;
+  aspect-ratio: 1 / 1 !important; /* Modern browsers only */
+  border-radius: 8px;          /* Optional: for rounded corners */
+  background: #f7f7f7;         /* Optional: fallback background */
+  display: block;
+  overflow: hidden;
+}
+
+.semi-bold {
+  font-weight: 500; /* Or 600 for slightly bolder */
+}
+
+
