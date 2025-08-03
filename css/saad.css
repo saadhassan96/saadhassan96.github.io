@@ -134,4 +134,17 @@ p {
   font-weight: 500; /* Or 600 for slightly bolder */
 }
 
+@media (max-width: 767px) {
+  .profile-image-container {
+    text-align: center;
+  }
+  .profile-image-container img {
+    display: inline-block;
+    max-width: 60vw;  /* Shrinks the image, adjust as needed */
+    height: auto;
+  }
+}
+
+
+
 
