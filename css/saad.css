@@ -145,7 +145,36 @@ p {
   }
 }
 
+.paper-filter-bar {
+  margin-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 
+.paper-filter-bar .filter-btn {
+  border: none;
+  outline: none;
+  padding: 7px 22px;
+  font-size: 0.8em;        /* Matches paper title size */
+  border-radius: 999px;
+  background: #f3f3f3;
+  color: #232323;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
 
+.paper-filter-bar .filter-btn.active,
+.paper-filter-bar .filter-btn:active {
+  background: #9A3324;   /* Your link color */
+  color: #fff;
+}
 
-
+.paper-filter-bar .filter-btn:hover:not(.active) {
+  background: #ffecec;
+  color: #9A3324;
+  box-shadow: 0 2px 7px rgba(0,0,0,0.06);
+}

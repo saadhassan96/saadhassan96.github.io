@@ -148,8 +148,20 @@
             </div>
           </div>
           <!-- No indent for publications -->
+
+          <div class="paper-filter-bar">
+            <button class="filter-btn active" data-filter="all" data-tag="all">All <span class="filter-count"></span></button>
+            <button class="filter-btn" data-filter="CHI" data-tag="CHI">CHI <span class="filter-count"></span></button>
+            <button class="filter-btn" data-filter="ASSETS" data-tag="ASSETS">ASSETS <span class="filter-count"></span></button>
+            <button class="filter-btn" data-filter="W4A" data-tag="W4A">W4A <span class="filter-count"></span></button>
+            <button class="filter-btn" data-filter="AI" data-tag="AI">AI Venues <span class="filter-count"></span></button>
+            <button class="filter-btn" data-filter="Journal" data-tag="Journal">Journal <span class="filter-count"></span></button>
+            <button class="filter-btn" data-filter="Datasets" data-tag="Datasets">Datasets <span class="filter-count"></span></button>
+            <!-- <button class="filter-btn" data-filter="Workshop" data-tag="Workshop">Workshop <span class="filter-count"></span></button> -->
+
+          </div>
           <div class="papers" id="papers">
-            <div class='row paper-row' id='2025'>
+            <div class='row paper-row' id='2025' data-tags="AI,Datasets">
               <div class='col-md-3 col-xs-4'>
                 <a href="papers/georg-cvpr25/georg-cvpr25.pdf">
                   <img class='paperimage img img-responsive square-thumb' src='papers/georg-cvpr25/featured.png' alt=" " />
@@ -172,9 +184,9 @@
                 </div>
               </div>
             </div>
-            <div class='row paper-row' id='2025'>
+            <div class='row paper-row' id='2025' data-tags="W4A">
               <div class='col-md-3 col-xs-4'>
-                <a href="papers/pataca-chi-25/pataca-chi24.pdf">
+                <a href="papers/hassan-w4a25/hassan-w4a-25.pdf">
                   <img class='paperimage img img-responsive square-thumb' src='papers/hassan-w4a25/featured.png' alt=" " />
                 </a>
               </div>
@@ -193,7 +205,7 @@
                 </div>
               </div>
             </div>
-            <div class='row paper-row' id='2025'>
+            <div class='row paper-row' id='2025' data-tags="CHI">
               <div class='col-md-3 col-xs-4'>
                 <a href="papers/pataca-chi-25/pataca-chi24.pdf">
                   <img class='paperimage img img-responsive square-thumb' src='papers/pataca-chi-25/featured.png' alt=" " />
@@ -214,7 +226,7 @@
                 </div>
               </div>
             </div>
-            <div class='row paper-row' id='2024'>
+            <div class='row paper-row' id='2024' data-tags="ASSETS,Demo">
               <div class='col-md-3 col-xs-4'>
                 <a href="papers/may-assets24/may-assets24.pdf">
                   <img class='paperimage img img-responsive square-thumb' src='papers/may-assets24/featured.png' alt=" " />
@@ -237,7 +249,7 @@
                 </div>
               </div>
             </div>
-            <div class='row paper-row' id='2024'>
+            <div class='row paper-row' id='2024' data-tags="ASSETS">
               <div class='col-md-3 col-xs-4'>
                 <a href="papers/may-assets24/boyd-assets24.pdf">
                   <img class='paperimage img img-responsive square-thumb' src='papers/boyd-assets24/featured.png' alt=" " />
@@ -260,7 +272,7 @@
                 </div>
               </div>
             </div>
-            <div class='row paper-row' id='2024'>
+            <div class='row paper-row' id='2024' data-tags="TACCESS,Journal">
               <div class='col-md-3 col-xs-4'>
                 <a href="papers/hassan-taccess-24/hassan-taccess-24.pdf">
                   <img class='paperimage img img-responsive square-thumb' src='papers/hassan-taccess-24/featured.png' alt=" " />
@@ -283,7 +295,7 @@
                 </div>
               </div>
             </div>
-            <div class='row paper-row' id='2024'>
+            <div class='row paper-row' id='2024' data-tags="CHI">
               <div class='col-md-3 col-xs-4'>
                 <a href="papers/hassan-chi24/hassan-chi24.pdf">
                   <img class='paperimage img img-responsive square-thumb' src='papers/hassan-chi24/featured.png' alt=" " />
@@ -304,7 +316,7 @@
                 </div>
               </div>
             </div>
-            <div class='row paper-row' id='2024'>
+            <div class='row paper-row' id='2024' data-tags="CHI">
               <div class='col-md-3 col-xs-4'>
                 <a href="papers/pataca-chi24/pataca-chi24.pdf">
                   <img class='paperimage img img-responsive square-thumb' src='papers/pataca-chi24/featured.png' alt=" " />
@@ -325,7 +337,7 @@
                 </div>
               </div>
             </div>
-            <div class='row paper-row' id='2023'>
+            <div class='row paper-row' id='2023' data-tags="Journal">
               <div class='col-md-3 col-xs-4'>
                 <a href="papers/hassan-mobilehci23/">
                   <img class='paperimage img img-responsive square-thumb' src='papers/hassan-mobilehci23/featured.png' alt=" " />
@@ -348,7 +360,7 @@
                 </div>
               </div>
             </div>
-            <div class='row paper-row' id='2022'>
+            <div class='row paper-row' id='2023' data-tags="ASSETS,Demo">
               <div class='col-md-3 col-xs-4'>
                 <a href="papers/bohacek-assets-23/bohacek-assets23.pdf">
                   <img class='paperimage img img-responsive square-thumb' src='papers/bohacek-assets-23/featured.png' alt=" " />
@@ -371,7 +383,7 @@
                 </div>
               </div>
             </div>
-            <div class='row paper-row' id='2023'>
+            <div class='row paper-row' id='2023' data-tags="W4A">
               <div class='col-md-3 col-xs-4'>
                 <a href="papers/amin-w4a23-1/amin-w4a23-1.pdf">
                   <img class='paperimage img img-responsive square-thumb' src='papers/amin-w4a23-1/featured.png' alt=" " />
@@ -394,7 +406,7 @@
                 </div>
               </div>
             </div>
-            <div class='row paper-row' id='2023'>
+            <div class='row paper-row' id='2023' data-tags="W4A">
               <div class='col-md-3 col-xs-4'>
                 <a href="papers/amin-w4a23-2/amin-w4a23-2.pdf">
                   <img class='paperimage img img-responsive square-thumb' src='papers/amin-w4a23-2/featured.png' alt=" " />
@@ -417,7 +429,7 @@
                 </div>
               </div>
             </div>
-            <div class='row paper-row' id='2023'>
+            <div class='row paper-row' id='2023' data-tags="CHI">
               <div class='col-md-3 col-xs-4'>
                 <a href="papers/hassan-chiea23/hassan-chiea23.pdf">
                   <img class='paperimage img img-responsive square-thumb' src='papers/hassan-chiea23/featured.png' alt=" " />
@@ -438,7 +450,7 @@
                 </div>
               </div>
             </div>
-            <div class='row paper-row' id='2023'>
+            <div class='row paper-row' id='2023' data-tags="AI,Datasets">
               <div class='col-md-3 col-xs-4'>
                 <a href="papers/starner-neurips23/starner-neurips23.pdf">
                   <img class='paperimage img img-responsive square-thumb' src='papers/starner-neurips23/featured.png' alt=" " />
@@ -461,7 +473,7 @@
                 </div>
               </div>
             </div>
-            <div class='row paper-row' id='2022'>
+            <div class='row paper-row' id='2022' data-tags="ASSETS">
               <div class='col-md-3 col-xs-4'>
                 <a href="papers/hassan-assets-22-2/">
                   <img class='paperimage img img-responsive square-thumb' src='papers/hassan-assets-22-2/featured.png' alt=" " />
@@ -484,7 +496,7 @@
                 </div>
               </div>
             </div>
-            <div class='row paper-row' id='2022'>
+            <div class='row paper-row' id='2022' data-tags="ASSETS">
               <div class='col-md-3 col-xs-4'>
                 <a href="papers/hassan-assets-22-1/">
                   <img class='paperimage img img-responsive square-thumb' src='papers/hassan-assets-22-1/featured.png' alt=" " />
@@ -507,7 +519,7 @@
                 </div>
               </div>
             </div>
-            <div class='row paper-row' id='2022'>
+            <div class='row paper-row' id='2022',data-tags="AI,Workshop">
               <div class='col-md-3 col-xs-4'>
                 <a href="papers/amin-ltedi22/amin-ltedi22.pdf">
                   <img class='paperimage img img-responsive square-thumb' src='papers/amin-ltedi22/featured.png' alt=" " />
@@ -530,7 +542,7 @@
                 </div>
               </div>
             </div>
-            <div class='row paper-row' id='2022'>
+            <div class='row paper-row' id='2022' data-tags="Datasets,Workshop">
               <div class='col-md-3 col-xs-4'>
                 <a href="papers/hassan-slrp20/hassan-slrp22.pdf">
                   <img class='paperimage img img-responsive square-thumb' src='papers/hassan-slrp22/featured.png' alt=" " />
@@ -553,7 +565,7 @@
                 </div>
               </div>
             </div>
-            <div class='row paper-row' id='2022'>
+            <div class='row paper-row' id='2022' data-tags="CHI">
               <div class='col-md-3 col-xs-4'>
                 <a href="papers/amin-chi22/amin-chi22.pdf">
                   <img class='paperimage img img-responsive square-thumb' src='papers/amin-chi22/featured.png' alt=" " />
@@ -574,7 +586,7 @@
                 </div>
               </div>
             </div>
-            <div class='row paper-row' id='2022'>
+            <div class='row paper-row' id='2022' data-tags="CHI">
               <div class='col-md-3 col-xs-4'>
                 <a href="papers/hassan-chi22/hassan-chi22.pdf">
                   <img class='paperimage img img-responsive square-thumb' src='papers/hassan-chi22/featured.png' alt=" " />
@@ -595,7 +607,7 @@
                 </div>
               </div>
             </div>
-            <div class='row paper-row' id='2021'>
+            <div class='row paper-row' id='2021' data-tags="AI">
               <div class='col-md-3 col-xs-4'>
                 <a href="papers/hassan-emnlp21/hassan-emnlp21.pdf">
                   <img class='paperimage img img-responsive square-thumb' src='papers/hassan-emnlp21/featured.png' alt=" " />
@@ -618,7 +630,7 @@
                 </div>
               </div>
             </div>
-            <div class='row paper-row' id='2021'>
+            <div class='row paper-row' id='2021' data-tags="Journal">
               <div class='col-md-3 col-xs-4'>
                 <a href="papers/hassan-taccess21/hassan-taccess21.pdf">
                   <img class='paperimage img img-responsive square-thumb' src='papers/hassan-taccess21/featured.png' alt=" " />
@@ -641,7 +653,7 @@
                 </div>
               </div>
             </div>
-            <div class='row paper-row' id='2021'>
+            <div class='row paper-row' id='2021' data-tags="W4A,Dataset">
               <div class='col-md-3 col-xs-4'>
                 <a href="papers/amin-w4a21/amin-w4a21.pdf">
                   <img class='paperimage img img-responsive square-thumb' src='papers/amin-w4a21/featured.png' alt=" " />
@@ -687,7 +699,7 @@
                 </div>
               </div>
             </div>
-            <div class='row paper-row' id='2020'>
+            <div class='row paper-row' id='2020' data-tags="Datasets">
               <div class='col-md-3 col-xs-4'>
                 <a href="papers/hassan-slrp20/hassan-slrp20.pdf">
                   <img class='paperimage img img-responsive square-thumb' src='papers/hassan-slrp20/featured.png' alt=" " />
@@ -855,5 +867,6 @@
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="js/saad.js"></script>
+    
   </body>
 </html>

@@ -90,3 +90,86 @@ function initializeAnalyticsDownloadTracker() {
         }
     }
 }
+
+// --- Paper filter bar with counts ---
+// jQuery required, put this after jQuery is loaded
+
+$(function() {
+  var selectedFilters = [];
+
+  // Count tags at page load
+  updateFilterCounts();
+
+  $('.paper-filter-bar .filter-btn').click(function() {
+    var filter = $(this).data('filter');
+
+    if (filter === "all") {
+      // "All" resets filters
+      selectedFilters = [];
+      $('.paper-filter-bar .filter-btn').removeClass('active');
+      $(this).addClass('active');
+      $('.paper-row').show();
+    } else {
+      // Toggle this filter
+      var i = selectedFilters.indexOf(filter);
+      if (i > -1) {
+        selectedFilters.splice(i, 1);
+        $(this).removeClass('active');
+      } else {
+        selectedFilters.push(filter);
+        $(this).addClass('active');
+      }
+      $('.paper-filter-bar .filter-btn[data-filter="all"]').removeClass('active');
+
+      // If none selected, treat as "All"
+      if (selectedFilters.length === 0) {
+        $('.paper-filter-bar .filter-btn[data-filter="all"]').addClass('active');
+        $('.paper-row').show();
+      } else {
+        // Show only matching
+        $('.paper-row').each(function() {
+          var tags = ($(this).attr('data-tags') || "")
+            .split(',')
+            .map(function(tag) { return tag.trim(); })
+            .filter(Boolean);
+          // Match if ANY selected filter is in tags
+          var match = selectedFilters.some(function(sel) { return tags.includes(sel); });
+          $(this).toggle(match);
+        });
+      }
+    }
+
+    // Optionally, you can update counts after filtering, but typically counts stay total.
+    // Uncomment below if you want live counts to show *only* visible papers.
+    // updateFilterCounts(selectedFilters);
+  });
+
+  // Ensure counts show on first load
+  updateFilterCounts();
+});
+
+function updateFilterCounts() {
+  var tagCounts = {};
+  // Count per tag (split by comma and trim, support multiple tags per paper)
+  $('.paper-row').each(function() {
+    var tags = ($(this).attr('data-tags') || '')
+      .split(',')
+      .map(function(tag) { return tag.trim(); })
+      .filter(Boolean);
+    // Count for each tag this paper has
+    tags.forEach(function(tag) {
+      if (!tag) return;
+      tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+    });
+  });
+
+  // "All" is total count of papers
+  tagCounts['all'] = $('.paper-row').length;
+
+  // Set counts
+  $('.paper-filter-bar .filter-btn').each(function() {
+    var tag = $(this).data('tag');
+    var count = tagCounts[tag] || 0;
+    $(this).find('.filter-count').text('(' + count + ')');
+  });
+}
