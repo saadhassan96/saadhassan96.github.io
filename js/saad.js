@@ -1,175 +1,76 @@
-$(document).ready(function() {
-    $('.container a').attr('target', '_blank');
-    $('.mail-link').attr('target', '_self');
-    $('.equal-contribution').shuffleOrder();
-    initializeAnalyticsDownloadTracker();
-});
+// Publication filters.
+// Each paper has data-tags="chi full" etc. Each button has data-tag="chi".
+// Selecting several buttons shows papers that match ANY of them.
 
-$.fn.shuffleOrder = function() {
-    $.each(this.get(), function(index, el) {
-        var $el = $(el);
-        var $find = $el.children();
+const buttons = document.querySelectorAll('.filters button');
+const papers = document.querySelectorAll('.paper');
+const years = document.querySelectorAll('.year');
+let selected = [];
 
-        $find.sort(function() {
-            return 0.5 - Math.random();
-        });
-
-        $el.empty();
-        $find.appendTo($el);
-    });
-};
-
-function initializeAnalyticsDownloadTracker() {
-    if (typeof jQuery != 'undefined') {
-        var filetypes = /\.(zip|exe|dmg|pdf|doc.*|xls.*|ppt.*|mp3|txt|rar|wma|mov|avi|wmv|flv|wav)$/i;
-        var baseHref = '';
-        if (jQuery('base').attr('href') != undefined) baseHref = jQuery('base').attr('href');
-        var hrefRedirect = '';
-     
-        jQuery('body').on('click', 'a', function(event) {
-            var el = jQuery(this);
-            var track = true;
-            var href = (typeof(el.attr('href')) != 'undefined' ) ? el.attr('href') : '';
-            var isThisDomain = href.match(document.domain.split('.').reverse()[1] + '.' + document.domain.split('.').reverse()[0]);
-            if (!href.match(/^javascript:/i)) {
-                var elEv = []; elEv.value=0, elEv.non_i=false;
-                if (href.match(/^mailto\:/i)) {
-                    elEv.category = 'email';
-                    elEv.action = 'click';
-                    elEv.label = href.replace(/^mailto\:/i, '');
-                    elEv.loc = href;
-                }
-                else if (href.match(filetypes)) {
-                    var extension = (/[.]/.exec(href)) ? /[^.]+$/.exec(href) : undefined;
-                    elEv.category = 'download';
-                    elEv.action = 'click-' + extension[0];
-                    elEv.label = href.replace(/ /g,'-');
-                    elEv.loc = baseHref + href;
-                }
-                else if (href.match(/^https?\:/i) && !isThisDomain) {
-                    elEv.category = 'external';
-                    elEv.action = 'click';
-                    elEv.label = href.replace(/^https?\:\/\//i, '');
-                    elEv.non_i = true;
-                    elEv.loc = href;
-                }
-                else if (href.match(/^tel\:/i)) {
-                    elEv.category = 'telephone';
-                    elEv.action = 'click';
-                    elEv.label = href.replace(/^tel\:/i, '');
-                    elEv.loc = href;
-                }
-                else track = false;
-     
-                if (track) {
-                    var ret = true;
-     
-                    if((elEv.category == 'external' || elEv.category == 'download') && (el.attr('target') == undefined || el.attr('target').toLowerCase() != '_blank') ) {
-                        hrefRedirect = elEv.loc;
-     
-                        ga('send','event', elEv.category.toLowerCase(),elEv.action.toLowerCase(),elEv.label.toLowerCase(),elEv.value,{
-                            'nonInteraction': elEv.non_i ,
-                            'hitCallback':gaHitCallbackHandler
-                        });
-     
-                        ret = false;
-                    }
-                    else {
-                        ga('send','event', elEv.category.toLowerCase(),elEv.action.toLowerCase(),elEv.label.toLowerCase(),elEv.value,{
-                            'nonInteraction': elEv.non_i
-                        });
-                    }
-     
-                    return ret;
-                }
-            }
-        });
-     
-        gaHitCallbackHandler = function() {
-            window.location.href = hrefRedirect;
-        }
-    }
+function tagsOf(paper) {
+  return (paper.dataset.tags || '').split(' ').filter(Boolean);
 }
 
-// --- Paper filter bar with counts ---
-// jQuery required, put this after jQuery is loaded
+// Show a count next to each button
+buttons.forEach(function (btn) {
+  const tag = btn.dataset.tag;
+  const n = tag === 'all'
+    ? papers.length
+    : [...papers].filter(p => tagsOf(p).includes(tag)).length;
+  btn.insertAdjacentHTML('beforeend', ' <span class="count">' + n + '</span>');
+});
 
-$(function() {
-  var selectedFilters = [];
-
-  // Count tags at page load
-  updateFilterCounts();
-
-  $('.paper-filter-bar .filter-btn').click(function() {
-    var filter = $(this).data('filter');
-
-    if (filter === "all") {
-      // "All" resets filters
-      selectedFilters = [];
-      $('.paper-filter-bar .filter-btn').removeClass('active');
-      $(this).addClass('active');
-      $('.paper-row').show();
+buttons.forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    const tag = btn.dataset.tag;
+    if (tag === 'all') {
+      selected = [];
+    } else if (selected.includes(tag)) {
+      selected = selected.filter(t => t !== tag);
     } else {
-      // Toggle this filter
-      var i = selectedFilters.indexOf(filter);
-      if (i > -1) {
-        selectedFilters.splice(i, 1);
-        $(this).removeClass('active');
-      } else {
-        selectedFilters.push(filter);
-        $(this).addClass('active');
-      }
-      $('.paper-filter-bar .filter-btn[data-filter="all"]').removeClass('active');
-
-      // If none selected, treat as "All"
-      if (selectedFilters.length === 0) {
-        $('.paper-filter-bar .filter-btn[data-filter="all"]').addClass('active');
-        $('.paper-row').show();
-      } else {
-        // Show only matching
-        $('.paper-row').each(function() {
-          var tags = ($(this).attr('data-tags') || "")
-            .split(',')
-            .map(function(tag) { return tag.trim(); })
-            .filter(Boolean);
-          // Match if ANY selected filter is in tags
-          var match = selectedFilters.some(function(sel) { return tags.includes(sel); });
-          $(this).toggle(match);
-        });
-      }
+      selected.push(tag);
     }
 
-    // Optionally, you can update counts after filtering, but typically counts stay total.
-    // Uncomment below if you want live counts to show *only* visible papers.
-    // updateFilterCounts(selectedFilters);
-  });
+    buttons.forEach(b => {
+      const on = b.dataset.tag === 'all' ? selected.length === 0 : selected.includes(b.dataset.tag);
+      b.setAttribute('aria-pressed', on);
+    });
 
-  // Ensure counts show on first load
-  updateFilterCounts();
-});
+    papers.forEach(p => {
+      p.hidden = selected.length > 0 && !selected.some(t => tagsOf(p).includes(t));
+    });
 
-function updateFilterCounts() {
-  var tagCounts = {};
-  // Count per tag (split by comma and trim, support multiple tags per paper)
-  $('.paper-row').each(function() {
-    var tags = ($(this).attr('data-tags') || '')
-      .split(',')
-      .map(function(tag) { return tag.trim(); })
-      .filter(Boolean);
-    // Count for each tag this paper has
-    tags.forEach(function(tag) {
-      if (!tag) return;
-      tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+    // Hide a year heading when none of its papers are visible
+    years.forEach(y => {
+      y.hidden = !y.querySelector('.paper:not([hidden])');
     });
   });
+});
 
-  // "All" is total count of papers
-  tagCounts['all'] = $('.paper-row').length;
+// Light/dark switch. Remembers the choice in this browser.
+const toggle = document.getElementById('theme-toggle');
+const root = document.documentElement;
 
-  // Set counts
-  $('.paper-filter-bar .filter-btn').each(function() {
-    var tag = $(this).data('tag');
-    var count = tagCounts[tag] || 0;
-    $(this).find('.filter-count').text('(' + count + ')');
-  });
+function isDark() {
+  if (root.dataset.theme) return root.dataset.theme === 'dark';
+  return window.matchMedia('(prefers-color-scheme: dark)').matches;
 }
+function updateToggle() {
+  toggle.textContent = isDark() ? 'Light' : 'Dark';
+  toggle.setAttribute('aria-label', isDark() ? 'Switch to light mode' : 'Switch to dark mode');
+}
+toggle.addEventListener('click', function () {
+  root.dataset.theme = isDark() ? 'light' : 'dark';
+  try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+  updateToggle();
+});
+updateToggle();
+
+// "Short bio" toggle
+const bioToggle = document.getElementById('bio-toggle');
+const bio = document.getElementById('bio');
+bioToggle.addEventListener('click', function () {
+  const open = bio.hidden;
+  bio.hidden = !open;
+  bioToggle.setAttribute('aria-expanded', open);
+});
