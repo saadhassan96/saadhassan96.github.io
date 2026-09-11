@@ -172,6 +172,7 @@
         <div class="filters-wrap">
           <div class="filters" role="group" aria-label="Filter publications by type">
             <button type="button" data-tag="all" aria-pressed="true">All</button>
+            <span class="filter-label">Type</span>
             <button type="button" data-tag="long" aria-pressed="false">Long</button>
             <button type="button" data-tag="short" aria-pressed="false">Short</button>
             <button type="button" data-tag="journal" aria-pressed="false">Journals</button>
@@ -179,17 +180,19 @@
             <button type="button" data-tag="workshop" aria-pressed="false">Workshops</button>
             <button type="button" data-tag="other" aria-pressed="false">Other</button>
           </div>
-          <div class="filters" role="group" aria-label="Filter publications by venue">
-            <span class="filter-label">HCI</span>
-            <button type="button" data-tag="chi" aria-pressed="false">CHI</button>
-            <button type="button" data-tag="pacm" aria-pressed="false">PACM</button>
-            <button type="button" data-tag="hci-other" aria-pressed="false">Other</button>
-            <span class="filter-sep" aria-hidden="true">&middot;</span>
+          <div class="filters" role="group" aria-label="Filter publications by accessibility venue">
             <span class="filter-label">Accessibility</span>
             <button type="button" data-tag="assets" aria-pressed="false">ASSETS</button>
             <button type="button" data-tag="w4a" aria-pressed="false">W4A</button>
             <button type="button" data-tag="taccess" aria-pressed="false">TACCESS</button>
-            <span class="filter-sep" aria-hidden="true">&middot;</span>
+          </div>
+          <div class="filters" role="group" aria-label="Filter publications by HCI venue">
+            <span class="filter-label">HCI</span>
+            <button type="button" data-tag="chi" aria-pressed="false">CHI</button>
+            <button type="button" data-tag="pacm" aria-pressed="false">PACM</button>
+            <button type="button" data-tag="hci-other" aria-pressed="false">Other</button>
+          </div>
+          <div class="filters" role="group" aria-label="Filter publications by AI venue">
             <span class="filter-label">AI</span>
             <button type="button" data-tag="cvpr" aria-pressed="false">CVPR</button>
             <button type="button" data-tag="neurips" aria-pressed="false">NeurIPS</button>
@@ -228,15 +231,6 @@
               <div class="links"><a href="papers/kim-assets26/kim-assets26.pdf">Preprint</a></div>
             </div>
           </div>
-          <div class="paper" data-tags="chi long">
-            <img class="thumb" src="papers/hassan-chi26/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">CHI 2026</div>
-              <a class="title" href="papers/hassan-chi26/hassan-chi26.pdf">ASL Educators’ Perspectives on AI for Enhancing Student Learning in American Sign Language Education</a>
-              <div class="authors"><b>Saad Hassan</b>, <a href="https://www.linkedin.com/in/laleh-nourian-a88ba3129/">Laleh Nourian</a>, <a href="https://www.caluapataca.com/">Caluã de Lacerda Pataca</a>, Michelle M. Olson, Toni D’Aurio, Kanupriya Agarwal, <a href="https://syedamahnoorasad.github.io/">Syeda Mah Noor Asad</a>, <a href="https://www.garrethtigwell.com/">Garreth W. Tigwell</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a></div>
-              <div class="links"><a href="papers/hassan-chi26/hassan-chi26.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3772318.3791928">ACM DL</a><a href="papers/hassan-chi26/hassan26.bib">BibTeX</a></div>
-            </div>
-          </div>
           <div class="paper" data-tags="journal">
             <img class="thumb" src="papers/allouch-ajpc26/featured.png" alt="" loading="lazy">
             <div>
@@ -244,6 +238,15 @@
               <a class="title" href="papers/allouch-ajpc26/allouch-ajpc26.pdf">Reducing hypertension disparities: The potential role of patient-facing large language models</a>
               <div class="authors">Farah Allouch, <b>Saad Hassan</b>, Flor Alvarado, <a href="https://syedamahnoorasad.github.io/">Syeda Mah Noor Asad</a>, Dee Parekh, Renata Johnson, Marilyn Payne, David Gardner, <a href="https://sse.tulane.edu/nicholas-mattei">Nicholas Mattei</a>, Keith C. Ferdinand</div>
               <div class="links"><a href="papers/allouch-ajpc26/allouch-ajpc26.pdf">PDF</a><a href="https://doi.org/10.1016/j.ajpc.2026.101813">DOI</a><a href="papers/allouch-ajpc26/allouch26.bib">BibTeX</a></div>
+            </div>
+          </div>
+          <div class="paper" data-tags="chi long">
+            <img class="thumb" src="papers/hassan-chi26/featured.png" alt="" loading="lazy">
+            <div>
+              <div class="venue">CHI 2026</div>
+              <a class="title" href="papers/hassan-chi26/hassan-chi26.pdf">ASL Educators’ Perspectives on AI for Enhancing Student Learning in American Sign Language Education</a>
+              <div class="authors"><b>Saad Hassan</b>, <a href="https://www.linkedin.com/in/laleh-nourian-a88ba3129/">Laleh Nourian</a>, <a href="https://www.caluapataca.com/">Caluã de Lacerda Pataca</a>, Michelle M. Olson, Toni D’Aurio, Kanupriya Agarwal, <a href="https://syedamahnoorasad.github.io/">Syeda Mah Noor Asad</a>, <a href="https://www.garrethtigwell.com/">Garreth W. Tigwell</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a></div>
+              <div class="links"><a href="papers/hassan-chi26/hassan-chi26.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3772318.3791928">ACM DL</a><a href="papers/hassan-chi26/hassan26.bib">BibTeX</a></div>
             </div>
           </div>
         </div>
