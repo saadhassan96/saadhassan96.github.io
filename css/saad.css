@@ -285,6 +285,20 @@ details.more summary {
   margin: 0 2px;
 }
 
+@media (max-width: 560px) {
+  .filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    mask-image: linear-gradient(to right, black calc(100% - 20px), transparent);
+    -webkit-mask-image: linear-gradient(to right, black calc(100% - 20px), transparent);
+    padding-right: 20px;
+  }
+  .filters::-webkit-scrollbar { display: none; }
+  .filters button, .filter-label, .filter-sep { flex: none; white-space: nowrap; }
+}
+
 .year h3 { color: var(--muted); padding: 28px 0 6px; }
 
 /* One paper = fixed thumbnail + text */
