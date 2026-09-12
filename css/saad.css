@@ -248,13 +248,14 @@ details.more summary {
   gap: 8px;
   margin-bottom: 8px;
 }
-.filters {
+.altbar {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 8px;
 }
-.filters button {
+.altbar > button,
+.menu > summary {
   font: inherit;
   font-size: 14px;
   color: var(--ink);
@@ -264,14 +265,15 @@ details.more summary {
   padding: 3px 12px;
   cursor: pointer;
 }
-.filters button:hover { border-color: var(--accent); }
-.filters button[aria-pressed="true"] {
+.altbar > button:hover,
+.menu > summary:hover { border-color: var(--accent); }
+.altbar > button[aria-pressed="true"] {
   background: var(--accent);
   border-color: var(--accent);
   color: var(--bg);
 }
-.filters .count { opacity: 0.65; margin-left: 4px; font-variant-numeric: tabular-nums; }
-.filter-label {
+.altbar .count { opacity: 0.65; margin-left: 4px; font-variant-numeric: tabular-nums; }
+.barlabel {
   font-size: 12px;
   color: var(--muted);
   opacity: 0.7;
@@ -279,24 +281,64 @@ details.more summary {
   letter-spacing: 0.04em;
   margin-right: 2px;
 }
-.filter-sep {
-  color: var(--muted);
-  opacity: 0.5;
-  margin: 0 2px;
+
+/* Dropdown venue/type menus */
+.menu { position: relative; }
+.menu > summary {
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
+.menu > summary::-webkit-details-marker { display: none; }
+.menu > summary::after { content: "\25BE"; font-size: 11px; opacity: 0.6; }
+.menu[open] > summary,
+.menu > summary:hover { border-color: var(--accent); }
+.menu.on > summary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
+.menu.venuechip > summary { border-style: dashed; }
+
+.menupanel {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 20;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
+  display: grid;
+  gap: 4px;
+  min-width: 180px;
+}
+.menupanel button {
+  font: inherit;
+  font-size: 14px;
+  text-align: left;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+}
+.menupanel button:hover { background: var(--panel); }
+.menupanel button[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--bg);
+}
+.menupanel .count { opacity: 0.65; font-variant-numeric: tabular-nums; }
 
 @media (max-width: 560px) {
-  .filters {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    mask-image: linear-gradient(to right, black calc(100% - 20px), transparent);
-    -webkit-mask-image: linear-gradient(to right, black calc(100% - 20px), transparent);
-    padding-right: 20px;
-  }
-  .filters::-webkit-scrollbar { display: none; }
-  .filters button, .filter-label, .filter-sep { flex: none; white-space: nowrap; }
+  .altbar { row-gap: 10px; }
+  .menupanel { max-width: calc(100vw - 48px); }
 }
 
 .year h3 { color: var(--muted); padding: 28px 0 6px; }

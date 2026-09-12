@@ -2,7 +2,8 @@
 // Each paper has data-tags="chi full" etc. Each button has data-tag="chi".
 // Selecting several buttons shows papers that match ANY of them.
 
-const buttons = document.querySelectorAll('.filters button');
+const buttons = document.querySelectorAll('.altbar button');
+const menus = document.querySelectorAll('.altbar .menu');
 const papers = document.querySelectorAll('.paper');
 const years = document.querySelectorAll('.year');
 let selected = [];
@@ -36,6 +37,12 @@ buttons.forEach(function (btn) {
       b.setAttribute('aria-pressed', on);
     });
 
+    // Highlight a dropdown's summary when one of its options is selected
+    menus.forEach(m => {
+      const tags = [...m.querySelectorAll('[data-tag]')].map(b => b.dataset.tag);
+      m.classList.toggle('on', tags.some(t => selected.includes(t)));
+    });
+
     papers.forEach(p => {
       p.hidden = selected.length > 0 && !selected.some(t => tagsOf(p).includes(t));
     });
@@ -46,6 +53,28 @@ buttons.forEach(function (btn) {
     });
   });
 });
+
+// Only one filter dropdown open at a time; close on outside click
+const altbar = document.querySelector('.altbar');
+if (altbar) {
+  menus.forEach(m => {
+    m.addEventListener('toggle', () => {
+      if (m.open) menus.forEach(o => { if (o !== m) o.open = false; });
+      const panel = m.querySelector('.menupanel');
+      if (m.open && panel) {
+        panel.style.left = '';
+        panel.style.right = '';
+        if (panel.getBoundingClientRect().right > window.innerWidth) {
+          panel.style.left = 'auto';
+          panel.style.right = '0';
+        }
+      }
+    });
+  });
+  document.addEventListener('click', e => {
+    if (!altbar.contains(e.target)) menus.forEach(m => { m.open = false; });
+  });
+}
 
 // Light/dark switch. Remembers the choice in this browser.
 const toggle = document.getElementById('theme-toggle');

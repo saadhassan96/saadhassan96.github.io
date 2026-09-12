@@ -170,35 +170,46 @@
       <section id="publications">
         <h2>Publications</h2>
         <div class="filters-wrap">
-          <div class="filters" role="group" aria-label="Filter publications by type">
+          <div class="altbar" role="group" aria-label="Filter publications">
             <button type="button" data-tag="all" aria-pressed="true">All</button>
-            <span class="filter-label">Type</span>
-            <button type="button" data-tag="long" aria-pressed="false">Long</button>
-            <button type="button" data-tag="short" aria-pressed="false">Short</button>
-            <button type="button" data-tag="journal" aria-pressed="false">Journals</button>
-            <button type="button" data-tag="dataset" aria-pressed="false">Datasets</button>
-            <button type="button" data-tag="workshop" aria-pressed="false">Workshops</button>
-            <button type="button" data-tag="other" aria-pressed="false">Other</button>
-          </div>
-          <div class="filters" role="group" aria-label="Filter publications by accessibility venue">
-            <span class="filter-label">Accessibility</span>
-            <button type="button" data-tag="assets" aria-pressed="false">ASSETS</button>
-            <button type="button" data-tag="w4a" aria-pressed="false">W4A</button>
-            <button type="button" data-tag="taccess" aria-pressed="false">TACCESS</button>
-          </div>
-          <div class="filters" role="group" aria-label="Filter publications by HCI venue">
-            <span class="filter-label">HCI</span>
-            <button type="button" data-tag="chi" aria-pressed="false">CHI</button>
-            <button type="button" data-tag="pacm" aria-pressed="false">PACM</button>
-            <button type="button" data-tag="hci-other" aria-pressed="false">Other</button>
-          </div>
-          <div class="filters" role="group" aria-label="Filter publications by AI venue">
-            <span class="filter-label">AI</span>
-            <button type="button" data-tag="cvpr" aria-pressed="false">CVPR</button>
-            <button type="button" data-tag="neurips" aria-pressed="false">NeurIPS</button>
-            <button type="button" data-tag="emnlp" aria-pressed="false">EMNLP</button>
-            <button type="button" data-tag="lrec" aria-pressed="false">LREC</button>
-            <button type="button" data-tag="ai-other" aria-pressed="false">Other</button>
+            <details class="menu">
+              <summary>Type</summary>
+              <div class="menupanel">
+                <button type="button" data-tag="long" aria-pressed="false">Long</button>
+                <button type="button" data-tag="short" aria-pressed="false">Short</button>
+                <button type="button" data-tag="journal" aria-pressed="false">Journals</button>
+                <button type="button" data-tag="dataset" aria-pressed="false">Datasets</button>
+                <button type="button" data-tag="workshop" aria-pressed="false">Workshops</button>
+                <button type="button" data-tag="other" aria-pressed="false">Other</button>
+              </div>
+            </details>
+            <span class="barlabel">Venue</span>
+            <details class="menu venuechip">
+              <summary>Accessibility</summary>
+              <div class="menupanel">
+                <button type="button" data-tag="assets" aria-pressed="false">ASSETS</button>
+                <button type="button" data-tag="w4a" aria-pressed="false">W4A</button>
+                <button type="button" data-tag="taccess" aria-pressed="false">TACCESS</button>
+              </div>
+            </details>
+            <details class="menu venuechip">
+              <summary>HCI</summary>
+              <div class="menupanel">
+                <button type="button" data-tag="chi" aria-pressed="false">CHI</button>
+                <button type="button" data-tag="pacm" aria-pressed="false">PACM</button>
+                <button type="button" data-tag="hci-other" aria-pressed="false">Other</button>
+              </div>
+            </details>
+            <details class="menu venuechip">
+              <summary>AI</summary>
+              <div class="menupanel">
+                <button type="button" data-tag="cvpr" aria-pressed="false">CVPR</button>
+                <button type="button" data-tag="neurips" aria-pressed="false">NeurIPS</button>
+                <button type="button" data-tag="emnlp" aria-pressed="false">EMNLP</button>
+                <button type="button" data-tag="lrec" aria-pressed="false">LREC</button>
+                <button type="button" data-tag="ai-other" aria-pressed="false">Other</button>
+              </div>
+            </details>
           </div>
         </div>
 
