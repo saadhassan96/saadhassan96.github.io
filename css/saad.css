@@ -81,7 +81,8 @@ h1, h2, h3, h4 {
 .news time, .venue, .year h3, .side h2 {
   font-family: var(--font-mono);
   font-size: 12.5px;
-  letter-spacing: 0.06em;
+  letter-spacing: -0.03em;
+  word-spacing: -0.5em;
   text-transform: uppercase;
   font-variant-numeric: tabular-nums;
 }
