@@ -442,11 +442,3 @@ footer {
   font-size: 14px;
   color: var(--muted);
 }
-
-/* Confirmed publication whose PDF is too large to upload. */
-.publication-status {
-  background: #fff1a8;
-  color: #332900;
-  padding: 1px 5px;
-  border-radius: 3px;
-}
