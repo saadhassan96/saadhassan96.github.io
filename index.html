@@ -32,6 +32,35 @@
     gtag('js', new Date());
     gtag('config', 'G-6ZWKLB5M50');
   </script>
+
+  <style>
+    /* Compact hierarchy scoped to Team only. */
+    #team { padding-bottom: 8px; }
+    #team > h2 { margin-bottom: 6px; }
+    #team .team-status,
+    #team > details.more > summary {
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin: 0;
+    }
+    #team .team-status { color: var(--ink); }
+    #team .team-category {
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 400;
+      color: var(--muted);
+      line-height: 1.4;
+      margin: 8px 0 4px;
+    }
+    #team .team-status + .team-category { margin-top: 4px; }
+    #team .people { margin: 0; gap: 4px; }
+    #team > details.more { margin: 8px 0 0; }
+    #team > details.more > summary { border: 0; padding: 0; font-size: 15px; font-weight: 400; }
+    #team .team-mentoring { margin: 6px 0 0; line-height: 1.3; }
+    #team .team-mentoring small { font-size: 12px; }
+  </style>
 </head>
 
 <body>
@@ -118,14 +147,43 @@
 
       <div id="team">
         <h2>Team</h2>
-        <p class="sub">PhD students</p>
+        <p class="sub">Present <small>(<a href="https://docs.google.com/document/d/1PlC1mQJPcq4YMG34wW_Bmpcsm9bLJDrz9s5XFTm602I/edit?usp=sharing">Mentoring plan</a>)</small></p>
+        <h4 class="team-category">PhD students</h4>
         <!-- Year = expected graduation -->
         <ul class="people">
           <li><img src="images/students/chaelin.png" alt=""><span><a href="https://chaelin0722.github.io/introduction/">Chaelin Kim</a> <span class="sub">2029</span></span></li>
           <li><img src="images/students/nazmun.png" alt=""><span><a href="https://tithi-khan.github.io/">Nazmun Nahar Khanom</a> <span class="sub">2029</span></span></li>
           <li><img src="images/students/mahnoor.png" alt=""><span><a href="https://syedamahnoorasad.github.io/">Syeda Mah Noor Asad</a> <span class="sub">2029</span></span></li>
         </ul>
-        <p class="sub"><a href="https://docs.google.com/document/d/1PlC1mQJPcq4YMG34wW_Bmpcsm9bLJDrz9s5XFTm602I/edit?usp=sharing">Mentoring plan</a></p>
+        <h4 class="team-category">Undergraduate students</h4>
+        <ul class="people">
+          <li><img src="images/students/evelyn.png" alt=""><span><a href="https://www.linkedin.com/in/evelynngh">Hoang Dieu Linh (Evelyn) Nguyen</a></span></li>
+        </ul>
+
+        <details class="more">
+          <summary>Previous</summary>
+          <!-- Year = final year working with the lab -->
+          <h4 class="team-category">PhD students</h4>
+          <ul class="people">
+            <li><span><a href="https://www.areenkh.com/">Areen Khalaila</a> <span class="sub">2026 · co-advised with Rebecca Faust</span></span></li>
+          </ul>
+          <h4 class="team-category">Undergraduate students</h4>
+          <ul class="people">
+            <li><span><a href="https://www.linkedin.com/in/nikhil-modayur">Nikhil Modayur</a> <span class="sub">2025</span></span></li>
+            <li><span><a href="https://www.linkedin.com/in/oscarxiao">Oscar Xiao</a> <span class="sub">2025</span></span></li>
+            <li><span><a href="https://www.linkedin.com/in/madhangikrishnan">Madhangi Krishnan</a> <span class="sub">2025</span></span></li>
+            <li><span>Cameron McLaren <span class="sub">2025</span></span></li>
+            <li><span><a href="https://www.linkedin.com/in/aaron-gershkovich">Aaron Gershkovich</a> <span class="sub">2025</span></span></li>
+            <li><span><a href="https://www.linkedin.com/in/michaelweild">Michael M. Weild</a> <span class="sub">2024</span></span></li>
+            <li><span><a href="https://www.linkedin.com/in/madeline-murray-exactics">Madeline “Dylan” Murray</a> <span class="sub">2024</span></span></li>
+            <li><span><a href="https://saadh.info/a11y/author/caitlin-chen/">Caitlin Chen</a> <span class="sub">2024</span></span></li>
+          </ul>
+          <h4 class="team-category">High school students</h4>
+          <ul class="people">
+            <li><span>Emile H. Mattei <span class="sub">2026</span></span></li>
+            <li><span>Mauro E. Nunez <span class="sub">2024</span></span></li>
+          </ul>
+        </details>
       </div>
 
       <div id="funding">
