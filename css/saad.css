@@ -107,11 +107,33 @@ h1, h2, h3, h4 {
 .main  { grid-area: main; }
 .side  { grid-area: side; }
 
-@media (max-width: 860px) {
+/* @media (max-width: 860px) {
   .grid {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas: "intro" "side" "main";
   }
+} */
+
+@media (max-width: 860px) {
+  .grid {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .main, .side {
+    display: contents;
+  }
+  
+  /* --- Mobile Sorting Order --- */
+  .intro                   { order: 1; }
+  .side > div:nth-child(1) { order: 2; padding-bottom: 12px; } /* Contact Info */
+  .side > div:nth-child(2) { order: 3; } /* Previously */
+  #news                    { order: 4; }
+  #funding                 { order: 5; }
+  #team                    { order: 6; }
+  #teaching                { order: 7; }
+  #publications            { order: 8; }
+  #service                 { order: 9; } /* Kept strictly at the end */
 }
 
 /* ---------- Header ---------- */
