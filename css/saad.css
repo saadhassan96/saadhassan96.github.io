@@ -443,3 +443,26 @@ footer {
   font-size: 14px;
   color: var(--muted);
 }
+
+/* ---------- Service (sidebar) ---------- */
+#service { padding-bottom: 8px; }
+#service > h2 { margin-bottom: 6px; }
+#service .service-category {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0;
+  color: var(--ink);
+}
+#service ul { margin: 0 0 12px 0; gap: 4px; }
+#service > details.more { margin: 8px 0 0; }
+#service > details.more > summary { 
+  border: 0; 
+  padding: 0; 
+  font-size: 15px; 
+  font-weight: 400; 
+  color: var(--accent); 
+  cursor: pointer;
+}
+#service details.sub { margin-top: 2px; }
