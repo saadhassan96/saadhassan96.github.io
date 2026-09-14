@@ -1,855 +1,1528 @@
 <!DOCTYPE html>
 <!-- Layout inspired by Michael Bernstein (hci.stanford.edu/msb) and Anhong Guo (guoanhong.com) -->
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="Saad Hassan">
-  <meta name="description" content="Saad Hassan is an Assistant Professor in the School of Science and Engineering at Tulane University, where he directs the NOLA A11y Lab.">
-  <meta property="og:image" content="https://saadh.info/files/saad.jpg">
-  <title>Saad Hassan</title>
-  <link rel="icon" href="images/icons/favicon.ico">
-  <link rel="apple-touch-icon" href="files/saad.jpg">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Saad Hassan">
+    <meta name="description" content="Saad Hassan is an Assistant Professor in the School of Science and Engineering at Tulane University, where he directs the NOLA A11y Lab.">
+    <meta property="og:image" content="https://saadh.info/files/saad.jpg">
+    <title>Saad Hassan</title>
+    <link rel="icon" href="images/icons/favicon.ico">
+    <link rel="apple-touch-icon" href="files/saad.jpg">
+    <!-- Fonts (one link per family so a missing family never breaks the others) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400&display=swap">
+    <link rel="stylesheet" href="css/saad.css">
+    <!-- Apply the saved light/dark choice before the page paints -->
+    <script>
+      try {
+        var t = localStorage.getItem('theme');
+        if (t) document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+    <base target="_blank">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6ZWKLB5M50"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
 
-  <!-- Fonts (one link per family so a missing family never breaks the others) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400&display=swap">
-  <link rel="stylesheet" href="css/saad.css">
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-6ZWKLB5M50');
+    </script>
+    <style>
+      /* Compact hierarchy scoped to Team only. */
+      #team {
+        padding-bottom: 8px;
+      }
 
-  <!-- Apply the saved light/dark choice before the page paints -->
-  <script>
-    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
-  </script>
+      #team>h2 {
+        margin-bottom: 6px;
+      }
 
-  <base target="_blank">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6ZWKLB5M50"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-6ZWKLB5M50');
-  </script>
+      #team .team-status,
+      #team>details.more>summary {
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4;
+        margin: 0;
+      }
 
-  <style>
-    /* Compact hierarchy scoped to Team only. */
-    #team { padding-bottom: 8px; }
-    #team > h2 { margin-bottom: 6px; }
-    #team .team-status,
-    #team > details.more > summary {
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 600;
-      line-height: 1.4;
-      margin: 0;
-    }
-    #team .team-status { color: var(--ink); }
-    #team .team-category {
-      font-family: inherit;
-      font-size: 12.5px;
-      font-weight: 400;
-      color: var(--muted);
-      line-height: 1.4;
-      margin: 8px 0 4px;
-    }
-    #team .team-status + .team-category { margin-top: 4px; }
-    #team .people { margin: 0; gap: 4px; }
-    #team > details.more { margin: 8px 0 0; }
-    #team > details.more > summary { border: 0; padding: 0; font-size: 15px; font-weight: 400; }
-    #team .team-mentoring { margin: 6px 0 0; line-height: 1.3; }
-    #team .team-mentoring small { font-size: 12px; }
-  </style>
-</head>
+      #team .team-status {
+        color: var(--ink);
+      }
 
-<body>
-<div class="page">
+      #team .team-category {
+        font-family: inherit;
+        font-size: 12.5px;
+        font-weight: 400;
+        color: var(--muted);
+        line-height: 1.4;
+        margin: 8px 0 4px;
+      }
 
-  <!-- ================= HEADER ================= -->
-  <header class="site-header">
-    <h1>Saad Hassan</h1>
-    <nav aria-label="Sections">
-      <a href="#news" target="_self">News</a>
-      <a href="#publications" target="_self">Publications</a>
-      <a href="#funding" target="_self">Funding</a>
-      <a href="#teaching" target="_self">Teaching</a>
-      <a href="#team" target="_self">Team</a>
-      <a href="#service" target="_self">Service</a>
-      <a href="files/hassan_cv.pdf">CV</a>
-      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode">Dark</button>
-    </nav>
-  </header>
+      #team .team-status+.team-category {
+        margin-top: 4px;
+      }
 
-  <div class="grid">
+      #team .people {
+        margin: 0;
+        gap: 4px;
+      }
 
-    <!-- ================= INTRO ================= -->
-    <div class="intro">
-      <img class="photo" src="files/saad.jpg" alt="Saad Hassan wearing a maroon shirt and black and golden glasses.">
-      <div>
-        <p class="lede">
-          I study and design human–AI systems that make <strong>communication</strong>, <strong>information</strong>, and <strong>public services</strong> accessible.
-        </p>
-        <p>
-          Examples include sign language and captioning technologies, reading supports, accessible visualizations, and civic dashboards.
-          This work centers the experiences of end users, including people with disabilities and their communities.
-        </p>
-        <p class="intro-links">
-          <button type="button" id="bio-toggle" aria-expanded="false" aria-controls="bio">Short bio</button>
-          <a href="https://scholar.google.com/citations?user=oy6dZIIAAAAJ">Google Scholar</a>
-        </p>
-        <p id="bio" class="bio" hidden>
-          I am an Assistant Professor in the School of Science and Engineering at Tulane University, where I direct the NOLA A11y Lab and am affiliated with the Tulane Center for Community-Engaged AI.
-          My research spans accessible computing, human-computer interaction, and computational social science, and is supported by the National Science Foundation, the Louisiana Board of Regents, and internal awards from Tulane.
-          I have published over 30 papers in HCI and accessibility venues such as <i>CHI, ASSETS, TACCESS,</i> and <i>MobileHCI</i>, and in AI venues such as <i>CVPR, NeurIPS,</i> and <i>EMNLP Findings</i>. Four of them received Best Paper nominations or Honorable Mentions at CHI and ASSETS.
-          I earned my Ph.D. in Computing and Information Sciences at the Rochester Institute of Technology, advised by Matt Huenerfauth, with support from a Duolingo Dissertation Research Grant.
-          I serve on the program committees for ASSETS and CHI.
-        </p>
-        <p class="note">
-          Interested in a <a href="https://forms.gle/j4yXNgyCFjxgXfc16">PhD</a> or <a href="https://forms.gle/d6URN19gETqWpEZf9">undergraduate research</a>? Fill out the form and I'll be in touch if there's an opening. Fall 2027 <a href="https://sse.tulane.edu/cs/phd">Tulane CS PhD</a> applications are open, with no application fee.
-        </p>
-      </div>
-    </div>
+      #team>details.more {
+        margin: 8px 0 0;
+      }
 
-    <!-- ================= SIDEBAR ================= -->
-    <aside class="side">
-      <div>
-        <ul>
-          <li><img class="icon" src="images/icons/favicon.ico" alt="">Assistant Professor (2023–)</li>
-          <!-- <li><a href="https://sse.tulane.edu/cs">Computer Science</a></li> -->
-          <!-- <li><a href="https://sse.tulane.edu">School of Science and Engineering</a></li> -->
-          <li><a href="https://sse.tulane.edu/cs">Tulane University</a></li>
-          <li class="sub">Office: Paul Hall 307<br>Mail: Stanley Thomas 303</li>
-          <li><a href="mailto:saadhassan@tulane.edu" target="_self">saadhassan@tulane.edu</a></li>
-        </ul>
-      </div>
+      #team>details.more>summary {
+        border: 0;
+        padding: 0;
+        font-size: 15px;
+        font-weight: 400;
+      }
 
-      <div>
-        <h2>Previously</h2>
-        <ul>
-          <li><img class="icon" src="images/icons/cair.ico" alt="">PhD, <a href="http://cair.rit.edu/">CAIR Lab</a>, RIT (2019–2023) <span class="sub">with <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a></span></li>
-          <li><img class="icon" src="images/icons/google.ico" alt="">Intern, <a href="https://research.google/">Google Research</a> (2021–2022, 2023) <span class="sub">with <a href="https://sites.cc.gatech.edu/home/thad/">Thad Starner</a></span></li>
-          <li><img class="icon" src="images/icons/meta.ico" alt="">Intern, <a href="https://tech.facebook.com/reality-labs/">Meta Reality Labs</a> (2022)</li>
-        </ul>
-      </div>
+      #team .team-mentoring {
+        margin: 6px 0 0;
+        line-height: 1.3;
+      }
 
-      <div id="teaching">
-        <h2>Teaching</h2>
-        <p class="sub">Currently</p>
-        <ul>
-          <li><a href="https://saadh.info/hci/">Human-Computer Interaction</a></li>
-        </ul>
-        <p class="sub">Also taught</p>
-        <ul>
-          <li><a href="https://nmattei.github.io/cmps3160/">Introduction to Data Science</a></li>
-          <li><a href="https://tulanecs.github.io/cmps7010/">Research Seminar</a></li>
-        </ul>
-      </div>
-
-      <div id="team">
-        <h2>Team</h2>
-        <p class="sub">Present <small>(<a href="https://docs.google.com/document/d/1PlC1mQJPcq4YMG34wW_Bmpcsm9bLJDrz9s5XFTm602I/edit?usp=sharing">Mentoring plan</a>)</small></p>
-        
-        <h4 class="team-category">PhD students</h4>
-        <!-- Year = expected graduation -->
-        <ul class="people">
-          <li><img src="images/students/chaelin.png" alt=""><span><a href="https://chaelin0722.github.io/introduction/">Chaelin Kim</a> <span class="sub">2029</span></span></li>
-          <li><img src="images/students/nazmun.png" alt=""><span><a href="https://tithi-khan.github.io/">Nazmun Nahar Khanom</a> <span class="sub">2029</span></span></li>
-          <li><img src="images/students/mahnoor.png" alt=""><span><a href="https://syedamahnoorasad.github.io/">Syeda Mah Noor Asad</a> <span class="sub">2029</span></span></li>
-        </ul>
-        
-        <h4 class="team-category">Undergraduate students</h4>
-        <ul class="people">
-          <li><img src="images/students/evelyn.png" alt=""><span><a href="https://www.linkedin.com/in/evelynngh">Hoang Dieu Linh (Evelyn) Nguyen</a></span></li>
-        </ul>
-
-        <details class="more">
-          <summary>Previous</summary>
-          <!-- Year = final year working with the lab -->
-          
-          <h4 class="team-category">PhD students</h4>
-          <ul class="people">
-            <li><span><a href="https://www.areenkh.com/">Areen Khalaila</a> <span class="sub">2026 · co-advised with Rebecca Faust</span></span></li>
-          </ul>
-          
-          <h4 class="team-category">Master's students</h4>
-          <ul class="people">
-            <li><span><a href="https://www.linkedin.com/in/justin-haysbert-a37859223/">Justin Haysbert</a> <span class="sub">2025</span></span></li>
-            <li><span><a href="https://www.linkedin.com/in/will-silver-wagman/">Will Silver Wagman</a> <span class="sub">2024</span></span></li>
-          </ul>
-
-          <h4 class="team-category">Undergraduate students</h4>
-          <ul class="people">
-            <li><span><a href="https://www.linkedin.com/in/yaniv-naggar-727b95132/">Yaniv Nagar</a> <span class="sub">2026 · Independent Study</span></span></li>
-            <li><span><a href="https://www.linkedin.com/in/sydneylwade/">Sydney Wade</a> <span class="sub">2025 · Honors Thesis</span></span></li>
-            <li><span><a href="https://www.linkedin.com/in/nikhil-modayur">Nikhil Modayur</a> <span class="sub">2025</span> <small>(<a href="https://cra.org/about/awards/outstanding-undergraduate-researcher-award/">CRA '26 🏵️</a>)</small></span></li>
-            <li><span><a href="https://www.linkedin.com/in/oscarxiao">Oscar Xiao</a> <span class="sub">2025</span></span></li>
-            <li><span><a href="https://www.linkedin.com/in/madhangikrishnan">Madhangi Krishnan</a> <span class="sub">2025</span></span></li>
-            <li><span>Cameron McLaren <span class="sub">2025</span></span></li>
-            <li><span><a href="https://www.linkedin.com/in/aaron-gershkovich">Aaron Gershkovich</a> <span class="sub">2025</span> <small>(<a href="https://cra.org/crn/2025/01/recipients-of-the-2024-2025-cra-outstanding-undergraduate-research-award-announced/">CRA '25 🏵️</a>)</small></span></li>
-            <li><span><a href="https://www.linkedin.com/in/michaelweild">Michael M. Weild</a> <span class="sub">2024</span></span></li>
-            <li><span><a href="https://www.linkedin.com/in/madeline-murray-exactics">Madeline “Dylan” Murray</a> <span class="sub">2024</span></span></li>
-            <li><span><a href="https://www.linkedin.com/in/caitlinpchen/">Caitlin Chen</a> <span class="sub">2024</span></span></li>
-          </ul>
-
-          <h4 class="team-category">Capstone students</h4>
-          <ul class="people">
-            <li><span><a href="https://www.linkedin.com/in/emily-aymond-b09818288/">Emily Aymond</a> <span class="sub">2026</span></span></li>
-            <li><span><a href="https://www.linkedin.com/in/madelinefdavis/">Madeline Davis</a> <span class="sub">2026</span></span></li>
-            <li><span><a href="https://www.linkedin.com/in/jaimiemorris/">Jaimie Morris</a> <span class="sub">2026</span></span></li>
-            <li><span><a href="https://www.linkedin.com/in/miranda-diaz03/">Miranda Diaz</a> <span class="sub">2025</span> → <a href="https://infosci.cornell.edu/">Cornell IS</a></span></li>
-            <li><span>Zoe S. Oboler <span class="sub">2025</span></span></li>
-            <li><span><a href="https://www.linkedin.com/in/sam-demarinis-50318020b/">Sam DeMarinis</a> <span class="sub">2025</span></span></li>
-            <li><span><a href="https://www.linkedin.com/in/hubert-mendez-3124a0330/">Hubert Mendez</a> <span class="sub">2025</span></span></li>
-            <li><span><a href="https://www.linkedin.com/in/eschaferkotter/">Ethan Schaferkotter</a> <span class="sub">2025</span></span></li>
-            <li><span><a href="https://www.linkedin.com/in/isabella-blair-46176323b/">Izzy Blair</a> <span class="sub">2025</span></span></li>
-            <li><span><a href="https://www.linkedin.com/in/ryan-stevens0221/">Ryan Stevens</a> <span class="sub">2024</span></span></li>
-            <li><span><a href="https://www.linkedin.com/in/shayne-shelton/">Shayne Shelton</a> <span class="sub">2024</span></span></li>
-            <li><span><a href="https://www.linkedin.com/in/gsagrera/">Gabriel Sagrera</a> <span class="sub">2024</span></span></li>
-            <li><span><a href="https://www.linkedin.com/in/devin-gutierrez/">Devin Gutierrez</a> <span class="sub">2024</span></span></li>
-            <li><span><a href="https://www.linkedin.com/in/tanner-martz/">Tanner Martz</a> <span class="sub">2024</span></span></li>
-          </ul>
-
-          <h4 class="team-category">High school students</h4>
-          <ul class="people">
-            <li><span>Emile H. Mattei <span class="sub">2026</span></span></li>
-            <li><span><a href="https://www.linkedin.com/in/mauro-nunez06/">Mauro E. Nunez</a> <span class="sub">2024</span></span></li>
-          </ul>
-        </details>
-      </div>
-
-      <div id="funding">
-        <h2>Funding</h2>
-        <p class="sub" style="font-size: 13px;">$642,258 total · $550,912 external as PI</p>
-        <ul class="grants" style="gap: 8px;">
-          <li><img class="icon" src="images/icons/nsf.ico" alt=""><div>
-            <a href="https://www.nsf.gov/awardsearch/show-award?AWD_ID=2619509">Civic AI for Community Engagement</a>
-            <div class="sub">NSF · PI · 2026–2029</div>
-            <div class="sub">$449,868 Tulane · $899,868 total</div>
-          </div></li>
-
-          <li><img class="icon" src="images/icons/nsf.ico" alt=""><div>
-            <a href="https://nsfahead.org/">AHeAD Center: IUCRC Planning Grant</a>
-            <div class="sub">NSF · Co-PI · 2025–2027 · $23,999</div>
-          </div></li>
-
-          <li><img class="icon" src="images/icons/bor.ico" alt=""><div>
-            <a href="https://www.laregents.edu/wp-content/uploads/2024/04/7.-RSI-Committee-April-24-2024.pdf">AI-Powered ASL Learning</a>
-            <div class="sub">LA Board of Regents · PI · 2024–2027</div>
-            <div class="sub">$102,281 incl. $6,237 Tulane match</div>
-          </div></li>
-
-          <li><img class="icon" src="images/icons/duolingo.ico" alt=""><div>
-            <a href="https://blog.duolingo.com/2022-duolingo-research-grant/">Sign-Language Lookup Tools</a>
-            <div class="sub">Duolingo · 2022–2023 · $5,000</div>
-          </div></li>
-
-          <li><img class="icon" src="images/icons/favicon.ico" alt=""><div>
-            Tulane University
-            <div class="sub">Research &amp; teaching grants · $61,110</div>
-            <details class="sub">
-              <summary style="cursor: pointer;">Awards</summary>
-              <div>CEAI (2025–2027); Lavin-Bernick (2025–2027); Jurist AI (2026); COR (2024–2025); TUII (2024); CELT (2023–2024, 2026).</div>
+      #team .team-mentoring small {
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <!-- ================= HEADER ================= -->
+      <header class="site-header">
+        <h1>Saad Hassan</h1>
+        <nav aria-label="Sections">
+          <a href="#news" target="_self">News</a>
+          <a href="#publications" target="_self">Publications</a>
+          <a href="#funding" target="_self">Funding</a>
+          <a href="#teaching" target="_self">Teaching</a>
+          <a href="#team" target="_self">Team</a>
+          <a href="#service" target="_self">Service</a>
+          <a href="files/hassan_cv.pdf">CV</a>
+          <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode">Dark</button>
+        </nav>
+      </header>
+      <div class="grid">
+        <!-- ================= INTRO ================= -->
+        <div class="intro">
+          <img class="photo" src="files/saad.jpg" alt="Saad Hassan wearing a maroon shirt and black and golden glasses.">
+          <div>
+            <p class="lede"> I study and design human–AI systems that make <strong>communication</strong>, <strong>information</strong>, and <strong>public services</strong> accessible. </p>
+            <p> Examples include sign language and captioning technologies, reading supports, accessible visualizations, and civic dashboards. This work centers the experiences of end users, including people with disabilities and their communities. </p>
+            <p class="intro-links">
+              <button type="button" id="bio-toggle" aria-expanded="false" aria-controls="bio">Short bio</button>
+              <a href="https://scholar.google.com/citations?user=oy6dZIIAAAAJ">Google Scholar</a>
+            </p>
+            <p id="bio" class="bio" hidden> I am an Assistant Professor in the School of Science and Engineering at Tulane University, where I direct the NOLA A11y Lab and am affiliated with the Tulane Center for Community-Engaged AI. My research spans accessible computing, human-computer interaction, and computational social science, and is supported by the National Science Foundation, the Louisiana Board of Regents, and internal awards from Tulane. I have published over 30 papers in HCI and accessibility venues such as <i>CHI, ASSETS, TACCESS,</i> and <i>MobileHCI</i>, and in AI venues such as <i>CVPR, NeurIPS,</i> and <i>EMNLP Findings</i>. Four of them received Best Paper nominations or Honorable Mentions at CHI and ASSETS. I earned my Ph.D. in Computing and Information Sciences at the Rochester Institute of Technology, advised by Matt Huenerfauth, with support from a Duolingo Dissertation Research Grant. I serve on the program committees for ASSETS and CHI. </p>
+            <p class="note"> Interested in a <a href="https://forms.gle/j4yXNgyCFjxgXfc16">PhD</a> or <a href="https://forms.gle/d6URN19gETqWpEZf9">undergraduate research</a>? Fill out the form and I'll be in touch if there's an opening. Fall 2027 <a href="https://sse.tulane.edu/cs/phd">Tulane CS PhD</a> applications are open, with no application fee. </p>
+          </div>
+        </div>
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="side">
+          <div>
+            <ul>
+              <li>
+                <img class="icon" src="images/icons/favicon.ico" alt="">Assistant Professor (2023–)
+              </li>
+              <!-- <li><a href="https://sse.tulane.edu/cs">Computer Science</a></li> -->
+              <!-- <li><a href="https://sse.tulane.edu">School of Science and Engineering</a></li> -->
+              <li>
+                <a href="https://sse.tulane.edu/cs">Tulane University</a>
+              </li>
+              <li class="sub">Office: Paul Hall 307 <br>Mail: Stanley Thomas 303 </li>
+              <li>
+                <a href="mailto:saadhassan@tulane.edu" target="_self">saadhassan@tulane.edu</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h2>Previously</h2>
+            <ul>
+              <li>
+                <img class="icon" src="images/icons/cair.ico" alt="">PhD, <a href="http://cair.rit.edu/">CAIR Lab</a>, RIT (2019–2023) <span class="sub">with <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
+                </span>
+              </li>
+              <li>
+                <img class="icon" src="images/icons/google.ico" alt="">Intern, <a href="https://research.google/">Google Research</a> (2021–2022, 2023) <span class="sub">with <a href="https://sites.cc.gatech.edu/home/thad/">Thad Starner</a>
+                </span>
+              </li>
+              <li>
+                <img class="icon" src="images/icons/meta.ico" alt="">Intern, <a href="https://tech.facebook.com/reality-labs/">Meta Reality Labs</a> (2022)
+              </li>
+            </ul>
+          </div>
+          <div id="teaching">
+            <h2>Teaching</h2>
+            <p class="sub">Currently</p>
+            <ul>
+              <li>
+                <a href="https://saadh.info/hci/">Human-Computer Interaction</a>
+              </li>
+            </ul>
+            <p class="sub">Also taught</p>
+            <ul>
+              <li>
+                <a href="https://nmattei.github.io/cmps3160/">Introduction to Data Science</a>
+              </li>
+              <li>
+                <a href="https://tulanecs.github.io/cmps7010/">Research Seminar</a>
+              </li>
+            </ul>
+          </div>
+          <div id="team">
+            <h2>Team</h2>
+            <p class="sub">Present <small>( <a href="https://docs.google.com/document/d/1PlC1mQJPcq4YMG34wW_Bmpcsm9bLJDrz9s5XFTm602I/edit?usp=sharing">Mentoring plan</a>) </small>
+            </p>
+            <h4 class="team-category">PhD students</h4>
+            <!-- Year = expected graduation -->
+            <ul class="people">
+              <li>
+                <img src="images/students/chaelin.png" alt="">
+                <span>
+                  <a href="https://chaelin0722.github.io/introduction/">Chaelin Kim</a>
+                  <span class="sub">2029</span>
+                </span>
+              </li>
+              <li>
+                <img src="images/students/nazmun.png" alt="">
+                <span>
+                  <a href="https://tithi-khan.github.io/">Nazmun Nahar Khanom</a>
+                  <span class="sub">2029</span>
+                </span>
+              </li>
+              <li>
+                <img src="images/students/mahnoor.png" alt="">
+                <span>
+                  <a href="https://syedamahnoorasad.github.io/">Syeda Mah Noor Asad</a>
+                  <span class="sub">2029</span>
+                </span>
+              </li>
+            </ul>
+            <h4 class="team-category">Undergraduate students</h4>
+            <ul class="people">
+              <li>
+                <img src="images/students/evelyn.png" alt="">
+                <span>
+                  <a href="https://www.linkedin.com/in/evelynngh">Hoang Dieu Linh (Evelyn) Nguyen</a>
+                </span>
+              </li>
+            </ul>
+            <details class="more">
+              <summary>Previous</summary>
+              <!-- Year = final year working with the lab -->
+              <h4 class="team-category">PhD students</h4>
+              <ul class="people">
+                <li>
+                  <span>
+                    <a href="https://www.areenkh.com/">Areen Khalaila</a>
+                    <span class="sub">2026 · co-advised with Rebecca Faust</span>
+                  </span>
+                </li>
+              </ul>
+              <h4 class="team-category">Master's students</h4>
+              <ul class="people">
+                <li>
+                  <span>
+                    <a href="https://www.linkedin.com/in/justin-haysbert-a37859223/">Justin Haysbert</a>
+                    <span class="sub">2025</span>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <a href="https://www.linkedin.com/in/will-silver-wagman/">Will Silver Wagman</a>
+                    <span class="sub">2024</span>
+                  </span>
+                </li>
+              </ul>
+              <h4 class="team-category">Undergraduate students</h4>
+              <ul class="people">
+                <li>
+                  <span>
+                    <a href="https://www.linkedin.com/in/yaniv-naggar-727b95132/">Yaniv Nagar</a>
+                    <span class="sub">2026 · Independent Study</span>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <a href="https://www.linkedin.com/in/sydneylwade/">Sydney Wade</a>
+                    <span class="sub">2025 · Honors Thesis</span>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <a href="https://www.linkedin.com/in/nikhil-modayur">Nikhil Modayur</a>
+                    <span class="sub">2025</span>
+                    <small>( <a href="https://cra.org/about/awards/outstanding-undergraduate-researcher-award/">CRA '26 🏵️</a>) </small>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <a href="https://www.linkedin.com/in/oscarxiao">Oscar Xiao</a>
+                    <span class="sub">2025</span>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <a href="https://www.linkedin.com/in/madhangikrishnan">Madhangi Krishnan</a>
+                    <span class="sub">2025</span>
+                  </span>
+                </li>
+                <li>
+                  <span>Cameron McLaren <span class="sub">2025</span>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <a href="https://www.linkedin.com/in/aaron-gershkovich">Aaron Gershkovich</a>
+                    <span class="sub">2025</span>
+                    <small>( <a href="https://cra.org/crn/2025/01/recipients-of-the-2024-2025-cra-outstanding-undergraduate-research-award-announced/">CRA '25 🏵️</a>) </small>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <a href="https://www.linkedin.com/in/michaelweild">Michael M. Weild</a>
+                    <span class="sub">2024</span>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <a href="https://www.linkedin.com/in/madeline-murray-exactics">Madeline “Dylan” Murray</a>
+                    <span class="sub">2024</span>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <a href="https://www.linkedin.com/in/caitlinpchen/">Caitlin Chen</a>
+                    <span class="sub">2024</span>
+                  </span>
+                </li>
+              </ul>
+              <h4 class="team-category">Capstone students</h4>
+              <ul class="people">
+                <li>
+                  <span>
+                    <a href="https://www.linkedin.com/in/emily-aymond-b09818288/">Emily Aymond</a>
+                    <span class="sub">2026</span>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <a href="https://www.linkedin.com/in/madelinefdavis/">Madeline Davis</a>
+                    <span class="sub">2026</span>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <a href="https://www.linkedin.com/in/jaimiemorris/">Jaimie Morris</a>
+                    <span class="sub">2026</span>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <a href="https://www.linkedin.com/in/miranda-diaz03/">Miranda Diaz</a>
+                    <span class="sub">2025</span> → <a href="https://infosci.cornell.edu/">Cornell IS</a>
+                  </span>
+                </li>
+                <li>
+                  <span>Zoe S. Oboler <span class="sub">2025</span>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <a href="https://www.linkedin.com/in/sam-demarinis-50318020b/">Sam DeMarinis</a>
+                    <span class="sub">2025</span>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <a href="https://www.linkedin.com/in/hubert-mendez-3124a0330/">Hubert Mendez</a>
+                    <span class="sub">2025</span>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <a href="https://www.linkedin.com/in/eschaferkotter/">Ethan Schaferkotter</a>
+                    <span class="sub">2025</span>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <a href="https://www.linkedin.com/in/isabella-blair-46176323b/">Izzy Blair</a>
+                    <span class="sub">2025</span>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <a href="https://www.linkedin.com/in/ryan-stevens0221/">Ryan Stevens</a>
+                    <span class="sub">2024</span>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <a href="https://www.linkedin.com/in/shayne-shelton/">Shayne Shelton</a>
+                    <span class="sub">2024</span>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <a href="https://www.linkedin.com/in/gsagrera/">Gabriel Sagrera</a>
+                    <span class="sub">2024</span>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <a href="https://www.linkedin.com/in/devin-gutierrez/">Devin Gutierrez</a>
+                    <span class="sub">2024</span>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <a href="https://www.linkedin.com/in/tanner-martz/">Tanner Martz</a>
+                    <span class="sub">2024</span>
+                  </span>
+                </li>
+              </ul>
+              <h4 class="team-category">High school students</h4>
+              <ul class="people">
+                <li>
+                  <span>Emile H. Mattei <span class="sub">2026</span>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <a href="https://www.linkedin.com/in/mauro-nunez06/">Mauro E. Nunez</a>
+                    <span class="sub">2024</span>
+                  </span>
+                </li>
+              </ul>
+              <button type="button" onclick="this.closest('details').open = false; document.getElementById('team').scrollIntoView({behavior: 'smooth'});" style="background: none; border: none; padding: 0; font: inherit; font-size: 13.5px; color: var(--muted); cursor: pointer; margin-top: 12px; display: block;">▲ Show less</button>
             </details>
-          </div></li>
-        </ul>
-      </div>
-
-      <div id="service">
-        <h2>Service</h2>
-
-        <p class="sub">Tulane University</p>
-        <ul>
-          <li><a href="https://sse.tulane.edu/committee-memberships-2026-2027">SSE Curriculum Committee</a></li>
-          <li>
-            <details>
-              <summary style="cursor: pointer;">Department Committees</summary>
-              <div class="sub" style="padding-top: 4px;">Communications &amp; Social Chair, Undergraduate Studies Committee, CS Curriculum Committee, Awards Committee.</div>
+          </div>
+          <div id="funding">
+            <h2>Funding</h2>
+            <p class="sub" style="font-size: 13px;">$642,258 total · $550,912 external as PI</p>
+            <ul class="grants" style="gap: 8px;">
+              <li>
+                <img class="icon" src="images/icons/nsf.ico" alt="">
+                <div>
+                  <a href="https://www.nsf.gov/awardsearch/show-award?AWD_ID=2619509">Civic AI for Community Engagement</a>
+                  <div class="sub">NSF · PI · 2026–2029</div>
+                  <div class="sub">$449,868 Tulane · $899,868 total</div>
+                </div>
+              </li>
+              <li>
+                <img class="icon" src="images/icons/nsf.ico" alt="">
+                <div>
+                  <a href="https://nsfahead.org/">AHeAD Center: IUCRC Planning Grant</a>
+                  <div class="sub">NSF · Co-PI · 2025–2027 · $23,999</div>
+                </div>
+              </li>
+              <li>
+                <img class="icon" src="images/icons/bor.ico" alt="">
+                <div>
+                  <a href="https://www.laregents.edu/wp-content/uploads/2024/04/7.-RSI-Committee-April-24-2024.pdf">AI-Powered ASL Learning</a>
+                  <div class="sub">LA Board of Regents · PI · 2024–2027</div>
+                  <div class="sub">$102,281 incl. $6,237 Tulane match</div>
+                </div>
+              </li>
+              <li>
+                <img class="icon" src="images/icons/duolingo.ico" alt="">
+                <div>
+                  <a href="https://blog.duolingo.com/2022-duolingo-research-grant/">Sign-Language Lookup Tools</a>
+                  <div class="sub">Duolingo · 2022–2023 · $5,000</div>
+                </div>
+              </li>
+              <li>
+                <img class="icon" src="images/icons/favicon.ico" alt="">
+                <div> Tulane University <div class="sub">Research &amp; teaching grants · $61,110</div>
+                  <details class="sub">
+                    <summary style="cursor: pointer;">Awards</summary>
+                    <div>CEAI (2025–2027); Lavin-Bernick (2025–2027); Jurist AI (2026); COR (2024–2025); TUII (2024); CELT (2023–2024, 2026).</div>
+                  </details>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="service">
+            <h2>Service</h2>
+            <p class="sub">Tulane University</p>
+            <ul>
+              <li>
+                <a href="https://sse.tulane.edu/committee-memberships-2026-2027">SSE Curriculum Committee</a>
+              </li>
+              <li>
+                <details>
+                  <summary style="cursor: pointer;">Department Committees</summary>
+                  <div class="sub" style="padding-top: 4px;">Communications &amp; Social Chair, Undergraduate Studies Committee, CS Curriculum Committee, Awards Committee.</div>
+                </details>
+              </li>
+            </ul>
+            <p class="sub">Outside</p>
+            <h4 class="service-category">CHI</h4>
+            <ul>
+              <li> Associate Chair <div class="sub">
+                  <a href="https://chi2027.acm.org/authors/papers/program-committee/">2027</a>, <a href="https://chi2026.acm.org/authors/papers/selecting-a-subcommittee/">2026</a>, <a href="https://chi2025.acm.org/subcommittees/selecting-a-subcommittee/">2025</a>, <a href="https://chi2024.acm.org/subcommittees/selecting-a-subcommittee/">2024</a>, 2023 <small>(LBW)</small>
+                </div>
+              </li>
+              <li>Best Paper Committee <span class="sub">2024–2026</span>
+              </li>
+            </ul>
+            <h4 class="service-category">ASSETS</h4>
+            <ul>
+              <li> Org. Committee <div class="sub">
+                  <a href="https://assets24.sigaccess.org/committees/organizing/">Workshops '24</a>, <a href="https://assets23.sigaccess.org/organizing-committee.html">Proceedings '23</a>
+                </div>
+              </li>
+              <li> Program Committee <div class="sub">
+                  <a href="https://assets26.sigaccess.org/program_committee.html">2026</a>, <a href="https://assets25.sigaccess.org/program_committee.html">2025</a>, <a href="https://assets24.sigaccess.org/committees/program/">2024</a>, <a href="https://assets23.sigaccess.org/program-committee.html">2023</a>, <a href="https://assets22.sigaccess.org/program-committee.html">2022</a>
+                </div>
+              </li>
+            </ul>
+            <h4 class="service-category">Other Roles</h4>
+            <ul>
+              <li>EMNLP Area Chair <span class="sub">2023</span>
+              </li>
+              <li> Grant Review <div class="sub">NSF Panels <small>( <a href="https://www.nsf.gov/funding/opportunities/hcc-human-centered-computing">HCC</a>, <a href="https://seedfund.nsf.gov/">SBIR/STTR</a>) </small>
+                </div>
+              </li>
+              <li> Workshops Organized <div class="sub">
+                  <a href="https://tulanecs.github.io/PACE/">PACE '24</a>
+                  <small>(HCOMP)</small>
+                </div>
+                <div class="sub">
+                  <a href="https://assets-recruitment-2025.github.io/">Participant Recruitment '25</a>
+                  <small>(ASSETS)</small>
+                </div>
+              </li>
+              <li>
+                <details>
+                  <summary style="cursor: pointer;">Peer Review</summary>
+                  <div class="sub" style="line-height: 1.4; margin-top: 4px;">
+                    <strong>Journals:</strong> ACM TACCESS, PACM IMWUT, IEEE TVCG, IJHCI, Research in Developmental Disabilities. <br>
+                    <strong>Conferences:</strong> CHI, CSCW, ASSETS, DIS, IUI, HRI, VR, ICWSM, ISWC, ETRA, CHI PLAY, NORDICHI, OzCHI, IDC. <br>
+                    <strong>Ethics:</strong> ACL, NAACL.
+                  </div>
+                </details>
+              </li>
+            </ul>
+          </div>
+        </aside>
+        <!-- ================= MAIN ================= -->
+        <main class="main">
+          <!-- ---------- News (newest first; older items go inside <details>) ---------- -->
+          <section id="news">
+            <h2>News</h2>
+            <ul class="news">
+              <li>
+                <time>Jul. 26, 2026</time>
+                <p>New $899,868 collaborative <a href="https://www.nsf.gov/awardsearch/show-award?AWD_ID=2619509">NSF award</a>, with me as PI: Designing Civic AI to Connect Residents, Communities, and Local Governments. Joint with <a href="https://www.cs.tulane.edu/~aculotta/">Aron Culotta</a>, <a href="https://sse.tulane.edu/nicholas-mattei">Nicholas Mattei</a>, and Carnegie Mellon University colleagues <a href="https://www.motahhare.com/">Motahhare Eslami</a> and <a href="https://www.cs.cmu.edu/~johnz/">John Zimmerman</a>. </p>
+              </li>
+              <li>
+                <time>Jun. 24, 2026</time>
+                <p>Two papers and a demo accepted to <a href="https://assets26.sigaccess.org/">ASSETS 2026</a>: a scoping review of accessible data visualization research, plus an ASL video comprehension tool and demo led by <a href="https://chaelin0722.github.io/introduction/">Chaelin Kim</a>. </p>
+              </li>
+              <li>
+                <time>Jun. 10, 2026</time>
+                <p>Awarded three internal grants totaling ~$26,000, including the Jurist Summer Fellowship in AI, the Data, AI, and Community Research Grant, and the Lavin-Bernick Grant, to support research on AI-based reading support tools and accessible personal health visualizations.</p>
+              </li>
+              <li>
+                <time>Apr. 3, 2026</time>
+                <p>Paper on ASL educators’ perspectives on AI accepted to <a href="https://chi2026.acm.org/">CHI 2026</a>. Will present it at the conference in Barcelona, Spain 🇪🇸! </p>
+              </li>
+            </ul>
+            <details class="more">
+              <summary>Earlier news</summary>
+              <ul class="news">
+                <li>
+                  <time>Jan. 15, 2026</time>
+                  <p>Congrats to former lab member <a href="https://www.linkedin.com/in/nikhil-modayur">Nikhil Modayur</a> for receiving an Honorable Mention for the <a href="https://cra.org/about/awards/outstanding-undergraduate-researcher-award/">2026 CRA Outstanding Undergraduate Researcher Award</a>! </p>
+                </li>
+                <li>
+                  <time>Oct. 25, 2025</time>
+                  <p>Attending <a href="https://assets25.sigaccess.org/">ASSETS 2025</a> in Denver to present one paper on reading support technologies and two demos. </p>
+                </li>
+                <li>
+                  <time>Aug. 1, 2025</time>
+                  <p>Two demos accepted to <a href="https://assets25.sigaccess.org/">ASSETS 2025</a>, led by <a href="https://chaelin0722.github.io/introduction/">Chaelin Kim</a> and <a href="https://tithi-khan.github.io/">Nazmun Nahar Khanom</a>, on text simplification and an ASL learning tool for EMS. Will be presented at the conference in Denver! </p>
+                </li>
+                <li>
+                  <time>Jun. 25, 2025</time>
+                  <p>Our workshop on participant recruitment in accessibility research was accepted to <a href="https://assets25.sigaccess.org/">ASSETS 2025</a>. </p>
+                </li>
+                <li>
+                  <time>Jun. 19, 2025</time>
+                  <p>Our review of reading support tools, with <a href="https://oliveralonzo.com/">Oliver Alonzo</a>, was accepted to <a href="https://assets25.sigaccess.org/">ASSETS 2025</a> and nominated for Best Paper. </p>
+                </li>
+                <li>
+                  <time>May. 18, 2025</time>
+                  <p>Received two internal grants totaling ~$18,500: a Carol Lavin Bernick Faculty Grant ($10,000) for an AI-powered ASL learning platform and a Community-Engaged AI Summer Research Program grant ($8,500) to build a public accessibility barrier dashboard.</p>
+                </li>
+                <li>
+                  <time>Apr. 30, 2025</time>
+                  <p>
+                    <a href="https://matybohacek.com/">Matyas Bohacek</a> presented our paper on an <a href="https://dl.acm.org/doi/10.1145/3744257.3744258">AI-driven video-based ASL dictionary</a> at <a href="https://www.w4a.info/2025/">W4A 2025</a> in Sydney.
+                  </p>
+                </li>
+                <li>
+                  <time>Mar. 21, 2025</time>
+                  <p>
+                    <a href="https://www.cs.cmu.edu/~bam/">Brad Myers</a> visited the lab here in New Orleans to talk about his new book Pick, Click, Flick!: The Story of Interaction Techniques! Talk details <a href="https://sse.tulane.edu/cs/ceai/news"> here</a>.
+                  </p>
+                </li>
+                <li>
+                  <time>Feb. 27, 2025</time>
+                  <p>FSboard, an ASL fingerspelling dataset built with <a href="https://research.google/">Google Research</a> and DPAN, accepted to <a href="https://cvpr.thecvf.com/">CVPR 2025</a>. </p>
+                </li>
+                <li>
+                  <time>Jan. 15, 2025</time>
+                  <p>One paper on multimodal affective captioning with haptics accepted to <a href="https://chi2025.acm.org/">CHI 2025</a> in Yokohama! I also served on the PC and Best Paper Award committee. </p>
+                </li>
+                <li>
+                  <time>Jan. 12, 2025</time>
+                  <p>Received an <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2515250">NSF IUCRC Planning Grant</a> as a Co-PI alongside <a href="https://sse.tulane.edu/cs/aron-culotta">Aron Culotta</a> (PI), <a href="https://www.cs.tulane.edu/~zzheng3/">Zizhan Zheng</a> (Co-PI), <a href="https://www.cs.tulane.edu/~zding1/">Zhengming Ding</a> (Co-PI), and <a href="https://sylvialey.org/">Sylvia Ley</a> (Co-PI) to establish the Tulane University partner site for the Center for Accessible Healthcare through AI-Augmented Decisions ( <a href="https://nsfahead.org/faculty-researchers/">AHeAD</a>). </p>
+                </li>
+                <li>
+                  <time>Jan. 4, 2025</time>
+                  <p>Congrats to <a href="https://www.linkedin.com/in/aaron-gershkovich-46232a2b3/">Aaron Gershkovich</a> for receiving an Honorable Mention for the <a href="https://cra.org/crn/2025/01/recipients-of-the-2024-2025-cra-outstanding-undergraduate-research-award-announced/">>2024-2025 CRA Outstanding Undergraduate Researcher Award</a>! </p>
+                </li>
+                <li>
+                  <time>Nov. 17, 2024</time>
+                  <p>Our journal article exploring video-span selection for ASL learners was published in <a href="https://dl.acm.org/journal/taccess">ACM TACCESS</a>. </p>
+                </li>
+                <li>
+                  <time>Oct. 28, 2024</time>
+                  <p>Attending <a href="https://assets24.sigaccess.org/">ASSETS 2024</a> virtually to present two posters on a rich closed-captioning format and designing for neurodivergent scholars. Also serving as Workshop Chair. </p>
+                </li>
+                <li>
+                  <time>Oct. 19, 2024</time>
+                  <p>Attended <a href="https://www.humancomputation.com/">HCOMP 2024</a> in Pittsburgh and co-organized the <a href="https://tulanecs.github.io/PACE/">PACE workshop</a> with <a href="https://www.motahhare.com/">Motahhare Eslami</a>, <a href="https://www.cs.tulane.edu/~aculotta/">Aron Culotta</a>, <a href="https://sse.tulane.edu/nicholas-mattei">Nick Mattei</a>, and <a href="https://syedamahnoorasad.github.io/">Mah Noor</a>. </p>
+                </li>
+                <li>
+                  <time>Sep. 30, 2024</time>
+                  <p>
+                    <a href="https://www.linkedin.com/in/aaron-gershkovich-46232a2b3/">Aaron Gershkovich</a> presented a poster at the undergraduate symposium.
+                  </p>
+                </li>
+                <li>
+                  <time>Aug. 19, 2024</time>
+                  <p>Thrilled to welcome <a href="https://chaelin0722.github.io/introduction/">Chaelin Kim</a>, <a href="https://tithi-khan.github.io/">Nazmun Nahar Khanom</a>, and <a href="https://syedamahnoorasad.github.io/">Syeda Mah Noor Asad</a> to the lab! </p>
+                </li>
+                <li>
+                  <time>May. 13, 2024</time>
+                  <p>Attending <a href="https://chi2024.acm.org/">CHI 2024</a> in Honolulu, Hawaii 🌺 to present two papers on affective captions and a dance video comprehension tool (both received Honorable Mentions!). Also served on the PC and Best Paper Award committee. </p>
+                </li>
+                <li>
+                  <time>May. 10, 2024</time>
+                  <p>Visited Rochester to officially be hooded for my PhD. a year after defending.</p>
+                </li>
+                <li>
+                  <time>May. 4, 2024</time>
+                  <p>Awarded a Tulane Committee on Research (COR) Fellowship ($5,000) for reading support tools for people who are deaf or hard of hearing.</p>
+                </li>
+                <li>
+                  <time>Apr. 17, 2024</time>
+                  <p>Received a $102,281 <a href="https://www.laregents.edu/wp-content/uploads/2024/04/7.-RSI-Committee-April-24-2024.pdf">Louisiana Board of Regents</a> award as PI for our project, "Enhancing Expressive and Receptive ASL Learning Using AI-Powered Tools". </p>
+                </li>
+                <li>
+                  <time>Apr. 12, 2024</time>
+                  <p>Lab member <a href="https://tithi-khan.github.io/">Nazmun Nahar Khanom</a> presented a demo of AI-based reading support tools at the Tulane Research, Innovation, and Creativity Summit (TRICS). </p>
+                </li>
+                <li>
+                  <time>Feb. 23, 2024</time>
+                  <p>Attended the <a href="https://cra.org/events/early-career-workshop/">CRA Early Career Workshop</a> in Washington, D.C. Met prgram officers and fellow junior tenure track faculty. </p>
+                </li>
+                <li>
+                  <time>Dec. 10, 2023</time>
+                  <p>Attended <a href="https://nips.cc/Conferences/2023">NeurIPS 2023</a> right here in New Orleans. I was part of a paper on sign language data collection for popsign game. </p>
+                </li>
+                <li>
+                  <time>Dec. 28, 2023</time>
+                  <p>Congrats to <a href="https://www.linkedin.com/in/aaron-gershkovich-46232a2b3/">Aaron Gershkovich</a> for winning the "Best Prototype" award at the Annual Undergraduate Poster Session! </p>
+                </li>
+                <li>
+                  <time>Nov. 28, 2023</time>
+                  <p>
+                    <a href="https://old.panlex.org/people/pool.shtml">Jonathan Pool</a> from CVS health visited the lab!
+                  </p>
+                </li>
+                <li>
+                  <time>Nov. 11, 2023</time>
+                  <p>Gave a talk at the inaugural <a href="https://nolajazzmuseum.org/events/2023/11/11/noai">NOAI: 11/11 AI Symposium</a>. </p>
+                </li>
+                <li>
+                  <time>Nov. 7, 2023</time>
+                  <p>My colleague and also recent minted PhD <a href="https://williepayne.com/">Willie Payne</a> visited my lab. </p>
+                </li>
+                <li>
+                  <time>Nov. 2, 2023</time>
+                  <p>Visited Pittsburgh to give a talk at <a href="https://www.duolingo.com/">Duolingo</a> (and <a href="https://www.cmu.edu/">CMU</a>) related to my <a href="https://englishtest.duolingo.com/awards">Duolingo Dissertation Award</a>. </p>
+                </li>
+                <li>
+                  <time>Oct. 23, 2023</time>
+                  <p>Attended <a href="https://assets23.sigaccess.org/">ASSETS 2023</a> to present a demo of an automatic video-based ASL dictionary system and served as Proceedings Chair. </p>
+                </li>
+                <li>
+                  <time>Sep. 14, 2023</time>
+                  <p>Paper from my Google internship with <a href="https://sites.cc.gatech.edu/home/thad/">Thad Starner</a> was accepted at <a href="https://mobilehci.acm.org/2023/">MobileHCI 2023</a>! Thad will present it in Athens, Greence 🇬🇷. </p>
+                </li>
+                <li>
+                  <time>Aug. 1, 2023</time>
+                  <p>Moved to New Orleans to start my tenure-track Assistant Professor position at <a href="https://sse.tulane.edu/cs">Tulane University</a>. </p>
+                </li>
+                <li>
+                  <time>May. 11, 2023</time>
+                  <p>Passed my PhD defense! Hugely grateful to my committee: <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>, <a href="https://www.rit.edu/directory/kxsics-kristen-shinohara">Kristen Shinohara</a>, <a href="https://www.garrethtigwell.com/">Garrett W. Tigwell</a>, and <a href="https://danibragg.com/">Danielle Bragg</a>. </p>
+                </li>
+                <li>
+                  <time>May. 10, 2023</time>
+                  <p>Wrapped up my Student Researcher role at <a href="https://research.google/">Google Research</a>. It was great working with the sign language understanding team over the past two years. </p>
+                </li>
+                <li>
+                  <time>Apr. 30, 2023</time>
+                  <p>Flew straight to Austin to attend <a href="https://www.w4a.info/2023/">W4A</a> and present two papers on visual exploration of TV news and modeling word importance. </p>
+                </li>
+                <li>
+                  <time>Apr. 23, 2023</time>
+                  <p>Attended <a href="https://chi2023.acm.org/">CHI 2023</a> in Hamburg, Germany 🇩🇪 to present a poster on automatically generated emotive captions and served as an Associate Chair for Late-Breaking Work track. </p>
+                </li>
+                <li>
+                  <time>Jan. 20, 2023</time>
+                  <p>Started a new Student Researcher role at <a href="https://research.google/">Google</a> to work on sign language input for mobile devices. </p>
+                </li>
+                <li>
+                  <time>Dec. 15, 2022</time>
+                  <p>Wrapped up my Student Researcher role at <a href="https://tech.facebook.com/reality-labs/">Meta</a>. More details to come. </p>
+                </li>
+                <li>
+                  <time>Nov. 9, 2022</time>
+                  <p>Passed my dissertation proposal and officially became a PhD candidate! Thanks to my committee members for feedback!</p>
+                </li>
+                <li>
+                  <time>Oct. 23, 2022</time>
+                  <p>Attended my first in-person <a href="https://assets22.sigaccess.org/">ASSETS 2022</a> in Athens, Greence 🇬🇷 to present a paper on video-span search for ASL comprehension and a poster on learner preferences for ASL feedback. Also served on the Program Committee for the first time. </p>
+                </li>
+                <li>
+                  <time>Oct. 5, 2022</time>
+                  <p>RIT wrote a nice article about my work: <a href="https://www.rit.edu/news/researching-intersection-computing-and-accessibility">Saad Hassan: Researching at the Intersection of Computing and Accessibility</a>. </p>
+                </li>
+                <li>
+                  <time>Sep. 16, 2022</time>
+                  <p>Thrilled to be one of the six recipients of the <a href="https://blog.duolingo.com/2022-duolingo-research-grant/">2022 Duolingo Dissertation Research Grant</a>! </p>
+                </li>
+                <li>
+                  <time>Sep. 9, 2022</time>
+                  <p>Moved back to Rochester to wrap up my PhD while continuing to work as a Student Researcher for <a href="https://tech.facebook.com/reality-labs/">Meta</a>. </p>
+                </li>
+                <li>
+                  <time>Jun. 20, 2022</time>
+                  <p>Attended (my first) <a href="https://lrec2022.lrec-conf.org/">LREC 2022</a> in Marseille, France 🇫🇷 to present our 2020 and 2022 papers at the <a href="https://latlab.ist.rit.edu/lrec2022/">SLRP workshop</a>. </p>
+                </li>
+                <li>
+                  <time>May. 28, 2022</time>
+                  <p>Our paper on using BERT embeddings to model word importance was accepted to the <a href="https://sites.google.com/view/lt-edi-2022">LT-EDI workshop</a> at ACL 2022. </p>
+                </li>
+                <li>
+                  <time>May. 23, 2022</time>
+                  <p>Started an internship at <a href="https://tech.facebook.com/reality-labs/">Meta Reality Labs</a> in Redmond, WA. Excited to work with the audio experiences team, meet folks in Seattle area, and hike around. </p>
+                </li>
+                <li>
+                  <time>Apr. 30, 2022</time>
+                  <p>Attended (my first) <a href="https://chi2022.acm.org/">CHI 2022</a> in person in New Orleans to present two papers on hybrid sign language dictionary search and a caption-occlusion metric. </p>
+                </li>
+                <li>
+                  <time>Mar. 14, 2022</time>
+                  <p>Presented my work on designing a video-based ASL look-up system at the <a href="https://sigir.org/chiir2022/">CHIIR 2022</a> Doctoral Consortium. </p>
+                </li>
+                <li>
+                  <time>Jan. 11, 2022</time>
+                  <p>Two papers accepted at <a href="https://chi2022.acm.org/">CHI 2022</a>! These are my first papers at CHI after two and a half years as PhD student </p>
+                </li>
+                <li>
+                  <time>Nov. 6, 2021</time>
+                  <p>Had a great time attending <a href="https://2021.emnlp.org/">EMNLP</a> in person in Punta Cana, DR 🇩🇴 presenting our paper on <a href="https://aclanthology.org/2021.findings-emnlp.267/">ableist bias in NLP systems</a>. This is my first in person conference since starting my PhD! Met a lot of NLP/Linguistics people. </p>
+                </li>
+                <li>
+                  <time>Nov. 4, 2021</time>
+                  <p>Our journal article on the effect of sign-recognition performance on the usability of sign-language dictionary search was published in <a href="https://dl.acm.org/journal/taccess">ACM TACCESS</a>. </p>
+                </li>
+                <li>
+                  <time>Oct. 18, 2021</time>
+                  <p>Attended <a href="https://assets21.sigaccess.org/">ASSETS 2021</a> virtually. </p>
+                </li>
+                <li>
+                  <time>Aug. 13, 2021</time>
+                  <p>Finished my summer internship at <a href="https://research.google/">Google AI Research</a>, but continuing as a Student Researcher. </p>
+                </li>
+                <li>
+                  <time>Jul. 24, 2021</time>
+                  <p>Presented a paper on the effect of occlusion on deaf and hard of hearing users’ perception of captioned video quality at the <a href="https://2021.hci.international/">HCII conference</a> (virtually). </p>
+                </li>
+                <li>
+                  <time>May. 17, 2021</time>
+                  <p>Started a research internship at <a href="https://research.google/">Google Research</a>, working with <a href="https://sites.cc.gatech.edu/home/thad/">Thad Starner</a>, <a href="https://research.google/people/george-sung/">George Sung</a>, and <a href="https://www.linkedin.com/in/mgeorg/">Manfred Georg</a>. I will be working on sign language understanding and data collection. </p>
+                </li>
+                <li>
+                  <time>May. 5, 2021</time>
+                  <p>Received the Language Science and Computational Linguistics Student Excellence Award!</p>
+                </li>
+                <li>
+                  <time>Apr. 19, 2021</time>
+                  <p>Attended the <a href="https://www.w4a.info/2021/">W4A 2021</a> conference and was part of a paper on <a href="https://dl.acm.org/doi/10.1145/3430263.3452429">caption occlusion severity judgments</a>. </p>
+                </li>
+                <li>
+                  <time>Oct. 6, 2020</time>
+                  <p>Attended (my first) <a href="https://assets20.sigaccess.org/">ASSETS</a> conference virtually. </p>
+                </li>
+                <li>
+                  <time>Aug. 23, 2020</time>
+                  <p>Presented a short paper on a search-by-video sign-language look-up dictionary at the <a href="https://www.slrtp.com/">ECCV SLRTP workshop</a>. Presented it virtually from a campsite near Lake George :) </p>
+                </li>
+                <li>
+                  <time>May. 6, 2020</time>
+                  <p>Passed my RPA (Research Potential Assessment) exam!</p>
+                </li>
+                <li>
+                  <time>Apr. 16, 2020</time>
+                  <p>Our dataset paper was accepted to the <a href="https://lrec2020.lrec-conf.org/">LREC</a> SLRP workshop. Unfortunately, the workshop got cancelled due to the Covic pandemic. </p>
+                </li>
+                <li>
+                  <time>Aug. 12, 2019</time>
+                  <p>Moved to Rochester, NY to start my PhD with <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a> at the <a href="http://cair.rit.edu/">CAIR Lab</a>. Had a great week road tripping and hiking in beautiful finger lakes region. </p>
+                </li>
+              </ul>
+              <p style="margin-top: 12px; margin-bottom: 0;">
+                <button type="button" onclick="this.closest('details').open = false; document.getElementById('news').scrollIntoView({behavior: 'smooth'});" style="background: none; border: none; padding: 0; font: inherit; font-size: 13.5px; color: var(--muted); cursor: pointer; margin-top: 12px; display: block;">▲ Show less</button>
+              </p>
             </details>
-          </li>
-        </ul>
-
-        <p class="sub">Outside</p>
-        <h4 class="service-category">CHI</h4>
-        <ul>
-          <li>
-            Associate Chair
-            <div class="sub">
-              <a href="https://chi2027.acm.org/authors/papers/program-committee/">2027</a>,
-              <a href="https://chi2026.acm.org/authors/papers/selecting-a-subcommittee/">2026</a>,
-              <a href="https://chi2025.acm.org/subcommittees/selecting-a-subcommittee/">2025</a>,
-              <a href="https://chi2024.acm.org/subcommittees/selecting-a-subcommittee/">2024</a>,
-              2023 <small>(LBW)</small>
-            </div>
-          </li>
-          <li>Best Paper Committee <span class="sub">2024–2026</span></li>
-        </ul>
-
-        <h4 class="service-category">ASSETS</h4>
-        <ul>
-          <li>
-            Org. Committee
-            <div class="sub">
-              <a href="https://assets24.sigaccess.org/committees/organizing/">Workshops '24</a>, 
-              <a href="https://assets23.sigaccess.org/organizing-committee.html">Proceedings '23</a>
-            </div>
-          </li>
-          <li>
-            Program Committee
-            <div class="sub">
-              <a href="https://assets26.sigaccess.org/program_committee.html">2026</a>,
-              <a href="https://assets25.sigaccess.org/program_committee.html">2025</a>,
-              <a href="https://assets24.sigaccess.org/committees/program/">2024</a>,
-              <a href="https://assets23.sigaccess.org/program-committee.html">2023</a>,
-              <a href="https://assets22.sigaccess.org/program-committee.html">2022</a>
-            </div>
-          </li>
-        </ul>
-
-        <h4 class="service-category">Other Roles</h4>
-        <ul>
-          <li>EMNLP Area Chair <span class="sub">2023</span></li>
-          <li>
-            Grant Review
-            <div class="sub">NSF Panels <small>(<a href="https://www.nsf.gov/funding/opportunities/hcc-human-centered-computing">HCC</a>, <a href="https://seedfund.nsf.gov/">SBIR/STTR</a>)</small></div>
-          </li>
-          <li>
-            Workshops Organized
-            <div class="sub">
-              <a href="https://tulanecs.github.io/PACE/">PACE '24</a> <small>(HCOMP)</small>
-            </div>
-            <div class="sub">
-              <a href="https://assets-recruitment-2025.github.io/">Participant Recruitment '25</a> <small>(ASSETS)</small>
-            </div>
-          </li>
-          <li>
-            <details>
-              <summary style="cursor: pointer;">Peer Review</summary>
-              <div class="sub" style="line-height: 1.4; margin-top: 4px;">
-                <strong>Journals:</strong> ACM TACCESS, PACM IMWUT, IEEE TVCG, IJHCI, Research in Developmental Disabilities.<br>
-                <strong>Conferences:</strong> CHI, CSCW, ASSETS, DIS, IUI, HRI, VR, ICWSM, ISWC, ETRA, CHI PLAY, NORDICHI, OzCHI, IDC.<br>
-                <strong>Ethics:</strong> ACL, NAACL.
-              </div>
-            </details>
-          </li>
-        </ul>
-      </div>
-    </aside>
-
-    <!-- ================= MAIN ================= -->
-    <main class="main">
-
-      <!-- ---------- News (newest first; older items go inside <details>) ---------- -->
-      <section id="news">
-        <h2>News</h2>
-        <ul class="news">
-          <li><time>Jul. 26, 2026</time><p>New $899,868 collaborative <a href="https://www.nsf.gov/awardsearch/show-award?AWD_ID=2619509">NSF award</a>, with me as PI: Designing Civic AI to Connect Residents, Communities, and Local Governments. Joint with <a href="https://www.cs.tulane.edu/~aculotta/">Aron Culotta</a>, <a href="https://sse.tulane.edu/nicholas-mattei">Nicholas Mattei</a>, and Carnegie Mellon University colleagues <a href="https://www.motahhare.com/">Motahhare Eslami</a> and <a href="https://www.cs.cmu.edu/~johnz/">John Zimmerman</a>.</p></li>
-          <li><time>Jun. 24, 2026</time><p>Two papers and a demo accepted to <a href="https://assets26.sigaccess.org/">ASSETS 2026</a>: a scoping review of accessible data visualization research, plus an ASL video comprehension tool and demo led by <a href="https://chaelin0722.github.io/introduction/">Chaelin Kim</a>.</p></li>
-          <li><time>Jun. 10, 2026</time><p>Awarded three internal grants totaling ~$26,000, including the Jurist Summer Fellowship in AI, the Data, AI, and Community Research Grant, and the Lavin-Bernick Grant, to support research on AI-based reading support tools and accessible personal health visualizations.</p></li>
-          <li><time>Apr. 3, 2026</time><p>Paper on ASL educators’ perspectives on AI accepted to <a href="https://chi2026.acm.org/">CHI 2026</a>. Will present it at the conference in Barcelona, Spain 🇪🇸!</p></li>
-        </ul>
-        <details class="more">
-          <summary>Earlier news</summary>
-          <ul class="news">
-            <li><time>Jan. 15, 2026</time><p>Congrats to former lab member <a href="https://www.linkedin.com/in/nikhil-modayur">Nikhil Modayur</a> for receiving an Honorable Mention for the <a href="https://cra.org/about/awards/outstanding-undergraduate-researcher-award/">2026 CRA Outstanding Undergraduate Researcher Award</a>!</p></li>
-            <li><time>Oct. 25, 2025</time><p>Attending <a href="https://assets25.sigaccess.org/">ASSETS 2025</a> in Denver to present one paper on reading support technologies and two demos.</p></li>
-            <li><time>Aug. 1, 2025</time><p>Two demos accepted to <a href="https://assets25.sigaccess.org/">ASSETS 2025</a>, led by <a href="https://chaelin0722.github.io/introduction/">Chaelin Kim</a> and <a href="https://tithi-khan.github.io/">Nazmun Nahar Khanom</a>, on text simplification and an ASL learning tool for EMS. Will be presented at the conference in Denver!</p></li>
-            <li><time>Jun. 25, 2025</time><p>Our workshop on participant recruitment in accessibility research was accepted to <a href="https://assets25.sigaccess.org/">ASSETS 2025</a>.</p></li>
-            <li><time>Jun. 19, 2025</time><p>Our review of reading support tools, with <a href="https://oliveralonzo.com/">Oliver Alonzo</a>, was accepted to <a href="https://assets25.sigaccess.org/">ASSETS 2025</a> and nominated for Best Paper.</p></li>
-            <li><time>May. 18, 2025</time><p>Received two internal grants totaling ~$18,500: a Carol Lavin Bernick Faculty Grant ($10,000) for an AI-powered ASL learning platform and a Community-Engaged AI Summer Research Program grant ($8,500) to build a public accessibility barrier dashboard.</p></li>
-            <li><time>Apr. 30, 2025</time><p><a href="https://matybohacek.com/">Matyas Bohacek</a> presented our paper on an <a href="https://dl.acm.org/doi/10.1145/3744257.3744258">AI-driven video-based ASL dictionary</a> at <a href="https://www.w4a.info/2025/">W4A 2025</a> in Sydney.</p></li>
-            <li><time>Mar. 21, 2025</time><p><a href="https://www.cs.cmu.edu/~bam/">Brad Myers</a> visited the lab here in New Orleans to talk about his new book Pick, Click, Flick!: The Story of Interaction Techniques! Talk details <a href="https://sse.tulane.edu/cs/ceai/news"> here</a>.</p></li>
-            <li><time>Feb. 27, 2025</time><p>FSboard, an ASL fingerspelling dataset built with <a href="https://research.google/">Google Research</a> and DPAN, accepted to <a href="https://cvpr.thecvf.com/">CVPR 2025</a>.</p></li>
-            <li><time>Jan. 15, 2025</time><p>One paper on multimodal affective captioning with haptics accepted to <a href="https://chi2025.acm.org/">CHI 2025</a> in Yokohama! I also served on the PC and Best Paper Award committee.</p></li>
-            <li><time>Jan. 12, 2025</time><p>Received an <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2515250">NSF IUCRC Planning Grant</a> as a Co-PI alongside <a href="https://sse.tulane.edu/cs/aron-culotta">Aron Culotta</a> (PI), <a href="https://www.cs.tulane.edu/~zzheng3/">Zizhan Zheng</a> (Co-PI), <a href="https://www.cs.tulane.edu/~zding1/">Zhengming Ding</a> (Co-PI), and <a href="https://sylvialey.org/">Sylvia Ley</a> (Co-PI) to establish the Tulane University partner site for the Center for Accessible Healthcare through AI-Augmented Decisions (<a href="https://nsfahead.org/faculty-researchers/">AHeAD</a>).</p></li>
-            <li><time>Jan. 4, 2025</time><p>Congrats to <a href="https://www.linkedin.com/in/aaron-gershkovich-46232a2b3/">Aaron Gershkovich</a> for receiving an Honorable Mention for the <a href="https://cra.org/crn/2025/01/recipients-of-the-2024-2025-cra-outstanding-undergraduate-research-award-announced/">>2024-2025 CRA Outstanding Undergraduate Researcher Award</a>!</p></li>
-            <li><time>Nov. 17, 2024</time><p>Our journal article exploring video-span selection for ASL learners was published in <a href="https://dl.acm.org/journal/taccess">ACM TACCESS</a>.</p></li>
-            <li><time>Oct. 28, 2024</time><p>Attending <a href="https://assets24.sigaccess.org/">ASSETS 2024</a> virtually to present two posters on a rich closed-captioning format and designing for neurodivergent scholars. Also serving as Workshop Chair.</p></li>
-            <li><time>Oct. 19, 2024</time><p>Attended <a href="https://www.humancomputation.com/">HCOMP 2024</a> in Pittsburgh and co-organized the <a href="https://tulanecs.github.io/PACE/">PACE workshop</a> with <a href="https://www.motahhare.com/">Motahhare Eslami</a>, <a href="https://www.cs.tulane.edu/~aculotta/">Aron Culotta</a>, <a href="https://sse.tulane.edu/nicholas-mattei">Nick Mattei</a>, and <a href="https://syedamahnoorasad.github.io/">Mah Noor</a>.</p></li>
-            <li><time>Sep. 30, 2024</time><p><a href="https://www.linkedin.com/in/aaron-gershkovich-46232a2b3/">Aaron Gershkovich</a> presented a poster at the undergraduate symposium.</p></li>
-            <li><time>Aug. 19, 2024</time><p>Thrilled to welcome <a href="https://chaelin0722.github.io/introduction/">Chaelin Kim</a>, <a href="https://tithi-khan.github.io/">Nazmun Nahar Khanom</a>, and <a href="https://syedamahnoorasad.github.io/">Syeda Mah Noor Asad</a> to the lab!</p></li>
-            <li><time>May. 13, 2024</time><p>Attending <a href="https://chi2024.acm.org/">CHI 2024</a> in Honolulu, Hawaii 🌺 to present two papers on affective captions and a dance video comprehension tool (both received Honorable Mentions!). Also served on the PC and Best Paper Award committee.</p></li>
-            <li><time>May. 10, 2024</time><p>Visited Rochester to officially be hooded for my PhD. a year after defending.</p></li>
-            <li><time>May. 4, 2024</time><p>Awarded a Tulane Committee on Research (COR) Fellowship ($5,000) for reading support tools for people who are deaf or hard of hearing.</p></li>
-            <li><time>Apr. 17, 2024</time><p>Received a $102,281 <a href="https://www.laregents.edu/wp-content/uploads/2024/04/7.-RSI-Committee-April-24-2024.pdf">Louisiana Board of Regents</a> award as PI for our project, "Enhancing Expressive and Receptive ASL Learning Using AI-Powered Tools".</p></li>
-            <li><time>Apr. 12, 2024</time><p>Lab member <a href="https://tithi-khan.github.io/">Nazmun Nahar Khanom</a> presented a demo of AI-based reading support tools at the Tulane Research, Innovation, and Creativity Summit (TRICS).</p></li>
-            <li><time>Feb. 23, 2024</time><p>Attended the <a href="https://cra.org/events/early-career-workshop/">CRA Early Career Workshop</a> in Washington, D.C. Met prgram officers and fellow junior tenure track faculty.</p></li>
-            <li><time>Dec. 10, 2023</time><p>Attended <a href="https://nips.cc/Conferences/2023">NeurIPS 2023</a> right here in New Orleans. I was part of a paper on sign language data collection for popsign game.</p></li>
-            <li><time>Dec. 28, 2023</time><p>Congrats to <a href="https://www.linkedin.com/in/aaron-gershkovich-46232a2b3/">Aaron Gershkovich</a> for winning the "Best Prototype" award at the Annual Undergraduate Poster Session!</p></li>
-            <li><time>Nov. 28, 2023</time><p><a href="https://old.panlex.org/people/pool.shtml">Jonathan Pool</a> from CVS health visited the lab!</p></li>
-            <li><time>Nov. 11, 2023</time><p>Gave a talk at the inaugural <a href="https://nolajazzmuseum.org/events/2023/11/11/noai">NOAI: 11/11 AI Symposium</a>.</p></li>
-            <li><time>Nov. 7, 2023</time><p>My colleague and also recent minted PhD <a href="https://williepayne.com/">Willie Payne</a> visited my lab.</p></li>
-            <li><time>Nov. 2, 2023</time><p>Visited Pittsburgh to give a talk at <a href="https://www.duolingo.com/">Duolingo</a> (and <a href="https://www.cmu.edu/">CMU</a>) related to my <a href="https://englishtest.duolingo.com/awards">Duolingo Dissertation Award</a>.</p></li>
-            <li><time>Oct. 23, 2023</time><p>Attended <a href="https://assets23.sigaccess.org/">ASSETS 2023</a> to present a demo of an automatic video-based ASL dictionary system and served as Proceedings Chair.</p></li>
-            <li><time>Sep. 14, 2023</time><p>Paper from my Google internship with <a href="https://sites.cc.gatech.edu/home/thad/">Thad Starner</a> was accepted at <a href="https://mobilehci.acm.org/2023/">MobileHCI 2023</a>! Thad will present it in Athens, Greence 🇬🇷.</p></li>
-            <li><time>Aug. 1, 2023</time><p>Moved to New Orleans to start my tenure-track Assistant Professor position at <a href="https://sse.tulane.edu/cs">Tulane University</a>.</p></li>
-            <li><time>May. 11, 2023</time><p>Passed my PhD defense! Hugely grateful to my committee: <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>, <a href="https://www.rit.edu/directory/kxsics-kristen-shinohara">Kristen Shinohara</a>, <a href="https://www.garrethtigwell.com/">Garrett W. Tigwell</a>, and <a href="https://danibragg.com/">Danielle Bragg</a>.</p></li>
-            <li><time>May. 10, 2023</time><p>Wrapped up my Student Researcher role at <a href="https://research.google/">Google Research</a>. It was great working with the sign language understanding team over the past two years.</p></li>
-            <li><time>Apr. 30, 2023</time><p>Flew straight to Austin to attend <a href="https://www.w4a.info/2023/">W4A</a> and present two papers on visual exploration of TV news and modeling word importance.</p></li>
-            <li><time>Apr. 23, 2023</time><p>Attended <a href="https://chi2023.acm.org/">CHI 2023</a> in Hamburg, Germany 🇩🇪 to present a poster on automatically generated emotive captions and served as an Associate Chair for Late-Breaking Work track.</p></li>
-            <li><time>Jan. 20, 2023</time><p>Started a new Student Researcher role at <a href="https://research.google/">Google</a> to work on sign language input for mobile devices.</p></li>
-            <li><time>Dec. 15, 2022</time><p>Wrapped up my Student Researcher role at <a href="https://tech.facebook.com/reality-labs/">Meta</a>. More details to come.</p></li>
-            <li><time>Nov. 9, 2022</time><p>Passed my dissertation proposal and officially became a PhD candidate! Thanks to my committee members for feedback!</p></li>
-            <li><time>Oct. 23, 2022</time><p>Attended my first in-person <a href="https://assets22.sigaccess.org/">ASSETS 2022</a> in Athens, Greence 🇬🇷 to present a paper on video-span search for ASL comprehension and a poster on learner preferences for ASL feedback. Also served on the Program Committee for the first time.</p></li>
-            <li><time>Oct. 5, 2022</time><p>RIT wrote a nice article about my work: <a href="https://www.rit.edu/news/researching-intersection-computing-and-accessibility">Saad Hassan: Researching at the Intersection of Computing and Accessibility</a>.</p></li>
-            <li><time>Sep. 16, 2022</time><p>Thrilled to be one of the six recipients of the <a href="https://blog.duolingo.com/2022-duolingo-research-grant/">2022 Duolingo Dissertation Research Grant</a>!</p></li>
-            <li><time>Sep. 9, 2022</time><p>Moved back to Rochester to wrap up my PhD while continuing to work as a Student Researcher for <a href="https://tech.facebook.com/reality-labs/">Meta</a>.</p></li>
-            <li><time>Jun. 20, 2022</time><p>Attended (my first) <a href="https://lrec2022.lrec-conf.org/">LREC 2022</a> in Marseille, France 🇫🇷 to present our 2020 and 2022 papers at the <a href="https://latlab.ist.rit.edu/lrec2022/">SLRP workshop</a>.</p></li>
-            <li><time>May. 28, 2022</time><p>Our paper on using BERT embeddings to model word importance was accepted to the <a href="https://sites.google.com/view/lt-edi-2022">LT-EDI workshop</a> at ACL 2022.</p></li>
-            <li><time>May. 23, 2022</time><p>Started an internship at <a href="https://tech.facebook.com/reality-labs/">Meta Reality Labs</a> in Redmond, WA. Excited to work with the audio experiences team, meet folks in Seattle area, and hike around.</p></li>
-            <li><time>Apr. 30, 2022</time><p>Attended (my first) <a href="https://chi2022.acm.org/">CHI 2022</a> in person in New Orleans to present two papers on hybrid sign language dictionary search and a caption-occlusion metric.</p></li>
-            <li><time>Mar. 14, 2022</time><p>Presented my work on designing a video-based ASL look-up system at the <a href="https://sigir.org/chiir2022/">CHIIR 2022</a> Doctoral Consortium.</p></li>
-            <li><time>Jan. 11, 2022</time><p>Two papers accepted at <a href="https://chi2022.acm.org/">CHI 2022</a>! These are my first papers at CHI after two and a half years as PhD student</p></li>
-            <li><time>Nov. 6, 2021</time><p>Had a great time attending <a href="https://2021.emnlp.org/">EMNLP</a> in person in Punta Cana, DR 🇩🇴 presenting our paper on <a href="https://aclanthology.org/2021.findings-emnlp.267/">ableist bias in NLP systems</a>. This is my first in person conference since starting my PhD! Met a lot of NLP/Linguistics people.</p></li>
-            <li><time>Nov. 4, 2021</time><p>Our journal article on the effect of sign-recognition performance on the usability of sign-language dictionary search was published in <a href="https://dl.acm.org/journal/taccess">ACM TACCESS</a>.</p></li>
-            <li><time>Oct. 18, 2021</time><p>Attended <a href="https://assets21.sigaccess.org/">ASSETS 2021</a> virtually.</p></li>
-            <li><time>Aug. 13, 2021</time><p>Finished my summer internship at <a href="https://research.google/">Google AI Research</a>, but continuing as a Student Researcher.</p></li>
-            <li><time>Jul. 24, 2021</time><p>Presented a paper on the effect of occlusion on deaf and hard of hearing users’ perception of captioned video quality at the <a href="https://2021.hci.international/">HCII conference</a> (virtually).</p></li>
-            <li><time>May. 17, 2021</time><p>Started a research internship at <a href="https://research.google/">Google Research</a>, working with <a href="https://sites.cc.gatech.edu/home/thad/">Thad Starner</a>, <a href="https://research.google/people/george-sung/">George Sung</a>, and <a href="https://www.linkedin.com/in/mgeorg/">Manfred Georg</a>. I will be working on sign language understanding and data collection.</p></li>
-            <li><time>May. 5, 2021</time><p>Received the Language Science and Computational Linguistics Student Excellence Award!</p></li>
-            <li><time>Apr. 19, 2021</time><p>Attended the <a href="https://www.w4a.info/2021/">W4A 2021</a> conference and was part of a paper on <a href="https://dl.acm.org/doi/10.1145/3430263.3452429">caption occlusion severity judgments</a>.</p></li>
-            <li><time>Oct. 6, 2020</time><p>Attended (my first) <a href="https://assets20.sigaccess.org/">ASSETS</a> conference virtually.</p></li>
-            <li><time>Aug. 23, 2020</time><p>Presented a short paper on a search-by-video sign-language look-up dictionary at the <a href="https://www.slrtp.com/">ECCV SLRTP workshop</a>. Presented it virtually from a campsite near Lake George :)</p></li>
-            <li><time>May. 6, 2020</time><p>Passed my RPA (Research Potential Assessment) exam!</p></li>
-            <li><time>Apr. 16, 2020</time><p>Our dataset paper was accepted to the <a href="https://lrec2020.lrec-conf.org/">LREC</a> SLRP workshop. Unfortunately, the workshop got cancelled due to the Covic pandemic.</p></li>
-            <li><time>Aug. 12, 2019</time><p>Moved to Rochester, NY to start my PhD with <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a> at the <a href="http://cair.rit.edu/">CAIR Lab</a>. Had a great week road tripping and hiking in beautiful finger lakes region.</p></li>
-          </ul>
-        </details>
-      </section>
-      <!-- ---------- Publications ----------
+          </section>
+          <!-- ---------- Publications ----------
            To add a paper: copy one <div class="paper"> block and edit it.
            Type tags (empirical papers get long/short; commentary/dissertation/etc. use journal/other as fits):
              long short journal dataset workshop other
            Venue tags: chi pacm hci-other assets w4a taccess cvpr neurips emnlp lrec ai-other
            Links always go in this order: PDF, publisher, Slides (or Presentation), Video, Website, Poster, BibTeX. Leave out any you don't have. -->
-      <section id="publications">
-        <h2>Publications</h2>
-        <div class="filters-wrap">
-          <div class="altbar" role="group" aria-label="Filter publications">
-            <button type="button" data-tag="all" aria-pressed="true">All</button>
-            <details class="menu">
-              <summary>Type</summary>
-              <div class="menupanel">
-                <button type="button" data-tag="long" aria-pressed="false">Long</button>
-                <button type="button" data-tag="short" aria-pressed="false">Short</button>
-                <button type="button" data-tag="journal" aria-pressed="false">Journals</button>
-                <button type="button" data-tag="bookchapter" aria-pressed="false">Book Chapter</button>
-                <button type="button" data-tag="dataset" aria-pressed="false">Datasets</button>
-                <button type="button" data-tag="workshop" aria-pressed="false">Workshops</button>
-                <button type="button" data-tag="other" aria-pressed="false">Other</button>
+          <section id="publications">
+            <h2>Publications</h2>
+            <div class="filters-wrap">
+              <div class="altbar" role="group" aria-label="Filter publications">
+                <button type="button" data-tag="all" aria-pressed="true">All</button>
+                <details class="menu">
+                  <summary>Type</summary>
+                  <div class="menupanel">
+                    <button type="button" data-tag="long" aria-pressed="false">Long</button>
+                    <button type="button" data-tag="short" aria-pressed="false">Short</button>
+                    <button type="button" data-tag="journal" aria-pressed="false">Journals</button>
+                    <button type="button" data-tag="bookchapter" aria-pressed="false">Book Chapter</button>
+                    <button type="button" data-tag="dataset" aria-pressed="false">Datasets</button>
+                    <button type="button" data-tag="workshop" aria-pressed="false">Workshops</button>
+                    <button type="button" data-tag="other" aria-pressed="false">Other</button>
+                  </div>
+                </details>
+                <span class="barlabel">Venue</span>
+                <details class="menu venuechip">
+                  <summary>Accessibility</summary>
+                  <div class="menupanel">
+                    <button type="button" data-tag="assets" aria-pressed="false">ASSETS</button>
+                    <button type="button" data-tag="w4a" aria-pressed="false">W4A</button>
+                    <button type="button" data-tag="taccess" aria-pressed="false">TACCESS</button>
+                  </div>
+                </details>
+                <details class="menu venuechip">
+                  <summary>HCI</summary>
+                  <div class="menupanel">
+                    <button type="button" data-tag="chi" aria-pressed="false">CHI</button>
+                    <button type="button" data-tag="pacm" aria-pressed="false">PACM</button>
+                    <button type="button" data-tag="hci-other" aria-pressed="false">Other</button>
+                  </div>
+                </details>
+                <details class="menu venuechip">
+                  <summary>AI</summary>
+                  <div class="menupanel">
+                    <button type="button" data-tag="cvpr" aria-pressed="false">CVPR</button>
+                    <button type="button" data-tag="neurips" aria-pressed="false">NeurIPS</button>
+                    <button type="button" data-tag="emnlp" aria-pressed="false">EMNLP</button>
+                    <button type="button" data-tag="lrec" aria-pressed="false">LREC</button>
+                    <button type="button" data-tag="ai-other" aria-pressed="false">Other</button>
+                  </div>
+                </details>
               </div>
-            </details>
-            <span class="barlabel">Venue</span>
-            <details class="menu venuechip">
-              <summary>Accessibility</summary>
-              <div class="menupanel">
-                <button type="button" data-tag="assets" aria-pressed="false">ASSETS</button>
-                <button type="button" data-tag="w4a" aria-pressed="false">W4A</button>
-                <button type="button" data-tag="taccess" aria-pressed="false">TACCESS</button>
+            </div>
+            <div class="year">
+              <h3>2026</h3>
+              <div class="paper" data-tags="assets long">
+                <img class="thumb" src="papers/hassan-assets26/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">ASSETS 2026</div>
+                  <a class="title" href="papers/hassan-assets26/hassan-assets26.pdf">A Scoping Review of Human–Computer Interaction Research on the Accessibility of Data Visualizations: New Technologies, Procedures, and Designs</a>
+                  <div class="authors">
+                    <b>Saad Hassan</b>, <a href="https://areenkh.com/">Areen Khalaila</a>, <a href="https://dylancashman.github.io/ ">Dylan Cashman</a>, <a href="https://athersharif.me/">Ather Sharif</a>, <a href="https://rjfaust.github.io/">Rebecca Faust</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/hassan-assets26/hassan-assets26.pdf">Preprint</a>
+                    <a href="https://accessvizcorpus.pages.dev/">Corpus</a>
+                  </div>
+                </div>
               </div>
-            </details>
-            <details class="menu venuechip">
-              <summary>HCI</summary>
-              <div class="menupanel">
-                <button type="button" data-tag="chi" aria-pressed="false">CHI</button>
-                <button type="button" data-tag="pacm" aria-pressed="false">PACM</button>
-                <button type="button" data-tag="hci-other" aria-pressed="false">Other</button>
+              <div class="paper" data-tags="assets long">
+                <img class="thumb" src="papers/kim-assets26/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">ASSETS 2026</div>
+                  <a class="title" href="papers/kim-assets26/kim-assets26.pdf">Design and Evaluation of an AI-Based American Sign Language Video Comprehension Tool: Exploring the Benefits and Use of Automatic Segmentation and Sign Lookup</a>
+                  <div class="authors">
+                    <a href="https://chaelin0722.github.io/introduction/">Chaelin Kim</a>, <a href="https://liberalarts.tulane.edu/linguistics/people/faculty/denise-crochet">Denise Crochet</a>, <a href="https://matybohacek.com/">Maty Bohacek</a>, <b>Saad Hassan</b>
+                  </div>
+                  <div class="links">
+                    <a href="papers/kim-assets26/kim-assets26.pdf">Preprint</a>
+                    <a href="https://github.com/chaelin0722/asl-video-lookup-tool">Code</a>
+                  </div>
+                </div>
               </div>
-            </details>
-            <details class="menu venuechip">
-              <summary>AI</summary>
-              <div class="menupanel">
-                <button type="button" data-tag="cvpr" aria-pressed="false">CVPR</button>
-                <button type="button" data-tag="neurips" aria-pressed="false">NeurIPS</button>
-                <button type="button" data-tag="emnlp" aria-pressed="false">EMNLP</button>
-                <button type="button" data-tag="lrec" aria-pressed="false">LREC</button>
-                <button type="button" data-tag="ai-other" aria-pressed="false">Other</button>
+              <div class="paper" data-tags="bookchapter">
+                <img class="thumb" src="papers/hassan-degruyter26/featured.jpeg" alt="" loading="lazy">
+                <div>
+                  <div class="venue">De Gruyter · Book Chapter</div>
+                  <a class="title" href="https://books.google.com/books/about/De_Gruyter_Handbook_of_Disruptive_Urban.html?id=xc8O0gEACAAJ">AI in the Public Sphere: Citizen Engagement and Governance</a>
+                  <div class="authors">
+                    <b>Saad Hassan</b>, <a href="https://www.motahhare.com/">Motahhare Eslami</a>, <a href="https://www.nicholasmattei.net/">Nicholas Mattei</a>, <a href="https://www.cs.tulane.edu/~aculotta/">Aron Culotta</a>, <a href="https://www.cs.cmu.edu/~johnz/">John Zimmerman</a>
+                  </div>
+                  <div class="links">
+                    <a href="https://books.google.com/books/about/De_Gruyter_Handbook_of_Disruptive_Urban.html?id=xc8O0gEACAAJ">Publisher</a>
+                  </div>
+                </div>
               </div>
-            </details>
-          </div>
-        </div>
-
-        <div class="year">
-          <h3>2026</h3>
-          <div class="paper" data-tags="assets long">
-            <img class="thumb" src="papers/hassan-assets26/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">ASSETS 2026</div>
-              <a class="title" href="papers/hassan-assets26/hassan-assets26.pdf">A Scoping Review of Human–Computer Interaction Research on the Accessibility of Data Visualizations: New Technologies, Procedures, and Designs</a>
-              <div class="authors"><b>Saad Hassan</b>, <a href="https://areenkh.com/">Areen Khalaila</a>, <a href="https://dylancashman.github.io/ ">Dylan Cashman</a>, <a href="https://athersharif.me/">Ather Sharif</a>, <a href="https://rjfaust.github.io/">Rebecca Faust</a></div>
-              <div class="links"><a href="papers/hassan-assets26/hassan-assets26.pdf">Preprint</a><a href="https://accessvizcorpus.pages.dev/">Corpus</a></div>
+              <div class="paper" data-tags="journal">
+                <img class="thumb" src="papers/allouch-ajpc26/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">AJPC 2026 · Commentary</div>
+                  <a class="title" href="papers/allouch-ajpc26/allouch-ajpc26.pdf">Reducing hypertension disparities: The potential role of patient-facing large language models</a>
+                  <div class="authors">Farah Allouch, <b>Saad Hassan</b>, Flor Alvarado, <a href="https://syedamahnoorasad.github.io/">Syeda Mah Noor Asad</a>, Dee Parekh, Renata Johnson, Marilyn Payne, David Gardner, <a href="https://sse.tulane.edu/nicholas-mattei">Nicholas Mattei</a>, Keith C. Ferdinand </div>
+                  <div class="links">
+                    <a href="papers/allouch-ajpc26/allouch-ajpc26.pdf">PDF</a>
+                    <a href="https://doi.org/10.1016/j.ajpc.2026.101813">DOI</a>
+                    <a href="papers/allouch-ajpc26/allouch26.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="chi long">
+                <img class="thumb" src="papers/hassan-chi26/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">CHI 2026</div>
+                  <a class="title" href="papers/hassan-chi26/hassan-chi26.pdf">ASL Educators’ Perspectives on AI for Enhancing Student Learning in American Sign Language Education</a>
+                  <div class="authors">
+                    <b>Saad Hassan</b>, <a href="https://www.linkedin.com/in/laleh-nourian-a88ba3129/">Laleh Nourian</a>, <a href="https://www.caluapataca.com/">Caluã de Lacerda Pataca</a>, Michelle M. Olson, Toni D’Aurio, Kanupriya Agarwal, <a href="https://syedamahnoorasad.github.io/">Syeda Mah Noor Asad</a>, <a href="https://www.garrethtigwell.com/">Garreth W. Tigwell</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/hassan-chi26/hassan-chi26.pdf">PDF</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3772318.3791928">ACM DL</a>
+                    <a href="papers/hassan-chi26/slides.pdf">Slides</a>
+                    <a href="papers/hassan-chi26/hassan26.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="paper" data-tags="assets long">
-            <img class="thumb" src="papers/kim-assets26/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">ASSETS 2026</div>
-              <a class="title" href="papers/kim-assets26/kim-assets26.pdf">Design and Evaluation of an AI-Based American Sign Language Video Comprehension Tool: Exploring the Benefits and Use of Automatic Segmentation and Sign Lookup</a>
-              <div class="authors"><a href="https://chaelin0722.github.io/introduction/">Chaelin Kim</a>, <a href="https://liberalarts.tulane.edu/linguistics/people/faculty/denise-crochet">Denise Crochet</a>, <a href="https://matybohacek.com/">Maty Bohacek</a>, <b>Saad Hassan</b></div>
-              <div class="links"><a href="papers/kim-assets26/kim-assets26.pdf">Preprint</a><a href="https://github.com/chaelin0722/asl-video-lookup-tool">Code</a></div>
+            <div class="year">
+              <h3>2025</h3>
+              <div class="paper" data-tags="assets short">
+                <img class="thumb" src="papers/khanom-assets25/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">ASSETS 2025 · Demo</div>
+                  <a class="title" href="papers/khanom-assets25/khanom-assets25.pdf">A Customizable AI-Powered Automatic Text Simplification Tool for Supporting In-Situ Text Comprehension</a>
+                  <div class="authors">
+                    <a href="https://tithi-khan.github.io/">Nazmun Nahar Khanom</a>, <a href="https://www.linkedin.com/in/aaron-gershkovich-46232a2b3/">Aaron Gershkovich</a>, <a href="https://oliveralonzo.com/">Oliver Alonzo</a>, <b>Saad Hassan</b>
+                  </div>
+                  <div class="links">
+                    <a href="papers/khanom-assets25/khanom-assets25.pdf">PDF</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3663547.3759713">ACM DL</a>
+                    <a href="https://github.com/TITHI-KHAN/ATS-GPT">Code</a>
+                    <a href="papers/khanom-assets25/poster.pdf">Poster</a>
+                    <a href="papers/khanom-assets25/khanom25.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="assets short">
+                <img class="thumb" src="papers/kim-assets25/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">ASSETS 2025 · Demo</div>
+                  <a class="title" href="papers/kim-assets25/kim-assets25.pdf">Signing for Care: A Demo and Initial Evaluation of an American Sign Language Learning Tool for Emergency Medical Service Providers</a>
+                  <div class="authors">
+                    <a href="https://chaelin0722.github.io/introduction/">Chaelin Kim</a>, Cameron McLaren, Madhangi Krishnan, Nikhil Modayur, <b>Saad Hassan</b>
+                  </div>
+                  <div class="links">
+                    <a href="papers/kim-assets25/kim-assets25.pdf">PDF</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3663547.3759746">ACM DL</a>
+                    <a href="https://github.com/chaelin0722/ASL-emergency">Code</a>
+                    <a href="papers/kim-assets25/poster.pdf">Poster</a>
+                    <a href="papers/kim-assets25/kim25.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="assets workshop">
+                <img class="thumb" src="papers/may-assets25/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">ASSETS 2025 · Workshop Proposal</div>
+                  <a class="title" href="papers/may-assets25/may-assets25.pdf">Participant Recruitment in Accessibility Research</a>
+                  <div class="authors">
+                    <a href="https://www.lloydmay.net/">Lloyd May</a>, <b>Saad Hassan</b>, <a href="https://www.khang4dang.net/">Khang Dang</a>, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, <a href="https://oliveralonzo.com/">Oliver Alonzo</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/may-assets25/may-assets25.pdf">PDF</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3663547.3748639">ACM DL</a>
+                    <a href="https://docs.google.com/presentation/d/1KwvQdauKkiNEMZx5lLo_i0b1-VsL_U9LcFBjbFGVpiI/edit?usp=drivesdk">Slides</a>
+                    <a href="https://assets-recruitment-2025.github.io/">Website</a>
+                    <a href="papers/may-assets25/may25.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="assets long">
+                <img class="thumb" src="papers/alonzo-assets25/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">ASSETS 2025 · <span class="award">Best Paper Nominee</span>
+                  </div>
+                  <a class="title" href="papers/alonzo-assets25/alonzo-assets25.pdf">A Review of 25 Years of Human-Computer Interaction Research on Reading Support Technologies for People with Disabilities Published in ACM</a>
+                  <div class="authors">
+                    <a href="https://oliveralonzo.com/">Oliver Alonzo</a>*, <b>Saad Hassan</b>*
+                  </div>
+                  <div class="links">
+                    <a href="papers/alonzo-assets25/alonzo-assets25.pdf">PDF</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3663547.3746355">ACM DL</a>
+                    <a href="papers/alonzo-assets25/slides.pdf">Slides</a>
+                    <a href="https://docs.google.com/spreadsheets/d/1EwSAnIALGsNkIgXWYrdVWguFnPjSEM2v2l5ieRWKtR4/edit?usp=sharing">Corpus</a>
+                    <a href="papers/alonzo-assets25/alonzo25.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="cvpr long dataset">
+                <img class="thumb" src="papers/georg-cvpr25/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">CVPR 2025</div>
+                  <a class="title" href="papers/georg-cvpr25/georg-cvpr25.pdf">FSboard: Over 3 Million Characters of ASL Fingerspelling Collected via Smartphones</a>
+                  <div class="authors">
+                    <a href="https://www.linkedin.com/in/mgeorg/">Manfred Georg</a>, <a href="https://scholar.google.com/citations?user=Wg58ZR4AAAAJ">Garrett Tanzer</a>, <a href="https://github.com/eknight7">Esha Uboweja</a>, <b>Saad Hassan</b>, Maximus Shengelia, <a href="https://www.linkedin.com/in/samsepah/">Sam Sepah</a>, <a href="https://www.deafandloud.com/">Sean Forbes</a>, <a href="https://sites.cc.gatech.edu/home/thad/">Thad Starner</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/georg-cvpr25/georg-cvpr25.pdf">PDF</a>
+                    <a href="https://openaccess.thecvf.com/content/CVPR2025/html/Georg_FSboard_Over_3_Million_Characters_of_ASL_Fingerspelling_Collected_via_CVPR_2025_paper.html">CVF</a>
+                    <a href="https://www.youtube.com/watch?v=a8pEg6NPGvM">Video</a>
+                    <a href="https://cvpr.thecvf.com/media/PosterPDFs/CVPR%202025/33621.png?t=1748855109.234652">Poster</a>
+                    <a href="https://www.kaggle.com/datasets/googleai/fsboard">Kaggle</a>
+                    <a href="papers/georg-cvpr25/georg25.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="w4a long">
+                <img class="thumb" src="papers/hassan-w4a25/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">W4A 2025</div>
+                  <a class="title" href="papers/hassan-w4a25/hassan-w4a-25.pdf">Towards an AI-Driven Video-Based American Sign Language Dictionary: Exploring Design and Usage Experience with Learners</a>
+                  <div class="authors">
+                    <b>Saad Hassan</b>, <a href="https://matybohacek.com/">Matyas Bohacek</a>, <a href="https://chaelin0722.github.io/introduction/">Chaelin Kim</a>, <a href="https://liberalarts.tulane.edu/linguistics/people/faculty/denise-crochet">Denise Crochet</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/hassan-w4a25/hassan-w4a-25.pdf">PDF</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3744257.3744258">ACM DL</a>
+                    <a href="papers/hassan-w4a25/hassan-w4a-25-slides.pdf">Slides</a>
+                    <a href="https://github.com/maty-bohacek/sign-language-dictionary">Code</a>
+                    <a href="papers/hassan-w4a25/hassan25.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="chi long">
+                <img class="thumb" src="papers/pataca-chi-25/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">CHI 2025</div>
+                  <a class="title" href="papers/pataca-chi-25/pataca-chi25.pdf">Tactile Emotions: Multimodal Affective Captioning with Haptics Improves Narrative Engagement for d/Deaf and Hard-of-Hearing Viewers</a>
+                  <div class="authors">
+                    <a href="https://www.caluapataca.com/">Caluã de Lacerda Pataca</a>, <b>Saad Hassan</b>, <a href="https://www.lloydmay.net/">Lloyd May</a>, Michelle M. Olson, Toni D’Aurio, <a href="https://www.rit.edu/directory/rxpics-roshan-peiris">Roshan L. Peiris</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/pataca-chi-25/pataca-chi25.pdf">PDF</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3706598.3713304">ACM DL</a>
+                    <a href="https://www.youtube.com/watch?v=Bz_qZBOHw5U">Video</a>
+                    <a href="papers/pataca-chi-25/pataca25.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="paper" data-tags="bookchapter">
-            <img class="thumb" src="papers/hassan-degruyter26/featured.jpeg" alt="" loading="lazy">
-            <div>
-              <div class="venue">De Gruyter · Book Chapter</div>
-              <a class="title" href="https://books.google.com/books/about/De_Gruyter_Handbook_of_Disruptive_Urban.html?id=xc8O0gEACAAJ">AI in the Public Sphere: Citizen Engagement and Governance</a>
-              <div class="authors"><b>Saad Hassan</b>, <a href="https://www.motahhare.com/">Motahhare Eslami</a>, <a href="https://www.nicholasmattei.net/">Nicholas Mattei</a>, <a href="https://www.cs.tulane.edu/~aculotta/">Aron Culotta</a>, <a href="https://www.cs.cmu.edu/~johnz/">John Zimmerman</a></div>
-              <div class="links"><a href="https://books.google.com/books/about/De_Gruyter_Handbook_of_Disruptive_Urban.html?id=xc8O0gEACAAJ">Publisher</a></div>
+            <div class="year">
+              <h3>2024</h3>
+              <div class="paper" data-tags="assets short">
+                <img class="thumb" src="papers/may-assets24/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">ASSETS 2024 · Demo</div>
+                  <a class="title" href="papers/may-assets24/may-assets24.pdf">Towards a Rich Format for Closed-Captioning</a>
+                  <div class="authors">
+                    <a href="https://www.lloydmay.net/">Lloyd May</a>, Alex Williams, <b>Saad Hassan</b>, <a href="https://markcartwright.com/">Mark Cartwright</a>, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/may-assets24/may-assets24.pdf">PDF</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3663548.3688504">ACM DL</a>
+                    <a href="https://www.youtube.com/watch?v=-E6I5rKPpOI">Video Figure</a>
+                    <a href="https://github.com/disjoylab/Rich-Caption-Editor">Code</a>
+                    <a href="https://redarmy34.github.io/RCE-WebGL-Page/">Demo</a>
+                    <a href="papers/may-assets24/may24.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="assets short">
+                <img class="thumb" src="papers/boyd-assets24/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">ASSETS 2024 · Poster</div>
+                  <a class="title" href="papers/boyd-assets24/boyd-assets24.pdf">Exploring the “Freedom to be Me” through Design Sprints with Neurodivergent Scholars</a>
+                  <div class="authors">
+                    <a href="https://www.chapman.edu/our-faculty/louanne-boyd">LouAnne Boyd</a>, <a href="http://faculty.washington.edu/annuska/">Annuska Zolyomi</a>, <b>Saad Hassan</b>, <a href="https://seray-i.github.io/">Seray B. Ibrahim</a>, <a href="https://www.linkedin.com/in/guande-wu-776486124/">Guande Wu</a>, <a href="https://kaykender.de/">Kay Kender</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/boyd-assets24/boyd-assets24.pdf">PDF</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3663548.3688527">ACM DL</a>
+                    <a href="papers/boyd-assets24/boyd24.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="taccess journal">
+                <img class="thumb" src="papers/hassan-taccess-24/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">TACCESS 2024</div>
+                  <a class="title" href="papers/hassan-taccess-24/hassan-taccess-24.pdf">Exploring the Benefits and Applications of Video-Span Selection and Search for Real-Time Support in Sign Language Video Comprehension among ASL Learners</a>
+                  <div class="authors">
+                    <b>Saad Hassan</b>, <a href="https://www.caluapataca.com/">Caluã de Lacerda Pataca</a>, <a href="https://akhteramin.github.io/">Akhter Al Amin</a>, <a href="https://www.linkedin.com/in/laleh-nourian-a88ba3129/">Laleh Nourian</a>, <a href="https://www.linkedin.com/in/diego-navarro-306b9a229/">Diego Navarro</a>, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, Alexis Gordon, Matthew Watkins, <a href="https://www.garrethtigwell.com/">Garreth W. Tigwell</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/hassan-taccess-24/hassan-taccess-24.pdf">PDF</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3690647">ACM DL</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3690647#supplementary-materials">Supplement</a>
+                    <a href="papers/hassan-taccess-24/hassan24.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="ai-other workshop">
+                <img class="thumb" src="papers/hassan-hcomp24/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">HCOMP 2024 · Workshop Proposal</div>
+                  <a class="title" href="papers/hassan-hcomp24/hassan-hcomp24.pdf">PACE: Participatory AI for Community Engagement</a>
+                  <div class="authors">
+                    <b>Saad Hassan</b>, <a href="https://syedamahnoorasad.github.io/">Syeda Mah Noor Asad</a>, <a href="https://www.motahhare.com/">Motahhare Eslami</a>, <a href="https://sse.tulane.edu/nicholas-mattei">Nicholas Mattei</a>, <a href="https://www.cs.tulane.edu/~aculotta/">Aron Culotta</a>, <a href="https://www.cs.cmu.edu/~johnz/">John Zimmerman</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/hassan-hcomp24/hassan-hcomp24.pdf">PDF</a>
+                    <a href="https://ojs.aaai.org/index.php/HCOMP/article/view/31610">AAAI</a>
+                    <a href="https://docs.google.com/presentation/d/1AUEcC3LnJEFJCVE51VEpHMsLw0GYceF7ZD9GHZS2cVk/edit?usp=drivesdk">Slides</a>
+                    <a href="https://tulanecs.github.io/PACE/">Website</a>
+                    <a href="papers/hassan-hcomp24/hassan24.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="chi long">
+                <img class="thumb" src="papers/hassan-chi24/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">CHI 2024 · <span class="award">Best Paper Honorable Mention</span>
+                  </div>
+                  <a class="title" href="papers/hassan-chi24/hassan-chi24.pdf">Designing and Evaluating an Advanced Dance Video Comprehension Tool with In-situ Move Identification Capabilities</a>
+                  <div class="authors">
+                    <b>Saad Hassan</b>, <a href="https://www.caluapataca.com/">Caluã de Lacerda Pataca</a>, <a href="https://www.linkedin.com/in/laleh-nourian-a88ba3129/">Laleh Nourian</a>, <a href="https://www.garrethtigwell.com/">Garreth W. Tigwell</a>, Briana Davis, <a href="https://www.linkedin.com/in/will-silver-wagman/">Will Zhenya Silver Wagman</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/hassan-chi24/hassan-chi24.pdf">PDF</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3613904.3642710">ACM DL</a>
+                    <a href="papers/hassan-chi24/slides.pdf">Slides</a>
+                    <a href="https://www.youtube.com/watch?v=etSQo4Aj6ow">Video</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3613904.3642710#supplementary-materials">Video Figure</a>
+                    <a href="papers/hassan-chi24/hassan24.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="chi long">
+                <img class="thumb" src="papers/pataca-chi24/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">CHI 2024 · <span class="award">Best Paper Honorable Mention</span>
+                  </div>
+                  <a class="title" href="papers/pataca-chi24/pataca-chi24.pdf">Caption Royale: Exploring the Design Space of Affective Captions from the Perspective of Deaf and Hard-of-Hearing Individuals</a>
+                  <div class="authors">
+                    <a href="https://www.caluapataca.com/">Caluã de Lacerda Pataca</a>, <b>Saad Hassan</b>, Nathan Tinker, <a href="https://www.rit.edu/directory/rxpics-roshan-peiris">Roshan Lalintha Peiris</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/pataca-chi24/pataca-chi24.pdf">PDF</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3613904.3642258">ACM DL</a>
+                    <a href="papers/pataca-chi24/slides.pdf">Slides</a>
+                    <a href="https://www.youtube.com/watch?v=zVfec86Oaf4&amp;t=2s">Video</a>
+                    <a href="papers/pataca-chi24/pataca24.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="paper" data-tags="journal">
-            <img class="thumb" src="papers/allouch-ajpc26/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">AJPC 2026 · Commentary</div>
-              <a class="title" href="papers/allouch-ajpc26/allouch-ajpc26.pdf">Reducing hypertension disparities: The potential role of patient-facing large language models</a>
-              <div class="authors">Farah Allouch, <b>Saad Hassan</b>, Flor Alvarado, <a href="https://syedamahnoorasad.github.io/">Syeda Mah Noor Asad</a>, Dee Parekh, Renata Johnson, Marilyn Payne, David Gardner, <a href="https://sse.tulane.edu/nicholas-mattei">Nicholas Mattei</a>, Keith C. Ferdinand</div>
-              <div class="links"><a href="papers/allouch-ajpc26/allouch-ajpc26.pdf">PDF</a><a href="https://doi.org/10.1016/j.ajpc.2026.101813">DOI</a><a href="papers/allouch-ajpc26/allouch26.bib">BibTeX</a></div>
+            <div class="year">
+              <h3>2023</h3>
+              <div class="paper" data-tags="pacm journal">
+                <img class="thumb" src="papers/hassan-mobilehci23/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">MobileHCI 2023</div>
+                  <a class="title" href="https://dl.acm.org/doi/10.1145/3604274">Tap to Sign: Towards using American Sign Language for Text Entry on Smartphones</a>
+                  <div class="authors">
+                    <b>Saad Hassan</b>, <a href="https://abrahamglasser.com/">Abraham Glasser</a>, Max Shengelia, <a href="https://sites.cc.gatech.edu/home/thad/">Thad Starner</a>, <a href="https://www.deafandloud.com/">Sean Forbes</a>, Nathan Qualls, <a href="https://www.linkedin.com/in/samsepah/">Sam S. Sepah</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/hassan-mobilehci23/hassan-mhci23.pdf">PDF</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3604274">ACM DL</a>
+                    <a href="https://docs.google.com/presentation/d/1qPtowSdv61h5odrORvFZah2Q7W98ZIr5RTFdApKjWeU/edit?usp=sharing">Slides</a>
+                    <a href="https://www.youtube.com/watch?v=hyDtfJhe_aU">Video</a>
+                    <a href="papers/hassan-mobilehci23/hassan23.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="assets short">
+                <img class="thumb" src="papers/bohacek-assets-23/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">ASSETS 2023 · Demo</div>
+                  <a class="title" href="papers/bohacek-assets-23/bohacek-assets23.pdf">Sign Spotter: Design and Initial Evaluation of an Automatic Video-Based American Sign Language Dictionary System</a>
+                  <div class="authors">
+                    <a href="https://matybohacek.com/">Matyas Bohacek</a>, <b>Saad Hassan</b>
+                  </div>
+                  <div class="links">
+                    <a href="papers/bohacek-assets-23/bohacek-assets23.pdf">PDF</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3597638.3614497">ACM DL</a>
+                    <a href="https://docs.google.com/presentation/d/1UhX3Ap3oxwrLoa4rAqkLIbQ5XdsmJVEZ/edit?usp=sharing&amp;ouid=108965496603216217412&amp;rtpof=true&amp;sd=true">Slides</a>
+                    <a href="papers/bohacek-assets-23/bohacek23.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="other">
+                <img class="thumb" src="papers/hassan-dissertation23/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">RIT · PhD Dissertation</div>
+                  <a class="title" href="https://www.proquest.com/docview/2821576919">Exploring Search-by-Video Technology for Searching Structured Human Movements: Insights From Sign Language Look-Up Systems</a>
+                  <div class="authors">
+                    <b>Saad Hassan</b>
+                  </div>
+                  <div class="links">
+                    <a href="https://www.proquest.com/docview/2821576919">ProQuest</a>
+                    <a href="https://docs.google.com/presentation/d/1Uy1cv94HqWisvXNhfgVT4d_UUg7p7WiDuXAGDecy4xc/edit?usp=sharing">Slides</a>
+                    <a href="papers/hassan-dissertation23/hassan23.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="w4a long">
+                <img class="thumb" src="papers/amin-w4a23-1/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">W4A 2023</div>
+                  <a class="title" href="papers/amin-w4a23-1/amin-w4a23-1.pdf">Understanding How Deaf and Hard of Hearing Viewers Visually Explore Captioned Live TV News</a>
+                  <div class="authors">
+                    <a href="https://akhteramin.github.io/">Akhter Al Amin</a>, <b>Saad Hassan</b>, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/amin-w4a23-1/amin-w4a23-1.pdf">PDF</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3587281.3587287">ACM DL</a>
+                    <a href="https://docs.google.com/presentation/d/1_UndCsi5Ah6HulV-DaRSQFH0eRwZQwJl1v1L01C-r20/edit?usp=sharing">Slides</a>
+                    <a href="papers/amin-w4a23-1/amin23.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="w4a short">
+                <img class="thumb" src="papers/amin-w4a23-2/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">W4A 2023 · Communication Paper</div>
+                  <a class="title" href="papers/amin-w4a23-2/amin-w4a23-2.pdf">Modeling Word Importance in Conversational Transcripts: Toward improved live captioning for Deaf and hard of hearing viewers</a>
+                  <div class="authors">
+                    <a href="https://akhteramin.github.io/">Akhter Al Amin</a>, <b>Saad Hassan</b>, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/amin-w4a23-2/amin-w4a23-2.pdf">PDF</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3587281.3587290">ACM DL</a>
+                    <a href="https://docs.google.com/presentation/d/1omKtOHKiuz7M3VaR5xetQSULFL1yb17Z/edit?usp=sharing&amp;ouid=108965496603216217412&amp;rtpof=true&amp;sd=true">Slides</a>
+                    <a href="papers/amin-w4a23-2/amin23.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="chi short">
+                <img class="thumb" src="papers/hassan-chiea23/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">CHI 2023 · Late-Breaking Work</div>
+                  <a class="title" href="papers/hassan-chiea23/hassan-chiea23.pdf">Exploring the Design Space of Automatically Generated Emotive Captions for Deaf or Hard of Hearing Users</a>
+                  <div class="authors">
+                    <b>Saad Hassan</b>, <a href="https://www.linkedin.com/in/dingyao/">Yao Ding</a>, <a href="https://www.linkedin.com/in/agneyakerure/">Agneya Abhimanyu Kerure</a>, <a href="https://www.linkedin.com/in/christi-miller-094ab8/">Christi Miller</a>, John Burnett, <a href="https://www.linkedin.com/in/emily-biondo/">Emily Biondo</a>, <a href="https://about.me/brendengilbert">Brenden Gilbert</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/hassan-chiea23/hassan-chiea23.pdf">PDF</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3544549.3585880">ACM DL</a>
+                    <a href="https://docs.google.com/presentation/d/1iuJ14YzmUzI8xP_VErb1owBkrE5IxV6XqfmRbBzPwzc/edit?usp=sharing">Slides</a>
+                    <a href="https://youtu.be/luiGg3el-L0">Video</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3544549.3585880#supplementary-materials">Code + Supplement</a>
+                    <a href="papers/hassan-chiea23/hassan23.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="neurips long dataset">
+                <img class="thumb" src="papers/starner-neurips23/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">NeurIPS 2023 · Datasets and Benchmarks</div>
+                  <a class="title" href="papers/starner-neurips23/starner-neurips23.pdf">PopSign ASL v1.0: An Isolated American Sign Language Dataset Collected via Smartphones</a>
+                  <div class="authors">
+                    <a href="https://sites.cc.gatech.edu/home/thad/">Thad Starner</a>, <a href="https://www.deafandloud.com/">Sean Forbes</a>, Matthew So, David R. Martin, Rohit Sridhar, Gururaj Deshpande, <a href="https://www.linkedin.com/in/samsepah/">Sam Sepah</a>, Sahir Shahryar, Khushi Bhardwaj, Tyler Kwok, Daksh Sehgal, <b>Saad Hassan</b>, Bill Neubauer, Sofia Vempala, Alec Tan, Jocelyn Heath, Unnathi Kumar, Priyanka Mosur, Tavenner Hall, Rajandeep Singh, Christopher Cui, Glenn Cameron, Sohier Dane, <a href="https://scholar.google.com/citations?user=Wg58ZR4AAAAJ">Garrett Tanzer</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/starner-neurips23/starner-neurips23.pdf">PDF</a>
+                    <a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/00dada608b8db212ea7d9d92b24c68de-Abstract-Datasets_and_Benchmarks.html">NeurIPS</a>
+                    <a href="https://neurips.cc/virtual/2023/poster/73414">Presentation</a>
+                    <a href="https://neurips.cc/media/PosterPDFs/NeurIPS%202023/73414.png?t=1702252482.7126098">Poster</a>
+                    <a href="https://github.com/matthew-so/Mobile-Data-Processing-Pipeline">Code</a>
+                    <a href="https://www.kaggle.com/competitions/asl-signs/data">Kaggle</a>
+                    <a href="https://signdata.cc.gatech.edu/view/datasets/popsign_v1_0/index.html#:~:text=Table_title%3A%20Dataset%20Snapshot%20Table_content%3A%20%7C%20Category%20%7C,of%20Video%20Quality%20Categories%20%7C%203%20%7C">Data Card</a>
+                    <a href="papers/starner-neurips23/starner23.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="paper" data-tags="chi long">
-            <img class="thumb" src="papers/hassan-chi26/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">CHI 2026</div>
-              <a class="title" href="papers/hassan-chi26/hassan-chi26.pdf">ASL Educators’ Perspectives on AI for Enhancing Student Learning in American Sign Language Education</a>
-              <div class="authors"><b>Saad Hassan</b>, <a href="https://www.linkedin.com/in/laleh-nourian-a88ba3129/">Laleh Nourian</a>, <a href="https://www.caluapataca.com/">Caluã de Lacerda Pataca</a>, Michelle M. Olson, Toni D’Aurio, Kanupriya Agarwal, <a href="https://syedamahnoorasad.github.io/">Syeda Mah Noor Asad</a>, <a href="https://www.garrethtigwell.com/">Garreth W. Tigwell</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a></div>
-              <div class="links"><a href="papers/hassan-chi26/hassan-chi26.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3772318.3791928">ACM DL</a><a href="papers/hassan-chi26/slides.pdf">Slides</a><a href="papers/hassan-chi26/hassan26.bib">BibTeX</a></div>
+            <div class="year">
+              <h3>2022</h3>
+              <div class="paper" data-tags="assets short">
+                <img class="thumb" src="papers/hassan-assets-22-2/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">ASSETS 2022 · Poster</div>
+                  <a class="title" href="papers/hassan-assets-22-2/hassan-assets22-2.pdf">Understanding ASL Learners’ Preferences for a Sign Language Recording and Automatic Feedback System to Support Self-Study</a>
+                  <div class="authors">
+                    <b>Saad Hassan</b>, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, <a href="https://people.cs.rutgers.edu/~dnm/">Dimitris Metaxas</a>, <a href="https://www.bu.edu/asllrp/carol.html">Carol Neidle</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/hassan-assets-22-2/hassan-assets22-2.pdf">PDF</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3517428.3550367">ACM DL</a>
+                    <a href="https://docs.google.com/presentation/d/1uum0_yJpn0QLFBSSqaI7S3cvBJzZYBN9j8Y2IFjLS_s/edit?usp=sharing">Slides</a>
+                    <a href="papers/hassan-assets-22-2/hassan22.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="assets long">
+                <img class="thumb" src="papers/hassan-assets-22-1/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">ASSETS 2022 · <span class="award">Best Paper Nominee</span>
+                  </div>
+                  <a class="title" href="papers/hassan-assets-22-1/hassan-assets22-1.pdf">Support in the Moment: Benefits and use of video-span selection and search for sign-language video comprehension among ASL learners</a>
+                  <div class="authors">
+                    <b>Saad Hassan</b>, <a href="https://akhteramin.github.io/">Akhter Al Amin</a>, <a href="https://www.caluapataca.com/">Caluã de Lacerda Pataca</a>, <a href="https://www.linkedin.com/in/diego-navarro-306b9a229/">Diego Navarro</a>, Alexis Gordon, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/hassan-assets-22-1/hassan-assets22-1.pdf">PDF</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3517428.3544883">ACM DL</a>
+                    <a href="https://docs.google.com/presentation/d/19UV6yc0je7aykxbKVO-pURzjn0dc6-QYt2tjNbhlQyY/edit?usp=sharing">Slides</a>
+                    <a href="https://docs.google.com/spreadsheets/d/1hMR_k7yt4wYNfzZCRK5PE6mfgrQVUHGt0yf6YF3DI5g/edit?usp=sharing">Supplement</a>
+                    <a href="papers/hassan-assets-22-1/hassan22.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="ai-other workshop">
+                <img class="thumb" src="papers/amin-ltedi22/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">LT-EDI @ ACL 2022</div>
+                  <a class="title" href="papers/amin-ltedi22/amin-ltedi22.pdf">Using BERT Embeddings to Model Word Importance in Conversational Transcripts for Deaf and Hard of Hearing Users</a>
+                  <div class="authors">
+                    <a href="https://akhteramin.github.io/">Akhter Al Amin</a>, <b>Saad Hassan</b>, <a href="https://www.rit.edu/directory/coagla-cecilia-alm">Cecilia Alm</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/amin-ltedi22/amin-ltedi22.pdf">PDF</a>
+                    <a href="https://aclanthology.org/2022.ltedi-1.5/">ACL Anthology</a>
+                    <a href="https://docs.google.com/presentation/d/1b-099o97AvphFHzwVz6CxCjYjhfNwyEk/edit?usp=sharing&amp;ouid=104913367015461668120&amp;rtpof=true&amp;sd=true">Slides</a>
+                    <a href="https://underline.io/lecture/51442-using-bert-embeddings-to-model-word-importance-in-conversational-transcripts-for-deaf-and-hard-of-hearing-users">Video</a>
+                    <a href="https://latlab.ist.rit.edu/lrec2018/">Supplement</a>
+                    <a href="https://nyu.databrary.org/volume/1447">Databrary</a>
+                    <a href="papers/amin-ltedi22/amin22.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="lrec dataset workshop">
+                <img class="thumb" src="papers/hassan-slrp22/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">SLRP @ LREC 2022</div>
+                  <a class="title" href="papers/hassan-slrp22/hassan-slrp22.pdf">ASL-Homework-RGBD Dataset: An Annotated Dataset of 45 Fluent and Non-fluent Signers Performing American Sign Language Homeworks</a>
+                  <div class="authors">
+                    <b>Saad Hassan</b>, <a href="https://mss4296.github.io/">Matthew Seita</a>, <a href="https://larwan.com/">Larwan Berke</a>, <a href="https://media-lab.ccny.cuny.edu/YLTCCNYHomepage/home.html">Yingli Tian</a>, <a href="https://education.hunter.cuny.edu/about/faculty-staff/elaine-gale/">Elaine Gale</a>, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/hassan-slrp22/hassan-slrp22.pdf">PDF</a>
+                    <a href="https://aclanthology.org/2022.signlang-1.11/">ACL Anthology</a>
+                    <a href="https://docs.google.com/presentation/d/1HUN_ElOAUkH7qFrg26IJh3ecu861fHjl-vOTPSDq1K0/edit?usp=sharing">Slides</a>
+                    <a href="https://latlab.ist.rit.edu/lrec2022/">Supplement</a>
+                    <a href="https://databrary.org/volume/1249">Databrary</a>
+                    <a href="papers/hassan-slrp22/hassan22.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="chi long">
+                <img class="thumb" src="papers/amin-chi22/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">CHI 2022</div>
+                  <a class="title" href="papers/amin-chi22/amin-chi22.pdf">Watch It, Don’t Imagine It: Creating a Better Caption-Occlusion Metric by Collecting More Ecologically Valid Judgments from DHH Viewers</a>
+                  <div class="authors">
+                    <a href="https://akhteramin.github.io/">Akhter Al Amin</a>*, <b>Saad Hassan</b>*, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/amin-chi22/amin-chi22.pdf">PDF</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3491102.3517681">ACM DL</a>
+                    <a href="https://docs.google.com/presentation/d/1wzmV8wsQkDTlgKMLcEO9aswQ_Dz1yevxw0x0cje5vyQ/edit?usp=sharing">Slides</a>
+                    <a href="https://www.youtube.com/watch?v=Fg6g3SdXCGI">Video</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3491102.3517681#supplementary-materials">Supplement</a>
+                    <a href="https://github.com/akhteramin/Holistic-Model">Code</a>
+                    <a href="papers/amin-chi22/amin22.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="chi long">
+                <img class="thumb" src="papers/hassan-chi22/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">CHI 2022</div>
+                  <a class="title" href="papers/hassan-chi22/hassan-chi22.pdf">Design and Evaluation of Hybrid Search for American Sign Language to English Dictionaries: Making the Most of Imperfect Sign Recognition</a>
+                  <div class="authors">
+                    <b>Saad Hassan</b>*, <a href="https://akhteramin.github.io/">Akhter Al Amin</a>*, Alexis Gordon, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/hassan-chi22/hassan-chi22.pdf">PDF</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3491102.3501986">ACM DL</a>
+                    <a href="https://docs.google.com/presentation/d/1Xit9_hZWOaeB7DxGEysPpnwQkeLeoMbSs947w1jhOMw/edit?usp=sharing">Slides</a>
+                    <a href="https://www.youtube.com/watch?v=zNj7O2u8-AE">Video</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3491102.3501986#supplementary-materials">Video Figure + Supplement</a>
+                    <a href="papers/hassan-chi22/hassan22.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="hci-other other">
+                <img class="thumb" src="papers/hassan-chiir22/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">CHIIR 2022 · Doctoral Consortium</div>
+                  <a class="title" href="papers/hassan-chiir22/hassan-chiir22.pdf">Designing and Experimentally Evaluating a Video-based American Sign Language Look-up System</a>
+                  <div class="authors">
+                    <b>Saad Hassan</b>
+                  </div>
+                  <div class="links">
+                    <a href="papers/hassan-chiir22/hassan-chiir22.pdf">PDF</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3498366.3505804">ACM DL</a>
+                    <a href="https://docs.google.com/presentation/d/1XXwXpP8jlAq9S-goEzHyq_M8ejrZyieH53F4FEJ-ggE/edit?usp=sharing">Slides</a>
+                    <a href="papers/hassan-chiir22/hassan22.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-
-        <div class="year">
-          <h3>2025</h3>
-          <div class="paper" data-tags="assets short">
-            <img class="thumb" src="papers/khanom-assets25/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">ASSETS 2025 · Demo</div>
-              <a class="title" href="papers/khanom-assets25/khanom-assets25.pdf">A Customizable AI-Powered Automatic Text Simplification Tool for Supporting In-Situ Text Comprehension</a>
-              <div class="authors"><a href="https://tithi-khan.github.io/">Nazmun Nahar Khanom</a>, <a href="https://www.linkedin.com/in/aaron-gershkovich-46232a2b3/">Aaron Gershkovich</a>, <a href="https://oliveralonzo.com/">Oliver Alonzo</a>, <b>Saad Hassan</b></div>
-              <div class="links"><a href="papers/khanom-assets25/khanom-assets25.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3663547.3759713">ACM DL</a><a href="https://github.com/TITHI-KHAN/ATS-GPT">Code</a><a href="papers/khanom-assets25/poster.pdf">Poster</a><a href="papers/khanom-assets25/khanom25.bib">BibTeX</a></div>
+            <div class="year">
+              <h3>2021</h3>
+              <div class="paper" data-tags="emnlp long">
+                <img class="thumb" src="papers/hassan-emnlp21/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">EMNLP 2021 · Findings</div>
+                  <a class="title" href="papers/hassan-emnlp21/hassan-emnlp21.pdf">Unpacking the Interdependent Systems of Discrimination: Ableist Bias in NLP Systems through an Intersectional Lens</a>
+                  <div class="authors">
+                    <b>Saad Hassan</b>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>, <a href="https://www.rit.edu/directory/coagla-cecilia-alm">Cecilia Ovesdotter Alm</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/hassan-emnlp21/hassan-emnlp21.pdf">PDF</a>
+                    <a href="https://aclanthology.org/2021.findings-emnlp.267/">ACL Anthology</a>
+                    <a href="https://docs.google.com/presentation/d/1D-1fNmP1CIaPBMMp8YJLA-jF5TDN3isWUmd202rlFJI/edit?usp=sharing">Slides</a>
+                    <a href="https://underline.io/lecture/38289-unpacking-the-interdependent-systems-of-discrimination-ableist-bias-in-nlp-systems-through-an-intersectional-lens">Video</a>
+                    <a href="https://github.com/saadhassan96/ableist-bias">Sentences</a>
+                    <a href="papers/hassan-emnlp21/hassan21.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="taccess journal">
+                <img class="thumb" src="papers/hassan-taccess21/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">TACCESS 2021</div>
+                  <a class="title" href="papers/hassan-taccess21/hassan-taccess21.pdf">Effect of Sign-recognition Performance on the Usability of Sign-language Dictionary Search</a>
+                  <div class="authors">
+                    <b>Saad Hassan</b>, <a href="https://oliveralonzo.com/">Oliver Alonzo</a>, <a href="https://abrahamglasser.com/">Abraham Glasser</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/hassan-taccess21/hassan-taccess21.pdf">PDF</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3470650">ACM DL</a>
+                    <a href="https://latlab.ist.rit.edu/taccess2020/">Supplement</a>
+                    <a href="papers/hassan-taccess21/hassan21.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="w4a long">
+                <img class="thumb" src="papers/amin-w4a21/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">W4A 2021</div>
+                  <a class="title" href="papers/amin-w4a21/amin-w4a21.pdf">Caption-occlusion Severity Judgments across Live-television Genres from Deaf and Hard-of-hearing Viewers</a>
+                  <div class="authors">
+                    <a href="https://akhteramin.github.io/">Akhter Al Amin</a>, <b>Saad Hassan</b>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/amin-w4a21/amin-w4a21.pdf">PDF</a>
+                    <a href="https://dl.acm.org/doi/10.1145/3430263.3452429">ACM DL</a>
+                    <a href="https://docs.google.com/presentation/d/1sG7UGWJxRbz3gGneNMSm5RdJf6MIoedQMSaHSC810UA/edit?usp=sharing">Slides</a>
+                    <a href="papers/amin-w4a21/amin21.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="hci-other long bookchapter">
+                <img class="thumb" src="papers/amin-uahci21/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">UAHCI 2021</div>
+                  <a class="title" href="papers/amin-uahci21/amin-uahci21.pdf">Effect of Occlusion on Deaf and Hard of Hearing Users’ Perception of Captioned Video Quality</a>
+                  <div class="authors">
+                    <a href="https://akhteramin.github.io/">Akhter Al Amin</a>, <b>Saad Hassan</b>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/amin-uahci21/amin-uahci21.pdf">PDF</a>
+                    <a href="https://link.springer.com/chapter/10.1007/978-3-030-78095-1_16">Springer</a>
+                    <a href="https://docs.google.com/presentation/d/1zbUjxnEb6HNeEny0FAMO5WMiJGFTwMxBRIM2nsYZjls/edit?usp=sharing">Slides</a>
+                    <a href="papers/amin-uahci21/amin21.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="paper" data-tags="assets short">
-            <img class="thumb" src="papers/kim-assets25/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">ASSETS 2025 · Demo</div>
-              <a class="title" href="papers/kim-assets25/kim-assets25.pdf">Signing for Care: A Demo and Initial Evaluation of an American Sign Language Learning Tool for Emergency Medical Service Providers</a>
-              <div class="authors"><a href="https://chaelin0722.github.io/introduction/">Chaelin Kim</a>, Cameron McLaren, Madhangi Krishnan, Nikhil Modayur, <b>Saad Hassan</b></div>
-              <div class="links"><a href="papers/kim-assets25/kim-assets25.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3663547.3759746">ACM DL</a><a href="https://github.com/chaelin0722/ASL-emergency">Code</a><a href="papers/kim-assets25/poster.pdf">Poster</a><a href="papers/kim-assets25/kim25.bib">BibTeX</a></div>
+            <div class="year">
+              <h3>2020</h3>
+              <div class="paper" data-tags="ai-other workshop">
+                <img class="thumb" src="papers/hassan-slrtp20/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">SLRTP @ ECCV 2020</div>
+                  <a class="title" href="papers/hassan-slrtp20/hassan-slrtp20.pdf">Effect of Ranking and Precision of Results on Users’ Satisfaction with Search-by-video Sign-language Dictionaries</a>
+                  <div class="authors">
+                    <b>Saad Hassan</b>, <a href="https://oliveralonzo.com/">Oliver Alonzo</a>, <a href="https://abrahamglasser.com/">Abraham Glasser</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/hassan-slrtp20/hassan-slrtp20.pdf">Preprint</a>
+                    <a href="https://docs.google.com/presentation/d/1_nuU1GpLbVSzfkV-av5OsPbFzRUNC_0M/edit?usp=sharing&amp;ouid=108965496603216217412&amp;rtpof=true&amp;sd=true">Slides</a>
+                    <a href="papers/hassan-slrtp20/hassan20.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
+              <div class="paper" data-tags="lrec dataset workshop">
+                <img class="thumb" src="papers/hassan-slrp20/featured.png" alt="" loading="lazy">
+                <div>
+                  <div class="venue">SLRP @ LREC 2020</div>
+                  <a class="title" href="papers/hassan-slrp20/hassan-slrp20.pdf">An Isolated-Signing RGBD Dataset of 100 American Sign Languageassan-slrp20.pdf">An Isolated-Signing RGBD Dataset of 100 American Sign Language Signs Produced by Fluent ASL Signers</a>
+                  <div class="authors">
+                    <b>Saad Hassan</b>, <a href="https://larwan.com/">Larwan Berke</a>, <a href="https://elahevahd.github.io/main/">Elahe Vahdani</a>, <a href="https://longlong-jing.github.io/">Longlong Jing</a>, <a href="https://media-lab.ccny.cuny.edu/YLTCCNYHomepage/home.html">Yingli Tian</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
+                  </div>
+                  <div class="links">
+                    <a href="papers/hassan-slrp20/hassan-slrp20.pdf">PDF</a>
+                    <a href="https://aclanthology.org/2020.signlang-1.14/">ACL Anthology</a>
+                    <a href="https://docs.google.com/presentation/d/1ca1sBcPWTQ5_zJfU4R0vGPIWq92EpK_nCw3_m1b_V3E/edit?usp=sharing">Slides</a>
+                    <a href="https://databrary.org/volume/1062">Databrary</a>
+                    <a href="papers/hassan-slrp20/hassan20.bib">BibTeX</a>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="paper" data-tags="assets workshop">
-            <img class="thumb" src="papers/may-assets25/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">ASSETS 2025 · Workshop Proposal</div>
-              <a class="title" href="papers/may-assets25/may-assets25.pdf">Participant Recruitment in Accessibility Research</a>
-              <div class="authors"><a href="https://www.lloydmay.net/">Lloyd May</a>, <b>Saad Hassan</b>, <a href="https://www.khang4dang.net/">Khang Dang</a>, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, <a href="https://oliveralonzo.com/">Oliver Alonzo</a></div>
-              <div class="links"><a href="papers/may-assets25/may-assets25.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3663547.3748639">ACM DL</a><a href="https://docs.google.com/presentation/d/1KwvQdauKkiNEMZx5lLo_i0b1-VsL_U9LcFBjbFGVpiI/edit?usp=drivesdk">Slides</a><a href="https://assets-recruitment-2025.github.io/">Website</a><a href="papers/may-assets25/may25.bib">BibTeX</a></div>
-            </div>
-          </div>
-          <div class="paper" data-tags="assets long">
-            <img class="thumb" src="papers/alonzo-assets25/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">ASSETS 2025 · <span class="award">Best Paper Nominee</span></div>
-              <a class="title" href="papers/alonzo-assets25/alonzo-assets25.pdf">A Review of 25 Years of Human-Computer Interaction Research on Reading Support Technologies for People with Disabilities Published in ACM</a>
-              <div class="authors"><a href="https://oliveralonzo.com/">Oliver Alonzo</a>*, <b>Saad Hassan</b>*</div>
-              <div class="links"><a href="papers/alonzo-assets25/alonzo-assets25.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3663547.3746355">ACM DL</a><a href="papers/alonzo-assets25/slides.pdf">Slides</a><a href="https://docs.google.com/spreadsheets/d/1EwSAnIALGsNkIgXWYrdVWguFnPjSEM2v2l5ieRWKtR4/edit?usp=sharing">Corpus</a><a href="papers/alonzo-assets25/alonzo25.bib">BibTeX</a></div>
-            </div>
-          </div>
-          <div class="paper" data-tags="cvpr long dataset">
-            <img class="thumb" src="papers/georg-cvpr25/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">CVPR 2025</div>
-              <a class="title" href="papers/georg-cvpr25/georg-cvpr25.pdf">FSboard: Over 3 Million Characters of ASL Fingerspelling Collected via Smartphones</a>
-              <div class="authors"><a href="https://www.linkedin.com/in/mgeorg/">Manfred Georg</a>, <a href="https://scholar.google.com/citations?user=Wg58ZR4AAAAJ">Garrett Tanzer</a>, <a href="https://github.com/eknight7">Esha Uboweja</a>, <b>Saad Hassan</b>, Maximus Shengelia, <a href="https://www.linkedin.com/in/samsepah/">Sam Sepah</a>, <a href="https://www.deafandloud.com/">Sean Forbes</a>, <a href="https://sites.cc.gatech.edu/home/thad/">Thad Starner</a></div>
-              <div class="links"><a href="papers/georg-cvpr25/georg-cvpr25.pdf">PDF</a><a href="https://openaccess.thecvf.com/content/CVPR2025/html/Georg_FSboard_Over_3_Million_Characters_of_ASL_Fingerspelling_Collected_via_CVPR_2025_paper.html">CVF</a><a href="https://www.youtube.com/watch?v=a8pEg6NPGvM">Video</a><a href="https://cvpr.thecvf.com/media/PosterPDFs/CVPR%202025/33621.png?t=1748855109.234652">Poster</a><a href="https://www.kaggle.com/datasets/googleai/fsboard">Kaggle</a><a href="papers/georg-cvpr25/georg25.bib">BibTeX</a></div>
-            </div>
-          </div>
-          <div class="paper" data-tags="w4a long">
-            <img class="thumb" src="papers/hassan-w4a25/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">W4A 2025</div>
-              <a class="title" href="papers/hassan-w4a25/hassan-w4a-25.pdf">Towards an AI-Driven Video-Based American Sign Language Dictionary: Exploring Design and Usage Experience with Learners</a>
-              <div class="authors"><b>Saad Hassan</b>, <a href="https://matybohacek.com/">Matyas Bohacek</a>, <a href="https://chaelin0722.github.io/introduction/">Chaelin Kim</a>, <a href="https://liberalarts.tulane.edu/linguistics/people/faculty/denise-crochet">Denise Crochet</a></div>
-              <div class="links"><a href="papers/hassan-w4a25/hassan-w4a-25.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3744257.3744258">ACM DL</a><a href="papers/hassan-w4a25/hassan-w4a-25-slides.pdf">Slides</a><a href="https://github.com/maty-bohacek/sign-language-dictionary">Code</a><a href="papers/hassan-w4a25/hassan25.bib">BibTeX</a></div>
-            </div>
-          </div>
-          <div class="paper" data-tags="chi long">
-            <img class="thumb" src="papers/pataca-chi-25/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">CHI 2025</div>
-              <a class="title" href="papers/pataca-chi-25/pataca-chi25.pdf">Tactile Emotions: Multimodal Affective Captioning with Haptics Improves Narrative Engagement for d/Deaf and Hard-of-Hearing Viewers</a>
-              <div class="authors"><a href="https://www.caluapataca.com/">Caluã de Lacerda Pataca</a>, <b>Saad Hassan</b>, <a href="https://www.lloydmay.net/">Lloyd May</a>, Michelle M. Olson, Toni D’Aurio, <a href="https://www.rit.edu/directory/rxpics-roshan-peiris">Roshan L. Peiris</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a></div>
-              <div class="links"><a href="papers/pataca-chi-25/pataca-chi25.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3706598.3713304">ACM DL</a><a href="https://www.youtube.com/watch?v=Bz_qZBOHw5U">Video</a><a href="papers/pataca-chi-25/pataca25.bib">BibTeX</a></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="year">
-          <h3>2024</h3>
-          <div class="paper" data-tags="assets short">
-            <img class="thumb" src="papers/may-assets24/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">ASSETS 2024 · Demo</div>
-              <a class="title" href="papers/may-assets24/may-assets24.pdf">Towards a Rich Format for Closed-Captioning</a>
-              <div class="authors"><a href="https://www.lloydmay.net/">Lloyd May</a>, Alex Williams, <b>Saad Hassan</b>, <a href="https://markcartwright.com/">Mark Cartwright</a>, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a></div>
-              <div class="links"><a href="papers/may-assets24/may-assets24.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3663548.3688504">ACM DL</a><a href="https://www.youtube.com/watch?v=-E6I5rKPpOI">Video Figure</a><a href="https://github.com/disjoylab/Rich-Caption-Editor">Code</a><a href="https://redarmy34.github.io/RCE-WebGL-Page/">Demo</a><a href="papers/may-assets24/may24.bib">BibTeX</a></div>
-            </div>
-          </div>
-          <div class="paper" data-tags="assets short">
-            <img class="thumb" src="papers/boyd-assets24/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">ASSETS 2024 · Poster</div>
-              <a class="title" href="papers/boyd-assets24/boyd-assets24.pdf">Exploring the “Freedom to be Me” through Design Sprints with Neurodivergent Scholars</a>
-              <div class="authors"><a href="https://www.chapman.edu/our-faculty/louanne-boyd">LouAnne Boyd</a>, <a href="http://faculty.washington.edu/annuska/">Annuska Zolyomi</a>, <b>Saad Hassan</b>, <a href="https://seray-i.github.io/">Seray B. Ibrahim</a>, <a href="https://www.linkedin.com/in/guande-wu-776486124/">Guande Wu</a>, <a href="https://kaykender.de/">Kay Kender</a></div>
-              <div class="links"><a href="papers/boyd-assets24/boyd-assets24.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3663548.3688527">ACM DL</a><a href="papers/boyd-assets24/boyd24.bib">BibTeX</a></div>
-            </div>
-          </div>
-          <div class="paper" data-tags="taccess journal">
-            <img class="thumb" src="papers/hassan-taccess-24/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">TACCESS 2024</div>
-              <a class="title" href="papers/hassan-taccess-24/hassan-taccess-24.pdf">Exploring the Benefits and Applications of Video-Span Selection and Search for Real-Time Support in Sign Language Video Comprehension among ASL Learners</a>
-              <div class="authors"><b>Saad Hassan</b>, <a href="https://www.caluapataca.com/">Caluã de Lacerda Pataca</a>, <a href="https://akhteramin.github.io/">Akhter Al Amin</a>, <a href="https://www.linkedin.com/in/laleh-nourian-a88ba3129/">Laleh Nourian</a>, <a href="https://www.linkedin.com/in/diego-navarro-306b9a229/">Diego Navarro</a>, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, Alexis Gordon, Matthew Watkins, <a href="https://www.garrethtigwell.com/">Garreth W. Tigwell</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a></div>
-              <div class="links"><a href="papers/hassan-taccess-24/hassan-taccess-24.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3690647">ACM DL</a><a href="https://dl.acm.org/doi/10.1145/3690647#supplementary-materials">Supplement</a><a href="papers/hassan-taccess-24/hassan24.bib">BibTeX</a></div>
-            </div>
-          </div>
-          <div class="paper" data-tags="ai-other workshop">
-            <img class="thumb" src="papers/hassan-hcomp24/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">HCOMP 2024 · Workshop Proposal</div>
-              <a class="title" href="papers/hassan-hcomp24/hassan-hcomp24.pdf">PACE: Participatory AI for Community Engagement</a>
-              <div class="authors"><b>Saad Hassan</b>, <a href="https://syedamahnoorasad.github.io/">Syeda Mah Noor Asad</a>, <a href="https://www.motahhare.com/">Motahhare Eslami</a>, <a href="https://sse.tulane.edu/nicholas-mattei">Nicholas Mattei</a>, <a href="https://www.cs.tulane.edu/~aculotta/">Aron Culotta</a>, <a href="https://www.cs.cmu.edu/~johnz/">John Zimmerman</a></div>
-              <div class="links"><a href="papers/hassan-hcomp24/hassan-hcomp24.pdf">PDF</a><a href="https://ojs.aaai.org/index.php/HCOMP/article/view/31610">AAAI</a><a href="https://docs.google.com/presentation/d/1AUEcC3LnJEFJCVE51VEpHMsLw0GYceF7ZD9GHZS2cVk/edit?usp=drivesdk">Slides</a><a href="https://tulanecs.github.io/PACE/">Website</a><a href="papers/hassan-hcomp24/hassan24.bib">BibTeX</a></div>
-            </div>
-          </div>
-          <div class="paper" data-tags="chi long">
-            <img class="thumb" src="papers/hassan-chi24/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">CHI 2024 · <span class="award">Best Paper Honorable Mention</span></div>
-              <a class="title" href="papers/hassan-chi24/hassan-chi24.pdf">Designing and Evaluating an Advanced Dance Video Comprehension Tool with In-situ Move Identification Capabilities</a>
-              <div class="authors"><b>Saad Hassan</b>, <a href="https://www.caluapataca.com/">Caluã de Lacerda Pataca</a>, <a href="https://www.linkedin.com/in/laleh-nourian-a88ba3129/">Laleh Nourian</a>, <a href="https://www.garrethtigwell.com/">Garreth W. Tigwell</a>, Briana Davis, <a href="https://www.linkedin.com/in/will-silver-wagman/">Will Zhenya Silver Wagman</a></div>
-              <div class="links"><a href="papers/hassan-chi24/hassan-chi24.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3613904.3642710">ACM DL</a><a href="papers/hassan-chi24/slides.pdf">Slides</a><a href="https://www.youtube.com/watch?v=etSQo4Aj6ow">Video</a><a href="https://dl.acm.org/doi/10.1145/3613904.3642710#supplementary-materials">Video Figure</a><a href="papers/hassan-chi24/hassan24.bib">BibTeX</a></div>
-            </div>
-          </div>
-          <div class="paper" data-tags="chi long">
-            <img class="thumb" src="papers/pataca-chi24/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">CHI 2024 · <span class="award">Best Paper Honorable Mention</span></div>
-              <a class="title" href="papers/pataca-chi24/pataca-chi24.pdf">Caption Royale: Exploring the Design Space of Affective Captions from the Perspective of Deaf and Hard-of-Hearing Individuals</a>
-              <div class="authors"><a href="https://www.caluapataca.com/">Caluã de Lacerda Pataca</a>, <b>Saad Hassan</b>, Nathan Tinker, <a href="https://www.rit.edu/directory/rxpics-roshan-peiris">Roshan Lalintha Peiris</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a></div>
-              <div class="links"><a href="papers/pataca-chi24/pataca-chi24.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3613904.3642258">ACM DL</a><a href="papers/pataca-chi24/slides.pdf">Slides</a><a href="https://www.youtube.com/watch?v=zVfec86Oaf4&amp;t=2s">Video</a><a href="papers/pataca-chi24/pataca24.bib">BibTeX</a></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="year">
-          <h3>2023</h3>
-          <div class="paper" data-tags="pacm journal">
-            <img class="thumb" src="papers/hassan-mobilehci23/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">MobileHCI 2023</div>
-              <a class="title" href="https://dl.acm.org/doi/10.1145/3604274">Tap to Sign: Towards using American Sign Language for Text Entry on Smartphones</a>
-              <div class="authors"><b>Saad Hassan</b>, <a href="https://abrahamglasser.com/">Abraham Glasser</a>, Max Shengelia, <a href="https://sites.cc.gatech.edu/home/thad/">Thad Starner</a>, <a href="https://www.deafandloud.com/">Sean Forbes</a>, Nathan Qualls, <a href="https://www.linkedin.com/in/samsepah/">Sam S. Sepah</a></div>
-              <div class="links"><a href="papers/hassan-mobilehci23/hassan-mhci23.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3604274">ACM DL</a><a href="https://docs.google.com/presentation/d/1qPtowSdv61h5odrORvFZah2Q7W98ZIr5RTFdApKjWeU/edit?usp=sharing">Slides</a><a href="https://www.youtube.com/watch?v=hyDtfJhe_aU">Video</a><a href="papers/hassan-mobilehci23/hassan23.bib">BibTeX</a></div>
-            </div>
-          </div>
-          <div class="paper" data-tags="assets short">
-            <img class="thumb" src="papers/bohacek-assets-23/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">ASSETS 2023 · Demo</div>
-              <a class="title" href="papers/bohacek-assets-23/bohacek-assets23.pdf">Sign Spotter: Design and Initial Evaluation of an Automatic Video-Based American Sign Language Dictionary System</a>
-              <div class="authors"><a href="https://matybohacek.com/">Matyas Bohacek</a>, <b>Saad Hassan</b></div>
-              <div class="links"><a href="papers/bohacek-assets-23/bohacek-assets23.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3597638.3614497">ACM DL</a><a href="https://docs.google.com/presentation/d/1UhX3Ap3oxwrLoa4rAqkLIbQ5XdsmJVEZ/edit?usp=sharing&amp;ouid=108965496603216217412&amp;rtpof=true&amp;sd=true">Slides</a><a href="papers/bohacek-assets-23/bohacek23.bib">BibTeX</a></div>
-            </div>
-          </div>
-          <div class="paper" data-tags="other">
-            <img class="thumb" src="papers/hassan-dissertation23/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">RIT · PhD Dissertation</div>
-              <a class="title" href="https://www.proquest.com/docview/2821576919">Exploring Search-by-Video Technology for Searching Structured Human Movements: Insights From Sign Language Look-Up Systems</a>
-              <div class="authors"><b>Saad Hassan</b></div>
-              <div class="links"><a href="https://www.proquest.com/docview/2821576919">ProQuest</a><a href="https://docs.google.com/presentation/d/1Uy1cv94HqWisvXNhfgVT4d_UUg7p7WiDuXAGDecy4xc/edit?usp=sharing">Slides</a><a href="papers/hassan-dissertation23/hassan23.bib">BibTeX</a></div>
-            </div>
-          </div>
-          <div class="paper" data-tags="w4a long">
-            <img class="thumb" src="papers/amin-w4a23-1/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">W4A 2023</div>
-              <a class="title" href="papers/amin-w4a23-1/amin-w4a23-1.pdf">Understanding How Deaf and Hard of Hearing Viewers Visually Explore Captioned Live TV News</a>
-              <div class="authors"><a href="https://akhteramin.github.io/">Akhter Al Amin</a>, <b>Saad Hassan</b>, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a></div>
-              <div class="links"><a href="papers/amin-w4a23-1/amin-w4a23-1.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3587281.3587287">ACM DL</a><a href="https://docs.google.com/presentation/d/1_UndCsi5Ah6HulV-DaRSQFH0eRwZQwJl1v1L01C-r20/edit?usp=sharing">Slides</a><a href="papers/amin-w4a23-1/amin23.bib">BibTeX</a></div>
-            </div>
-          </div>
-          <div class="paper" data-tags="w4a short">
-            <img class="thumb" src="papers/amin-w4a23-2/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">W4A 2023 · Communication Paper</div>
-              <a class="title" href="papers/amin-w4a23-2/amin-w4a23-2.pdf">Modeling Word Importance in Conversational Transcripts: Toward improved live captioning for Deaf and hard of hearing viewers</a>
-              <div class="authors"><a href="https://akhteramin.github.io/">Akhter Al Amin</a>, <b>Saad Hassan</b>, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a></div>
-              <div class="links"><a href="papers/amin-w4a23-2/amin-w4a23-2.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3587281.3587290">ACM DL</a><a href="https://docs.google.com/presentation/d/1omKtOHKiuz7M3VaR5xetQSULFL1yb17Z/edit?usp=sharing&amp;ouid=108965496603216217412&amp;rtpof=true&amp;sd=true">Slides</a><a href="papers/amin-w4a23-2/amin23.bib">BibTeX</a></div>
-            </div>
-          </div>
-          <div class="paper" data-tags="chi short">
-            <img class="thumb" src="papers/hassan-chiea23/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">CHI 2023 · Late-Breaking Work</div>
-              <a class="title" href="papers/hassan-chiea23/hassan-chiea23.pdf">Exploring the Design Space of Automatically Generated Emotive Captions for Deaf or Hard of Hearing Users</a>
-              <div class="authors"><b>Saad Hassan</b>, <a href="https://www.linkedin.com/in/dingyao/">Yao Ding</a>, <a href="https://www.linkedin.com/in/agneyakerure/">Agneya Abhimanyu Kerure</a>, <a href="https://www.linkedin.com/in/christi-miller-094ab8/">Christi Miller</a>, John Burnett, <a href="https://www.linkedin.com/in/emily-biondo/">Emily Biondo</a>, <a href="https://about.me/brendengilbert">Brenden Gilbert</a></div>
-              <div class="links"><a href="papers/hassan-chiea23/hassan-chiea23.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3544549.3585880">ACM DL</a><a href="https://docs.google.com/presentation/d/1iuJ14YzmUzI8xP_VErb1owBkrE5IxV6XqfmRbBzPwzc/edit?usp=sharing">Slides</a><a href="https://youtu.be/luiGg3el-L0">Video</a><a href="https://dl.acm.org/doi/10.1145/3544549.3585880#supplementary-materials">Code + Supplement</a><a href="papers/hassan-chiea23/hassan23.bib">BibTeX</a></div>
-            </div>
-          </div>
-          <div class="paper" data-tags="neurips long dataset">
-            <img class="thumb" src="papers/starner-neurips23/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">NeurIPS 2023 · Datasets and Benchmarks</div>
-              <a class="title" href="papers/starner-neurips23/starner-neurips23.pdf">PopSign ASL v1.0: An Isolated American Sign Language Dataset Collected via Smartphones</a>
-              <div class="authors"><a href="https://sites.cc.gatech.edu/home/thad/">Thad Starner</a>, <a href="https://www.deafandloud.com/">Sean Forbes</a>, Matthew So, David R. Martin, Rohit Sridhar, Gururaj Deshpande, <a href="https://www.linkedin.com/in/samsepah/">Sam Sepah</a>, Sahir Shahryar, Khushi Bhardwaj, Tyler Kwok, Daksh Sehgal, <b>Saad Hassan</b>, Bill Neubauer, Sofia Vempala, Alec Tan, Jocelyn Heath, Unnathi Kumar, Priyanka Mosur, Tavenner Hall, Rajandeep Singh, Christopher Cui, Glenn Cameron, Sohier Dane, <a href="https://scholar.google.com/citations?user=Wg58ZR4AAAAJ">Garrett Tanzer</a></div>
-              <div class="links"><a href="papers/starner-neurips23/starner-neurips23.pdf">PDF</a><a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/00dada608b8db212ea7d9d92b24c68de-Abstract-Datasets_and_Benchmarks.html">NeurIPS</a><a href="https://neurips.cc/virtual/2023/poster/73414">Presentation</a><a href="https://neurips.cc/media/PosterPDFs/NeurIPS%202023/73414.png?t=1702252482.7126098">Poster</a><a href="https://github.com/matthew-so/Mobile-Data-Processing-Pipeline">Code</a><a href="https://www.kaggle.com/competitions/asl-signs/data">Kaggle</a><a href="https://signdata.cc.gatech.edu/view/datasets/popsign_v1_0/index.html#:~:text=Table_title%3A%20Dataset%20Snapshot%20Table_content%3A%20%7C%20Category%20%7C,of%20Video%20Quality%20Categories%20%7C%203%20%7C">Data Card</a><a href="papers/starner-neurips23/starner23.bib">BibTeX</a></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="year">
-          <h3>2022</h3>
-          <div class="paper" data-tags="assets short">
-            <img class="thumb" src="papers/hassan-assets-22-2/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">ASSETS 2022 · Poster</div>
-              <a class="title" href="papers/hassan-assets-22-2/hassan-assets22-2.pdf">Understanding ASL Learners’ Preferences for a Sign Language Recording and Automatic Feedback System to Support Self-Study</a>
-              <div class="authors"><b>Saad Hassan</b>, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, <a href="https://people.cs.rutgers.edu/~dnm/">Dimitris Metaxas</a>, <a href="https://www.bu.edu/asllrp/carol.html">Carol Neidle</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a></div>
-              <div class="links"><a href="papers/hassan-assets-22-2/hassan-assets22-2.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3517428.3550367">ACM DL</a><a href="https://docs.google.com/presentation/d/1uum0_yJpn0QLFBSSqaI7S3cvBJzZYBN9j8Y2IFjLS_s/edit?usp=sharing">Slides</a><a href="papers/hassan-assets-22-2/hassan22.bib">BibTeX</a></div>
-            </div>
-          </div>
-          <div class="paper" data-tags="assets long">
-            <img class="thumb" src="papers/hassan-assets-22-1/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">ASSETS 2022 · <span class="award">Best Paper Nominee</span></div>
-              <a class="title" href="papers/hassan-assets-22-1/hassan-assets22-1.pdf">Support in the Moment: Benefits and use of video-span selection and search for sign-language video comprehension among ASL learners</a>
-              <div class="authors"><b>Saad Hassan</b>, <a href="https://akhteramin.github.io/">Akhter Al Amin</a>, <a href="https://www.caluapataca.com/">Caluã de Lacerda Pataca</a>, <a href="https://www.linkedin.com/in/diego-navarro-306b9a229/">Diego Navarro</a>, Alexis Gordon, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a></div>
-              <div class="links"><a href="papers/hassan-assets-22-1/hassan-assets22-1.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3517428.3544883">ACM DL</a><a href="https://docs.google.com/presentation/d/19UV6yc0je7aykxbKVO-pURzjn0dc6-QYt2tjNbhlQyY/edit?usp=sharing">Slides</a><a href="https://docs.google.com/spreadsheets/d/1hMR_k7yt4wYNfzZCRK5PE6mfgrQVUHGt0yf6YF3DI5g/edit?usp=sharing">Supplement</a><a href="papers/hassan-assets-22-1/hassan22.bib">BibTeX</a></div>
-            </div>
-          </div>
-          <div class="paper" data-tags="ai-other workshop">
-            <img class="thumb" src="papers/amin-ltedi22/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">LT-EDI @ ACL 2022</div>
-              <a class="title" href="papers/amin-ltedi22/amin-ltedi22.pdf">Using BERT Embeddings to Model Word Importance in Conversational Transcripts for Deaf and Hard of Hearing Users</a>
-              <div class="authors"><a href="https://akhteramin.github.io/">Akhter Al Amin</a>, <b>Saad Hassan</b>, <a href="https://www.rit.edu/directory/coagla-cecilia-alm">Cecilia Alm</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a></div>
-              <div class="links"><a href="papers/amin-ltedi22/amin-ltedi22.pdf">PDF</a><a href="https://aclanthology.org/2022.ltedi-1.5/">ACL Anthology</a><a href="https://docs.google.com/presentation/d/1b-099o97AvphFHzwVz6CxCjYjhfNwyEk/edit?usp=sharing&amp;ouid=104913367015461668120&amp;rtpof=true&amp;sd=true">Slides</a><a href="https://underline.io/lecture/51442-using-bert-embeddings-to-model-word-importance-in-conversational-transcripts-for-deaf-and-hard-of-hearing-users">Video</a><a href="https://latlab.ist.rit.edu/lrec2018/">Supplement</a><a href="https://nyu.databrary.org/volume/1447">Databrary</a><a href="papers/amin-ltedi22/amin22.bib">BibTeX</a></div>
-            </div>
-          </div>
-          <div class="paper" data-tags="lrec dataset workshop">
-            <img class="thumb" src="papers/hassan-slrp22/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">SLRP @ LREC 2022</div>
-              <a class="title" href="papers/hassan-slrp22/hassan-slrp22.pdf">ASL-Homework-RGBD Dataset: An Annotated Dataset of 45 Fluent and Non-fluent Signers Performing American Sign Language Homeworks</a>
-              <div class="authors"><b>Saad Hassan</b>, <a href="https://mss4296.github.io/">Matthew Seita</a>, <a href="https://larwan.com/">Larwan Berke</a>, <a href="https://media-lab.ccny.cuny.edu/YLTCCNYHomepage/home.html">Yingli Tian</a>, <a href="https://education.hunter.cuny.edu/about/faculty-staff/elaine-gale/">Elaine Gale</a>, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a></div>
-              <div class="links"><a href="papers/hassan-slrp22/hassan-slrp22.pdf">PDF</a><a href="https://aclanthology.org/2022.signlang-1.11/">ACL Anthology</a><a href="https://docs.google.com/presentation/d/1HUN_ElOAUkH7qFrg26IJh3ecu861fHjl-vOTPSDq1K0/edit?usp=sharing">Slides</a><a href="https://latlab.ist.rit.edu/lrec2022/">Supplement</a><a href="https://databrary.org/volume/1249">Databrary</a><a href="papers/hassan-slrp22/hassan22.bib">BibTeX</a></div>
-            </div>
-          </div>
-          <div class="paper" data-tags="chi long">
-            <img class="thumb" src="papers/amin-chi22/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">CHI 2022</div>
-              <a class="title" href="papers/amin-chi22/amin-chi22.pdf">Watch It, Don’t Imagine It: Creating a Better Caption-Occlusion Metric by Collecting More Ecologically Valid Judgments from DHH Viewers</a>
-              <div class="authors"><a href="https://akhteramin.github.io/">Akhter Al Amin</a>*, <b>Saad Hassan</b>*, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a></div>
-              <div class="links"><a href="papers/amin-chi22/amin-chi22.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3491102.3517681">ACM DL</a><a href="https://docs.google.com/presentation/d/1wzmV8wsQkDTlgKMLcEO9aswQ_Dz1yevxw0x0cje5vyQ/edit?usp=sharing">Slides</a><a href="https://www.youtube.com/watch?v=Fg6g3SdXCGI">Video</a><a href="https://dl.acm.org/doi/10.1145/3491102.3517681#supplementary-materials">Supplement</a><a href="https://github.com/akhteramin/Holistic-Model">Code</a><a href="papers/amin-chi22/amin22.bib">BibTeX</a></div>
-            </div>
-          </div>
-          <div class="paper" data-tags="chi long">
-            <img class="thumb" src="papers/hassan-chi22/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">CHI 2022</div>
-              <a class="title" href="papers/hassan-chi22/hassan-chi22.pdf">Design and Evaluation of Hybrid Search for American Sign Language to English Dictionaries: Making the Most of Imperfect Sign Recognition</a>
-              <div class="authors"><b>Saad Hassan</b>*, <a href="https://akhteramin.github.io/">Akhter Al Amin</a>*, Alexis Gordon, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a></div>
-              <div class="links"><a href="papers/hassan-chi22/hassan-chi22.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3491102.3501986">ACM DL</a><a href="https://docs.google.com/presentation/d/1Xit9_hZWOaeB7DxGEysPpnwQkeLeoMbSs947w1jhOMw/edit?usp=sharing">Slides</a><a href="https://www.youtube.com/watch?v=zNj7O2u8-AE">Video</a><a href="https://dl.acm.org/doi/10.1145/3491102.3501986#supplementary-materials">Video Figure + Supplement</a><a href="papers/hassan-chi22/hassan22.bib">BibTeX</a></div>
-            </div>
-          </div>
-          <div class="paper" data-tags="hci-other other">
-            <img class="thumb" src="papers/hassan-chiir22/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">CHIIR 2022 · Doctoral Consortium</div>
-              <a class="title" href="papers/hassan-chiir22/hassan-chiir22.pdf">Designing and Experimentally Evaluating a Video-based American Sign Language Look-up System</a>
-              <div class="authors"><b>Saad Hassan</b></div>
-              <div class="links"><a href="papers/hassan-chiir22/hassan-chiir22.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3498366.3505804">ACM DL</a><a href="https://docs.google.com/presentation/d/1XXwXpP8jlAq9S-goEzHyq_M8ejrZyieH53F4FEJ-ggE/edit?usp=sharing">Slides</a><a href="papers/hassan-chiir22/hassan22.bib">BibTeX</a></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="year">
-          <h3>2021</h3>
-          <div class="paper" data-tags="emnlp long">
-            <img class="thumb" src="papers/hassan-emnlp21/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">EMNLP 2021 · Findings</div>
-              <a class="title" href="papers/hassan-emnlp21/hassan-emnlp21.pdf">Unpacking the Interdependent Systems of Discrimination: Ableist Bias in NLP Systems through an Intersectional Lens</a>
-              <div class="authors"><b>Saad Hassan</b>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>, <a href="https://www.rit.edu/directory/coagla-cecilia-alm">Cecilia Ovesdotter Alm</a></div>
-              <div class="links"><a href="papers/hassan-emnlp21/hassan-emnlp21.pdf">PDF</a><a href="https://aclanthology.org/2021.findings-emnlp.267/">ACL Anthology</a><a href="https://docs.google.com/presentation/d/1D-1fNmP1CIaPBMMp8YJLA-jF5TDN3isWUmd202rlFJI/edit?usp=sharing">Slides</a><a href="https://underline.io/lecture/38289-unpacking-the-interdependent-systems-of-discrimination-ableist-bias-in-nlp-systems-through-an-intersectional-lens">Video</a><a href="https://github.com/saadhassan96/ableist-bias">Sentences</a><a href="papers/hassan-emnlp21/hassan21.bib">BibTeX</a></div>
-            </div>
-          </div>
-          <div class="paper" data-tags="taccess journal">
-            <img class="thumb" src="papers/hassan-taccess21/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">TACCESS 2021</div>
-              <a class="title" href="papers/hassan-taccess21/hassan-taccess21.pdf">Effect of Sign-recognition Performance on the Usability of Sign-language Dictionary Search</a>
-              <div class="authors"><b>Saad Hassan</b>, <a href="https://oliveralonzo.com/">Oliver Alonzo</a>, <a href="https://abrahamglasser.com/">Abraham Glasser</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a></div>
-              <div class="links"><a href="papers/hassan-taccess21/hassan-taccess21.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3470650">ACM DL</a><a href="https://latlab.ist.rit.edu/taccess2020/">Supplement</a><a href="papers/hassan-taccess21/hassan21.bib">BibTeX</a></div>
-            </div>
-          </div>
-          <div class="paper" data-tags="w4a long">
-            <img class="thumb" src="papers/amin-w4a21/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">W4A 2021</div>
-              <a class="title" href="papers/amin-w4a21/amin-w4a21.pdf">Caption-occlusion Severity Judgments across Live-television Genres from Deaf and Hard-of-hearing Viewers</a>
-              <div class="authors"><a href="https://akhteramin.github.io/">Akhter Al Amin</a>, <b>Saad Hassan</b>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a></div>
-              <div class="links"><a href="papers/amin-w4a21/amin-w4a21.pdf">PDF</a><a href="https://dl.acm.org/doi/10.1145/3430263.3452429">ACM DL</a><a href="https://docs.google.com/presentation/d/1sG7UGWJxRbz3gGneNMSm5RdJf6MIoedQMSaHSC810UA/edit?usp=sharing">Slides</a><a href="papers/amin-w4a21/amin21.bib">BibTeX</a></div>
-            </div>
-          </div>
-          <div class="paper" data-tags="hci-other long bookchapter">
-            <img class="thumb" src="papers/amin-uahci21/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">UAHCI 2021</div>
-              <a class="title" href="papers/amin-uahci21/amin-uahci21.pdf">Effect of Occlusion on Deaf and Hard of Hearing Users’ Perception of Captioned Video Quality</a>
-              <div class="authors"><a href="https://akhteramin.github.io/">Akhter Al Amin</a>, <b>Saad Hassan</b>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a></div>
-              <div class="links"><a href="papers/amin-uahci21/amin-uahci21.pdf">PDF</a><a href="https://link.springer.com/chapter/10.1007/978-3-030-78095-1_16">Springer</a><a href="https://docs.google.com/presentation/d/1zbUjxnEb6HNeEny0FAMO5WMiJGFTwMxBRIM2nsYZjls/edit?usp=sharing">Slides</a><a href="papers/amin-uahci21/amin21.bib">BibTeX</a></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="year">
-          <h3>2020</h3>
-          <div class="paper" data-tags="ai-other workshop">
-            <img class="thumb" src="papers/hassan-slrtp20/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">SLRTP @ ECCV 2020</div>
-              <a class="title" href="papers/hassan-slrtp20/hassan-slrtp20.pdf">Effect of Ranking and Precision of Results on Users’ Satisfaction with Search-by-video Sign-language Dictionaries</a>
-              <div class="authors"><b>Saad Hassan</b>, <a href="https://oliveralonzo.com/">Oliver Alonzo</a>, <a href="https://abrahamglasser.com/">Abraham Glasser</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a></div>
-              <div class="links"><a href="papers/hassan-slrtp20/hassan-slrtp20.pdf">Preprint</a><a href="https://docs.google.com/presentation/d/1_nuU1GpLbVSzfkV-av5OsPbFzRUNC_0M/edit?usp=sharing&amp;ouid=108965496603216217412&amp;rtpof=true&amp;sd=true">Slides</a><a href="papers/hassan-slrtp20/hassan20.bib">BibTeX</a></div>
-            </div>
-          </div>
-          <div class="paper" data-tags="lrec dataset workshop">
-            <img class="thumb" src="papers/hassan-slrp20/featured.png" alt="" loading="lazy">
-            <div>
-              <div class="venue">SLRP @ LREC 2020</div>
-              <a class="title" href="papers/hassan-slrp20/hassan-slrp20.pdf">An Isolated-Signing RGBD Dataset of 100 American Sign Languageassan-slrp20.pdf">An Isolated-Signing RGBD Dataset of 100 American Sign Language Signs Produced by Fluent ASL Signers</a>
-              <div class="authors"><b>Saad Hassan</b>, <a href="https://larwan.com/">Larwan Berke</a>, <a href="https://elahevahd.github.io/main/">Elahe Vahdani</a>, <a href="https://longlong-jing.github.io/">Longlong Jing</a>, <a href="https://media-lab.ccny.cuny.edu/YLTCCNYHomepage/home.html">Yingli Tian</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a></div>
-              <div class="links"><a href="papers/hassan-slrp20/hassan-slrp20.pdf">PDF</a><a href="https://aclanthology.org/2020.signlang-1.14/">ACL Anthology</a><a href="https://docs.google.com/presentation/d/1ca1sBcPWTQ5_zJfU4R0vGPIWq92EpK_nCw3_m1b_V3E/edit?usp=sharing">Slides</a><a href="https://databrary.org/volume/1062">Databrary</a><a href="papers/hassan-slrp20/hassan20.bib">BibTeX</a></div>
-            </div>
-          </div>
-        </div>
-        <p class="footnote">* Equal contribution</p>
-      </section>
-
-    </main>
-  </div>
-
-  <footer>
-    <span>Last updated: September 14, 2026 · <a href="archive/" target="_self">Previous version</a></span>
-    <span>Design inspired by <a href="https://hci.stanford.edu/msb/">Michael Bernstein</a> &amp; <a href="https://guoanhong.com/">Anhong Guo</a></span>
-  </footer>
-</div>
-
-<script src="js/saad.js"></script>
-</body>
+            <p class="footnote">* Equal contribution</p>
+          </section>
+        </main>
+      </div>
+      <footer>
+        <span>Last updated: September 14, 2026 · <a href="archive/" target="_self">Previous version</a>
+        </span>
+        <span>Design inspired by <a href="https://hci.stanford.edu/msb/">Michael Bernstein</a> &amp; <a href="https://guoanhong.com/">Anhong Guo</a>
+        </span>
+      </footer>
+    </div>
+    <script src="js/saad.js"></script>
+  </body>
 </html>

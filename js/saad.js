@@ -103,3 +103,4 @@ bioToggle.addEventListener('click', function () {
   bio.hidden = !open;
   bioToggle.setAttribute('aria-expanded', open);
 });
+
