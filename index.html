@@ -24,7 +24,6 @@
         if (t) document.documentElement.dataset.theme = t;
       } catch (e) {}
     </script>
-    <base target="_blank">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6ZWKLB5M50"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -98,6 +97,7 @@
     </style>
   </head>
   <body>
+    <a class="skip-link" href="#content" target="_self">Skip to content</a>
     <div class="page">
       <!-- ================= HEADER ================= -->
       <header class="site-header">
@@ -113,7 +113,7 @@
           <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode">Dark</button>
         </nav>
       </header>
-      <div class="grid">
+      <div class="grid" id="content" tabindex="-1">
         <!-- ================= INTRO ================= -->
         <div class="intro">
           <img class="photo" src="files/saad.jpg" alt="Saad Hassan wearing a maroon shirt and black and golden glasses.">
@@ -190,21 +190,21 @@
             <!-- Year = expected graduation -->
             <ul class="people">
               <li>
-                <img src="images/students/chaelin.png" alt="">
+                <img src="images/students/chaelin.png" alt="Chaelin Kim outdoors in sunglasses and a white top, holding a tumbler.">
                 <span>
                   <a href="https://chaelin0722.github.io/introduction/">Chaelin Kim</a>
                   <span class="sub">2029</span>
                 </span>
               </li>
               <li>
-                <img src="images/students/nazmun.png" alt="">
+                <img src="images/students/nazmun.png" alt="Nazmun Nahar Khanom in a purple headscarf, speaking into a microphone.">
                 <span>
                   <a href="https://tithi-khan.github.io/">Nazmun Nahar Khanom</a>
                   <span class="sub">2029</span>
                 </span>
               </li>
               <li>
-                <img src="images/students/mahnoor.png" alt="">
+                <img src="images/students/mahnoor.png" alt="Syeda Mah Noor Asad in a floral dress, standing in front of greenery.">
                 <span>
                   <a href="https://syedamahnoorasad.github.io/">Syeda Mah Noor Asad</a>
                   <span class="sub">2029</span>
@@ -214,7 +214,7 @@
             <h4 class="team-category">Undergraduate students</h4>
             <ul class="people">
               <li>
-                <img src="images/students/evelyn.png" alt="">
+                <img src="images/students/evelyn.png" alt="Evelyn Nguyen smiling, with long dark hair, in front of a stone building.">
                 <span>
                   <a href="https://www.linkedin.com/in/evelynngh">Hoang Dieu Linh (Evelyn) Nguyen</a>
                 </span>
@@ -223,14 +223,14 @@
             <h4 class="team-category">Capstone students</h4>
             <ul class="people">
               <li>
-                <img src="images/students/jaret.jpeg" alt="">
+                <img src="images/students/jaret.jpeg" alt="Jaret Solomon smiling in a navy suit and tie.">
                 <span>
                   <a href="https://www.linkedin.com/in/jaretsolomon/">Jaret Solomon</a>
                   <span class="sub">2027</span>
                 </span>
               </li>
               <li>
-                <img src="images/students/campbell.jpeg" alt="">
+                <img src="images/students/campbell.jpeg" alt="Campbell Endries smiling, with long brown hair, in a black blazer.">
                 <span>
                   <a href="https://www.linkedin.com/in/campbell-endries-108597331/">Campbell Endries</a>
                   <span class="sub">2027</span>
@@ -599,7 +599,7 @@
                 <li>
                   <time>Mar. 21, 2025</time>
                   <p>
-                    <a href="https://www.cs.cmu.edu/~bam/">Brad Myers</a> visited the lab here in New Orleans to talk about his new book Pick, Click, Flick!: The Story of Interaction Techniques! Talk details <a href="https://sse.tulane.edu/cs/ceai/news"> here</a>.
+                    <a href="https://www.cs.cmu.edu/~bam/">Brad Myers</a> visited the lab here in New Orleans to talk about his new book Pick, Click, Flick!: The Story of Interaction Techniques! See <a href="https://sse.tulane.edu/cs/ceai/news">talk details on the CEAI news page</a>.
                   </p>
                 </li>
                 <li>
@@ -880,86 +880,86 @@
               <h3>2026</h3>
 
               <div class="paper" data-tags="assets demo">
-                <img class="thumb" src="papers/kim-assets26-2/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/kim-assets26-2/featured.png" alt="Annotated ASL video tool with a video player, segment search results, and a frame-by-frame timeline." loading="lazy">
                 <div>
                   <div class="venue">ASSETS 2026</div>
-                  <a class="title" href="papers/kim-assets26-2/kim-assets26-demo.pdf">Supporting Sign Language Video Comprehension through In-Situ Automatic Segmentation and Sign Lookup Tool </a>
+                  <a class="title" id="title-kim-assets26-2" href="papers/kim-assets26-2/kim-assets26-demo.pdf">Supporting Sign Language Video Comprehension through In-Situ Automatic Segmentation and Sign Lookup Tool </a>
                   <div class="authors">
                     <a href="https://chaelin0722.github.io/introduction/">Chaelin Kim</a> and <b>Saad Hassan</b>
                   </div>
                   <div class="links">
-                    <a href="papers/kim-assets26-2/kim-assets26-demo.pdf">Preprint</a>
+                    <a aria-describedby="title-kim-assets26-2" href="papers/kim-assets26-2/kim-assets26-demo.pdf">Preprint</a>
                   </div>
                 </div>
               </div>
 
               <div class="paper" data-tags="assets long">
-                <img class="thumb" src="papers/hassan-assets26/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/hassan-assets26/featured.png" alt="Stacked bar chart of accessible visualization papers by five-year period, 1996 to 2026, split by Read, Create, or Both, rising sharply after 2016." loading="lazy">
                 <div>
                   <div class="venue">ASSETS 2026</div>
-                  <a class="title" href="papers/hassan-assets26/hassan-assets26.pdf">A Scoping Review of Human–Computer Interaction Research on the Accessibility of Data Visualizations: New Technologies, Procedures, and Designs</a>
+                  <a class="title" id="title-hassan-assets26" href="papers/hassan-assets26/hassan-assets26.pdf">A Scoping Review of Human–Computer Interaction Research on the Accessibility of Data Visualizations: New Technologies, Procedures, and Designs</a>
                   <div class="authors">
                     <b>Saad Hassan</b>, <a href="https://areenkh.com/">Areen Khalaila</a>, <a href="https://dylancashman.github.io/ ">Dylan Cashman</a>, <a href="https://athersharif.me/">Ather Sharif</a>, <a href="https://rjfaust.github.io/">Rebecca Faust</a>
                   </div>
                   <div class="links">
-                    <a href="papers/hassan-assets26/hassan-assets26.pdf">Preprint</a>
-                    <a href="https://accessvizcorpus.pages.dev/">Corpus</a>
+                    <a aria-describedby="title-hassan-assets26" href="papers/hassan-assets26/hassan-assets26.pdf">Preprint</a>
+                    <a aria-describedby="title-hassan-assets26" href="https://accessvizcorpus.pages.dev/">Corpus</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="assets long">
-                <img class="thumb" src="papers/kim-assets26/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/kim-assets26/featured.png" alt="ASL video comprehension tool showing a signer in a video player beside sign lookup results." loading="lazy">
                 <div>
                   <div class="venue">ASSETS 2026</div>
-                  <a class="title" href="papers/kim-assets26/kim-assets26.pdf">Design and Evaluation of an AI-Based American Sign Language Video Comprehension Tool: Exploring the Benefits and Use of Automatic Segmentation and Sign Lookup</a>
+                  <a class="title" id="title-kim-assets26" href="papers/kim-assets26/kim-assets26.pdf">Design and Evaluation of an AI-Based American Sign Language Video Comprehension Tool: Exploring the Benefits and Use of Automatic Segmentation and Sign Lookup</a>
                   <div class="authors">
                     <a href="https://chaelin0722.github.io/introduction/">Chaelin Kim</a>, <a href="https://liberalarts.tulane.edu/linguistics/people/faculty/denise-crochet">Denise Crochet</a>, <a href="https://matybohacek.com/">Maty Bohacek</a>, <b>Saad Hassan</b>
                   </div>
                   <div class="links">
-                    <a href="papers/kim-assets26/kim-assets26.pdf">Preprint</a>
-                    <a href="https://github.com/chaelin0722/asl-video-lookup-tool">Code</a>
+                    <a aria-describedby="title-kim-assets26" href="papers/kim-assets26/kim-assets26.pdf">Preprint</a>
+                    <a aria-describedby="title-kim-assets26" href="https://github.com/chaelin0722/asl-video-lookup-tool">Code</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="bookchapter">
-                <img class="thumb" src="papers/hassan-degruyter26/featured.jpeg" alt="" loading="lazy">
+                <img class="thumb" src="papers/hassan-degruyter26/featured.jpeg" alt="Cover of the De Gruyter Handbook of Disruptive Urban Technologies and Society." loading="lazy">
                 <div>
                   <div class="venue">De Gruyter · Book Chapter</div>
-                  <a class="title" href="https://books.google.com/books/about/De_Gruyter_Handbook_of_Disruptive_Urban.html?id=xc8O0gEACAAJ">AI in the Public Sphere: Citizen Engagement and Governance</a>
+                  <a class="title" id="title-hassan-degruyter26" href="https://books.google.com/books/about/De_Gruyter_Handbook_of_Disruptive_Urban.html?id=xc8O0gEACAAJ">AI in the Public Sphere: Citizen Engagement and Governance</a>
                   <div class="authors">
                     <b>Saad Hassan</b>, <a href="https://www.motahhare.com/">Motahhare Eslami</a>, <a href="https://www.nicholasmattei.net/">Nicholas Mattei</a>, <a href="https://www.cs.tulane.edu/~aculotta/">Aron Culotta</a>, <a href="https://www.cs.cmu.edu/~johnz/">John Zimmerman</a>
                   </div>
                   <div class="links">
-                    <a href="https://books.google.com/books/about/De_Gruyter_Handbook_of_Disruptive_Urban.html?id=xc8O0gEACAAJ">Publisher</a>
+                    <a aria-describedby="title-hassan-degruyter26" href="https://books.google.com/books/about/De_Gruyter_Handbook_of_Disruptive_Urban.html?id=xc8O0gEACAAJ">Publisher</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="journal">
-                <img class="thumb" src="papers/allouch-ajpc26/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/allouch-ajpc26/featured.png" alt="Table pairing barriers to hypertension control with possible roles for patient-facing large language models." loading="lazy">
                 <div>
                   <div class="venue">AJPC 2026 · Commentary</div>
-                  <a class="title" href="papers/allouch-ajpc26/allouch-ajpc26.pdf">Reducing hypertension disparities: The potential role of patient-facing large language models</a>
+                  <a class="title" id="title-allouch-ajpc26" href="papers/allouch-ajpc26/allouch-ajpc26.pdf">Reducing hypertension disparities: The potential role of patient-facing large language models</a>
                   <div class="authors">Farah Allouch, <b>Saad Hassan</b>, Flor Alvarado, <a href="https://syedamahnoorasad.github.io/">Syeda Mah Noor Asad</a>, Dee Parekh, Renata Johnson, Marilyn Payne, David Gardner, <a href="https://sse.tulane.edu/nicholas-mattei">Nicholas Mattei</a>, Keith C. Ferdinand </div>
                   <div class="links">
-                    <a href="papers/allouch-ajpc26/allouch-ajpc26.pdf">PDF</a>
-                    <a href="https://www.sciencedirect.com/science/article/pii/S2666667726003879">ScienceDirect</a>
-                    <a href="papers/allouch-ajpc26/allouch26.bib">BibTeX</a>
+                    <a aria-describedby="title-allouch-ajpc26" href="papers/allouch-ajpc26/allouch-ajpc26.pdf">PDF</a>
+                    <a aria-describedby="title-allouch-ajpc26" href="https://www.sciencedirect.com/science/article/pii/S2666667726003879">ScienceDirect</a>
+                    <a aria-describedby="title-allouch-ajpc26" href="papers/allouch-ajpc26/allouch26.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="chi long">
-                <img class="thumb" src="papers/hassan-chi26/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/hassan-chi26/featured.png" alt="Diagram of themes from ASL educators about AI tools for teaching." loading="lazy">
                 <div>
                   <div class="venue">CHI 2026</div>
-                  <a class="title" href="papers/hassan-chi26/hassan-chi26.pdf">ASL Educators’ Perspectives on AI for Enhancing Student Learning in American Sign Language Education</a>
+                  <a class="title" id="title-hassan-chi26" href="papers/hassan-chi26/hassan-chi26.pdf">ASL Educators’ Perspectives on AI for Enhancing Student Learning in American Sign Language Education</a>
                   <div class="authors">
                     <b>Saad Hassan</b>, <a href="https://www.linkedin.com/in/laleh-nourian-a88ba3129/">Laleh Nourian</a>, <a href="https://www.caluapataca.com/">Caluã de Lacerda Pataca</a>, Michelle M. Olson, Toni D’Aurio, Kanupriya Agarwal, <a href="https://syedamahnoorasad.github.io/">Syeda Mah Noor Asad</a>, <a href="https://www.garrethtigwell.com/">Garreth W. Tigwell</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
                   </div>
                   <div class="links">
-                    <a href="papers/hassan-chi26/hassan-chi26.pdf">PDF</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3772318.3791928">ACM DL</a>
-                    <a href="papers/hassan-chi26/slides.pdf">Slides</a>
-                    <a href="papers/hassan-chi26/hassan26.bib">BibTeX</a>
+                    <a aria-describedby="title-hassan-chi26" href="papers/hassan-chi26/hassan-chi26.pdf">PDF</a>
+                    <a aria-describedby="title-hassan-chi26" href="https://dl.acm.org/doi/10.1145/3772318.3791928">ACM DL</a>
+                    <a aria-describedby="title-hassan-chi26" href="papers/hassan-chi26/slides.pdf">Slides</a>
+                    <a aria-describedby="title-hassan-chi26" href="papers/hassan-chi26/hassan26.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
@@ -967,124 +967,124 @@
             <div class="year">
               <h3>2025</h3>
               <div class="paper" data-tags="assets short">
-                <img class="thumb" src="papers/khanom-assets25/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/khanom-assets25/featured.png" alt="Browser extension panel with text simplification settings next to example text with highlighted words." loading="lazy">
                 <div>
                   <div class="venue">ASSETS 2025 · Demo</div>
-                  <a class="title" href="papers/khanom-assets25/khanom-assets25.pdf">A Customizable AI-Powered Automatic Text Simplification Tool for Supporting In-Situ Text Comprehension</a>
+                  <a class="title" id="title-khanom-assets25" href="papers/khanom-assets25/khanom-assets25.pdf">A Customizable AI-Powered Automatic Text Simplification Tool for Supporting In-Situ Text Comprehension</a>
                   <div class="authors">
                     <a href="https://tithi-khan.github.io/">Nazmun Nahar Khanom</a>, <a href="https://www.linkedin.com/in/aaron-gershkovich-46232a2b3/">Aaron Gershkovich</a>, <a href="https://oliveralonzo.com/">Oliver Alonzo</a>, <b>Saad Hassan</b>
                   </div>
                   <div class="links">
-                    <a href="papers/khanom-assets25/khanom-assets25.pdf">PDF</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3663547.3759713">ACM DL</a>
-                    <a href="https://github.com/TITHI-KHAN/ATS-GPT">Code</a>
-                    <a href="papers/khanom-assets25/poster.pdf">Poster</a>
-                    <a href="papers/khanom-assets25/khanom25.bib">BibTeX</a>
+                    <a aria-describedby="title-khanom-assets25" href="papers/khanom-assets25/khanom-assets25.pdf">PDF</a>
+                    <a aria-describedby="title-khanom-assets25" href="https://dl.acm.org/doi/10.1145/3663547.3759713">ACM DL</a>
+                    <a aria-describedby="title-khanom-assets25" href="https://github.com/TITHI-KHAN/ATS-GPT">Code</a>
+                    <a aria-describedby="title-khanom-assets25" href="papers/khanom-assets25/poster.pdf">Poster</a>
+                    <a aria-describedby="title-khanom-assets25" href="papers/khanom-assets25/khanom25.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="assets short">
-                <img class="thumb" src="papers/kim-assets25/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/kim-assets25/featured.png" alt="Welcome screen of an ASL learning tool listing EMS sign categories such as body parts, symptoms, and injuries." loading="lazy">
                 <div>
                   <div class="venue">ASSETS 2025 · Demo</div>
-                  <a class="title" href="papers/kim-assets25/kim-assets25.pdf">Signing for Care: A Demo and Initial Evaluation of an American Sign Language Learning Tool for Emergency Medical Service Providers</a>
+                  <a class="title" id="title-kim-assets25" href="papers/kim-assets25/kim-assets25.pdf">Signing for Care: A Demo and Initial Evaluation of an American Sign Language Learning Tool for Emergency Medical Service Providers</a>
                   <div class="authors">
                     <a href="https://chaelin0722.github.io/introduction/">Chaelin Kim</a>, Cameron McLaren, Madhangi Krishnan, Nikhil Modayur, <b>Saad Hassan</b>
                   </div>
                   <div class="links">
-                    <a href="papers/kim-assets25/kim-assets25.pdf">PDF</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3663547.3759746">ACM DL</a>
-                    <a href="https://github.com/chaelin0722/ASL-emergency">Code</a>
-                    <a href="papers/kim-assets25/poster.pdf">Poster</a>
-                    <a href="papers/kim-assets25/kim25.bib">BibTeX</a>
+                    <a aria-describedby="title-kim-assets25" href="papers/kim-assets25/kim-assets25.pdf">PDF</a>
+                    <a aria-describedby="title-kim-assets25" href="https://dl.acm.org/doi/10.1145/3663547.3759746">ACM DL</a>
+                    <a aria-describedby="title-kim-assets25" href="https://github.com/chaelin0722/ASL-emergency">Code</a>
+                    <a aria-describedby="title-kim-assets25" href="papers/kim-assets25/poster.pdf">Poster</a>
+                    <a aria-describedby="title-kim-assets25" href="papers/kim-assets25/kim25.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="assets workshop">
-                <img class="thumb" src="papers/may-assets25/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/may-assets25/featured.png" alt="Flyer for the ASSETS 2025 workshop on participant recruitment, with session times and organizer photos." loading="lazy">
                 <div>
                   <div class="venue">ASSETS 2025 · Workshop Proposal</div>
-                  <a class="title" href="papers/may-assets25/may-assets25.pdf">Participant Recruitment in Accessibility Research</a>
+                  <a class="title" id="title-may-assets25" href="papers/may-assets25/may-assets25.pdf">Participant Recruitment in Accessibility Research</a>
                   <div class="authors">
                     <a href="https://www.lloydmay.net/">Lloyd May</a>, <b>Saad Hassan</b>, <a href="https://www.khang4dang.net/">Khang Dang</a>, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, <a href="https://oliveralonzo.com/">Oliver Alonzo</a>
                   </div>
                   <div class="links">
-                    <a href="papers/may-assets25/may-assets25.pdf">PDF</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3663547.3748639">ACM DL</a>
-                    <a href="https://docs.google.com/presentation/d/1KwvQdauKkiNEMZx5lLo_i0b1-VsL_U9LcFBjbFGVpiI/edit?usp=drivesdk">Slides</a>
-                    <a href="https://assets-recruitment-2025.github.io/">Website</a>
-                    <a href="papers/may-assets25/may25.bib">BibTeX</a>
+                    <a aria-describedby="title-may-assets25" href="papers/may-assets25/may-assets25.pdf">PDF</a>
+                    <a aria-describedby="title-may-assets25" href="https://dl.acm.org/doi/10.1145/3663547.3748639">ACM DL</a>
+                    <a aria-describedby="title-may-assets25" href="https://docs.google.com/presentation/d/1KwvQdauKkiNEMZx5lLo_i0b1-VsL_U9LcFBjbFGVpiI/edit?usp=drivesdk">Slides</a>
+                    <a aria-describedby="title-may-assets25" href="https://assets-recruitment-2025.github.io/">Website</a>
+                    <a aria-describedby="title-may-assets25" href="papers/may-assets25/may25.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="assets long">
-                <img class="thumb" src="papers/alonzo-assets25/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/alonzo-assets25/featured.png" alt="Stacked bar chart of reading support papers per year, 2000 to 2024, by disability group." loading="lazy">
                 <div>
                   <div class="venue">ASSETS 2025 · <span class="award">Best Paper Nominee</span>
                   </div>
-                  <a class="title" href="papers/alonzo-assets25/alonzo-assets25.pdf">A Review of 25 Years of Human-Computer Interaction Research on Reading Support Technologies for People with Disabilities Published in ACM</a>
+                  <a class="title" id="title-alonzo-assets25" href="papers/alonzo-assets25/alonzo-assets25.pdf">A Review of 25 Years of Human-Computer Interaction Research on Reading Support Technologies for People with Disabilities Published in ACM</a>
                   <div class="authors">
                     <a href="https://oliveralonzo.com/">Oliver Alonzo</a>*, <b>Saad Hassan</b>*
                   </div>
                   <div class="links">
-                    <a href="papers/alonzo-assets25/alonzo-assets25.pdf">PDF</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3663547.3746355">ACM DL</a>
-                    <a href="papers/alonzo-assets25/slides.pdf">Slides</a>
-                    <a href="https://docs.google.com/spreadsheets/d/1EwSAnIALGsNkIgXWYrdVWguFnPjSEM2v2l5ieRWKtR4/edit?usp=sharing">Corpus</a>
-                    <a href="papers/alonzo-assets25/alonzo25.bib">BibTeX</a>
+                    <a aria-describedby="title-alonzo-assets25" href="papers/alonzo-assets25/alonzo-assets25.pdf">PDF</a>
+                    <a aria-describedby="title-alonzo-assets25" href="https://dl.acm.org/doi/10.1145/3663547.3746355">ACM DL</a>
+                    <a aria-describedby="title-alonzo-assets25" href="papers/alonzo-assets25/slides.pdf">Slides</a>
+                    <a aria-describedby="title-alonzo-assets25" href="https://docs.google.com/spreadsheets/d/1EwSAnIALGsNkIgXWYrdVWguFnPjSEM2v2l5ieRWKtR4/edit?usp=sharing">Corpus</a>
+                    <a aria-describedby="title-alonzo-assets25" href="papers/alonzo-assets25/alonzo25.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="cvpr long dataset">
-                <img class="thumb" src="papers/georg-cvpr25/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/georg-cvpr25/featured.png" alt="Six people with blurred faces fingerspelling to their phone cameras." loading="lazy">
                 <div>
                   <div class="venue">CVPR 2025</div>
-                  <a class="title" href="papers/georg-cvpr25/georg-cvpr25.pdf">FSboard: Over 3 Million Characters of ASL Fingerspelling Collected via Smartphones</a>
+                  <a class="title" id="title-georg-cvpr25" href="papers/georg-cvpr25/georg-cvpr25.pdf">FSboard: Over 3 Million Characters of ASL Fingerspelling Collected via Smartphones</a>
                   <div class="authors">
                     <a href="https://www.linkedin.com/in/mgeorg/">Manfred Georg</a>, <a href="https://scholar.google.com/citations?user=Wg58ZR4AAAAJ">Garrett Tanzer</a>, <a href="https://github.com/eknight7">Esha Uboweja</a>, <b>Saad Hassan</b>, Maximus Shengelia, <a href="https://www.linkedin.com/in/samsepah/">Sam Sepah</a>, <a href="https://www.deafandloud.com/">Sean Forbes</a>, <a href="https://sites.cc.gatech.edu/home/thad/">Thad Starner</a>
                   </div>
                   <div class="links">
-                    <a href="papers/georg-cvpr25/georg-cvpr25.pdf">PDF</a>
-                    <a href="https://openaccess.thecvf.com/content/CVPR2025/html/Georg_FSboard_Over_3_Million_Characters_of_ASL_Fingerspelling_Collected_via_CVPR_2025_paper.html">CVF</a>
-                    <a href="https://ieeexplore.ieee.org/document/11094022/">IEEE Xplore</a>
-                    <a href="https://www.youtube.com/watch?v=a8pEg6NPGvM">Video</a>
-                    <a href="https://cvpr.thecvf.com/media/PosterPDFs/CVPR%202025/33621.png?t=1748855109.234652">Poster</a>
-                    <a href="https://www.kaggle.com/datasets/googleai/fsboard">Kaggle</a>
-                    <a href="papers/georg-cvpr25/georg25.bib">BibTeX</a>
+                    <a aria-describedby="title-georg-cvpr25" href="papers/georg-cvpr25/georg-cvpr25.pdf">PDF</a>
+                    <a aria-describedby="title-georg-cvpr25" href="https://openaccess.thecvf.com/content/CVPR2025/html/Georg_FSboard_Over_3_Million_Characters_of_ASL_Fingerspelling_Collected_via_CVPR_2025_paper.html">CVF</a>
+                    <a aria-describedby="title-georg-cvpr25" href="https://ieeexplore.ieee.org/document/11094022/">IEEE Xplore</a>
+                    <a aria-describedby="title-georg-cvpr25" href="https://www.youtube.com/watch?v=a8pEg6NPGvM">Video</a>
+                    <a aria-describedby="title-georg-cvpr25" href="https://cvpr.thecvf.com/media/PosterPDFs/CVPR%202025/33621.png?t=1748855109.234652">Poster</a>
+                    <a aria-describedby="title-georg-cvpr25" href="https://www.kaggle.com/datasets/googleai/fsboard">Kaggle</a>
+                    <a aria-describedby="title-georg-cvpr25" href="papers/georg-cvpr25/georg25.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="w4a long">
-                <img class="thumb" src="papers/hassan-w4a25/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/hassan-w4a25/featured.png" alt="Phone screen of a video-based ASL dictionary with a blurred signer and a frame strip." loading="lazy">
                 <div>
                   <div class="venue">W4A 2025</div>
-                  <a class="title" href="papers/hassan-w4a25/hassan-w4a25-slides.pdf">Towards an AI-Driven Video-Based American Sign Language Dictionary: Exploring Design and Usage Experience with Learners</a>
+                  <a class="title" id="title-hassan-w4a25" href="papers/hassan-w4a25/hassan-w4a25-slides.pdf">Towards an AI-Driven Video-Based American Sign Language Dictionary: Exploring Design and Usage Experience with Learners</a>
                   <div class="authors">
                     <b>Saad Hassan</b>, <a href="https://matybohacek.com/">Matyas Bohacek</a>, <a href="https://chaelin0722.github.io/introduction/">Chaelin Kim</a>, <a href="https://liberalarts.tulane.edu/linguistics/people/faculty/denise-crochet">Denise Crochet</a>
                   </div>
                   <div class="links">
-                    <a href="papers/hassan-w4a25/hassan-w4a-25.pdf">PDF</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3744257.3744258">ACM DL</a>
-                    <a href="papers/hassan-w4a25/hassan-w4a25-slides.pdf">Slides</a>
-                    <a href="https://github.com/maty-bohacek/sign-language-dictionary">Code</a>
-                    <a href="papers/hassan-w4a25/hassan25.bib">BibTeX</a>
+                    <a aria-describedby="title-hassan-w4a25" href="papers/hassan-w4a25/hassan-w4a-25.pdf">PDF</a>
+                    <a aria-describedby="title-hassan-w4a25" href="https://dl.acm.org/doi/10.1145/3744257.3744258">ACM DL</a>
+                    <a aria-describedby="title-hassan-w4a25" href="papers/hassan-w4a25/hassan-w4a25-slides.pdf">Slides</a>
+                    <a aria-describedby="title-hassan-w4a25" href="https://github.com/maty-bohacek/sign-language-dictionary">Code</a>
+                    <a aria-describedby="title-hassan-w4a25" href="papers/hassan-w4a25/hassan25.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="chi long">
-                <img class="thumb" src="papers/pataca-chi-25/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/pataca-chi-25/featured.png" alt="A participant watches a captioned video on a laptop while wearing a haptic device on the wrist." loading="lazy">
                 <div>
                   <div class="venue">CHI 2025</div>
-                  <a class="title" href="papers/pataca-chi-25/pataca-chi25.pdf">Tactile Emotions: Multimodal Affective Captioning with Haptics Improves Narrative Engagement for d/Deaf and Hard-of-Hearing Viewers</a>
+                  <a class="title" id="title-pataca-chi-25" href="papers/pataca-chi-25/pataca-chi25.pdf">Tactile Emotions: Multimodal Affective Captioning with Haptics Improves Narrative Engagement for d/Deaf and Hard-of-Hearing Viewers</a>
                   <div class="authors">
                     <a href="https://www.caluapataca.com/">Caluã de Lacerda Pataca</a>, <b>Saad Hassan</b>, <a href="https://www.lloydmay.net/">Lloyd May</a>, Michelle M. Olson, Toni D’Aurio, <a href="https://www.rit.edu/directory/rxpics-roshan-peiris">Roshan L. Peiris</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
                   </div>
                   <div class="links">
-                    <a href="papers/pataca-chi-25/pataca-chi25.pdf">PDF</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3706598.3713304">ACM DL</a>
-                    <a href="papers/pataca-chi-25/pataca-chi25-slides-compressed.pdf">Slides</a>
-                    <a href="https://www.youtube.com/watch?v=Bz_qZBOHw5U">Video</a>
-                    <a href="papers/pataca-chi-25/pataca25.bib">BibTeX</a>
+                    <a aria-describedby="title-pataca-chi-25" href="papers/pataca-chi-25/pataca-chi25.pdf">PDF</a>
+                    <a aria-describedby="title-pataca-chi-25" href="https://dl.acm.org/doi/10.1145/3706598.3713304">ACM DL</a>
+                    <a aria-describedby="title-pataca-chi-25" href="papers/pataca-chi-25/pataca-chi25-slides-compressed.pdf">Slides</a>
+                    <a aria-describedby="title-pataca-chi-25" href="https://www.youtube.com/watch?v=Bz_qZBOHw5U">Video</a>
+                    <a aria-describedby="title-pataca-chi-25" href="papers/pataca-chi-25/pataca25.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
@@ -1092,106 +1092,106 @@
             <div class="year">
               <h3>2024</h3>
               <div class="paper" data-tags="assets short">
-                <img class="thumb" src="papers/may-assets24/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/may-assets24/featured.png" alt="Rich Caption Editor interface with a timeline, cue settings, and styled caption text." loading="lazy">
                 <div>
                   <div class="venue">ASSETS 2024 · Demo</div>
-                  <a class="title" href="papers/may-assets24/may-assets24.pdf">Towards a Rich Format for Closed-Captioning</a>
+                  <a class="title" id="title-may-assets24" href="papers/may-assets24/may-assets24.pdf">Towards a Rich Format for Closed-Captioning</a>
                   <div class="authors">
                     <a href="https://www.lloydmay.net/">Lloyd May</a>, Alex Williams, <b>Saad Hassan</b>, <a href="https://markcartwright.com/">Mark Cartwright</a>, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>
                   </div>
                   <div class="links">
-                    <a href="papers/may-assets24/may-assets24.pdf">PDF</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3663548.3688504">ACM DL</a>
-                    <a href="https://www.youtube.com/watch?v=-E6I5rKPpOI">Video Figure</a>
-                    <a href="https://github.com/disjoylab/Rich-Caption-Editor">Code</a>
-                    <a href="https://redarmy34.github.io/RCE-WebGL-Page/">Demo</a>
-                    <a href="papers/may-assets24/may24.bib">BibTeX</a>
+                    <a aria-describedby="title-may-assets24" href="papers/may-assets24/may-assets24.pdf">PDF</a>
+                    <a aria-describedby="title-may-assets24" href="https://dl.acm.org/doi/10.1145/3663548.3688504">ACM DL</a>
+                    <a aria-describedby="title-may-assets24" href="https://www.youtube.com/watch?v=-E6I5rKPpOI">Video Figure</a>
+                    <a aria-describedby="title-may-assets24" href="https://github.com/disjoylab/Rich-Caption-Editor">Code</a>
+                    <a aria-describedby="title-may-assets24" href="https://redarmy34.github.io/RCE-WebGL-Page/">Demo</a>
+                    <a aria-describedby="title-may-assets24" href="papers/may-assets24/may24.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="assets short">
-                <img class="thumb" src="papers/boyd-assets24/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/boyd-assets24/featured.png" alt="Codebook table of themes such as awareness, accommodation, acceptance, and advocacy." loading="lazy">
                 <div>
                   <div class="venue">ASSETS 2024 · Poster</div>
-                  <a class="title" href="papers/boyd-assets24/boyd-assets24.pdf">Exploring the “Freedom to be Me” through Design Sprints with Neurodivergent Scholars</a>
+                  <a class="title" id="title-boyd-assets24" href="papers/boyd-assets24/boyd-assets24.pdf">Exploring the “Freedom to be Me” through Design Sprints with Neurodivergent Scholars</a>
                   <div class="authors">
                     <a href="https://www.chapman.edu/our-faculty/louanne-boyd">LouAnne Boyd</a>, <a href="http://faculty.washington.edu/annuska/">Annuska Zolyomi</a>, <b>Saad Hassan</b>, <a href="https://seray-i.github.io/">Seray B. Ibrahim</a>, <a href="https://www.linkedin.com/in/guande-wu-776486124/">Guande Wu</a>, <a href="https://kaykender.de/">Kay Kender</a>
                   </div>
                   <div class="links">
-                    <a href="papers/boyd-assets24/boyd-assets24.pdf">PDF</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3663548.3688527">ACM DL</a>
-                    <a href="papers/boyd-assets24/boyd-assets24-slides.pdf">Poster</a>
-                    <a href="papers/boyd-assets24/boyd24.bib">BibTeX</a>
+                    <a aria-describedby="title-boyd-assets24" href="papers/boyd-assets24/boyd-assets24.pdf">PDF</a>
+                    <a aria-describedby="title-boyd-assets24" href="https://dl.acm.org/doi/10.1145/3663548.3688527">ACM DL</a>
+                    <a aria-describedby="title-boyd-assets24" href="papers/boyd-assets24/boyd-assets24-slides.pdf">Poster</a>
+                    <a aria-describedby="title-boyd-assets24" href="papers/boyd-assets24/boyd24.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="taccess journal">
-                <img class="thumb" src="papers/hassan-taccess-24/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/hassan-taccess-24/featured.png" alt="Annotated video player for selecting a span of a sign language video and searching for the sign." loading="lazy">
                 <div>
                   <div class="venue">TACCESS 2024</div>
-                  <a class="title" href="papers/hassan-taccess-24/hassan-taccess-24.pdf">Exploring the Benefits and Applications of Video-Span Selection and Search for Real-Time Support in Sign Language Video Comprehension among ASL Learners</a>
+                  <a class="title" id="title-hassan-taccess-24" href="papers/hassan-taccess-24/hassan-taccess-24.pdf">Exploring the Benefits and Applications of Video-Span Selection and Search for Real-Time Support in Sign Language Video Comprehension among ASL Learners</a>
                   <div class="authors">
                     <b>Saad Hassan</b>, <a href="https://www.caluapataca.com/">Caluã de Lacerda Pataca</a>, <a href="https://akhteramin.github.io/">Akhter Al Amin</a>, <a href="https://www.linkedin.com/in/laleh-nourian-a88ba3129/">Laleh Nourian</a>, <a href="https://www.linkedin.com/in/diego-navarro-306b9a229/">Diego Navarro</a>, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, Alexis Gordon, Matthew Watkins, <a href="https://www.garrethtigwell.com/">Garreth W. Tigwell</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
                   </div>
                   <div class="links">
-                    <a href="papers/hassan-taccess-24/hassan-taccess-24.pdf">PDF</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3690647">ACM DL</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3690647#supplementary-materials">Supplement</a>
-                    <a href="papers/hassan-taccess-24/hassan24.bib">BibTeX</a>
+                    <a aria-describedby="title-hassan-taccess-24" href="papers/hassan-taccess-24/hassan-taccess-24.pdf">PDF</a>
+                    <a aria-describedby="title-hassan-taccess-24" href="https://dl.acm.org/doi/10.1145/3690647">ACM DL</a>
+                    <a aria-describedby="title-hassan-taccess-24" href="https://dl.acm.org/doi/10.1145/3690647#supplementary-materials">Supplement</a>
+                    <a aria-describedby="title-hassan-taccess-24" href="papers/hassan-taccess-24/hassan24.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="ai-other workshop">
-                <img class="thumb" src="papers/hassan-hcomp24/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/hassan-hcomp24/featured.png" alt="Call for papers for the PACE 2024 workshop at HCOMP, with organizer photos." loading="lazy">
                 <div>
                   <div class="venue">HCOMP 2024 · Workshop Proposal</div>
-                  <a class="title" href="papers/hassan-hcomp24/hassan-hcomp24.pdf">PACE: Participatory AI for Community Engagement</a>
+                  <a class="title" id="title-hassan-hcomp24" href="papers/hassan-hcomp24/hassan-hcomp24.pdf">PACE: Participatory AI for Community Engagement</a>
                   <div class="authors">
                     <b>Saad Hassan</b>, <a href="https://syedamahnoorasad.github.io/">Syeda Mah Noor Asad</a>, <a href="https://www.motahhare.com/">Motahhare Eslami</a>, <a href="https://sse.tulane.edu/nicholas-mattei">Nicholas Mattei</a>, <a href="https://www.cs.tulane.edu/~aculotta/">Aron Culotta</a>, <a href="https://www.cs.cmu.edu/~johnz/">John Zimmerman</a>
                   </div>
                   <div class="links">
-                    <a href="papers/hassan-hcomp24/hassan-hcomp24.pdf">PDF</a>
-                    <a href="https://ojs.aaai.org/index.php/HCOMP/article/view/31610">AAAI</a>
-                    <a href="https://docs.google.com/presentation/d/1AUEcC3LnJEFJCVE51VEpHMsLw0GYceF7ZD9GHZS2cVk/edit?usp=drivesdk">Slides</a>
-                    <a href="https://tulanecs.github.io/PACE/">Website</a>
-                    <a href="papers/hassan-hcomp24/hassan24.bib">BibTeX</a>
+                    <a aria-describedby="title-hassan-hcomp24" href="papers/hassan-hcomp24/hassan-hcomp24.pdf">PDF</a>
+                    <a aria-describedby="title-hassan-hcomp24" href="https://ojs.aaai.org/index.php/HCOMP/article/view/31610">AAAI</a>
+                    <a aria-describedby="title-hassan-hcomp24" href="https://docs.google.com/presentation/d/1AUEcC3LnJEFJCVE51VEpHMsLw0GYceF7ZD9GHZS2cVk/edit?usp=drivesdk">Slides</a>
+                    <a aria-describedby="title-hassan-hcomp24" href="https://tulanecs.github.io/PACE/">Website</a>
+                    <a aria-describedby="title-hassan-hcomp24" href="papers/hassan-hcomp24/hassan24.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="chi long">
-                <img class="thumb" src="papers/hassan-chi24/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/hassan-chi24/featured.png" alt="Dance video tool showing two dancers, a move description, and search results for a selected span." loading="lazy">
                 <div>
                   <div class="venue">CHI 2024 · <span class="award">Best Paper Honorable Mention</span>
                   </div>
-                  <a class="title" href="papers/hassan-chi24/hassan-chi24.pdf">Designing and Evaluating an Advanced Dance Video Comprehension Tool with In-situ Move Identification Capabilities</a>
+                  <a class="title" id="title-hassan-chi24" href="papers/hassan-chi24/hassan-chi24.pdf">Designing and Evaluating an Advanced Dance Video Comprehension Tool with In-situ Move Identification Capabilities</a>
                   <div class="authors">
                     <b>Saad Hassan</b>, <a href="https://www.caluapataca.com/">Caluã de Lacerda Pataca</a>, <a href="https://www.linkedin.com/in/laleh-nourian-a88ba3129/">Laleh Nourian</a>, <a href="https://www.garrethtigwell.com/">Garreth W. Tigwell</a>, Briana Davis, <a href="https://www.linkedin.com/in/will-silver-wagman/">Will Zhenya Silver Wagman</a>
                   </div>
                   <div class="links">
-                    <a href="papers/hassan-chi24/hassan-chi24.pdf">PDF</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3613904.3642710">ACM DL</a>
-                    <a href="papers/hassan-chi24/slides.pdf">Slides</a>
-                    <a href="https://www.youtube.com/watch?v=etSQo4Aj6ow">Video</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3613904.3642710#supplementary-materials">Video Figure</a>
-                    <a href="papers/hassan-chi24/hassan24.bib">BibTeX</a>
+                    <a aria-describedby="title-hassan-chi24" href="papers/hassan-chi24/hassan-chi24.pdf">PDF</a>
+                    <a aria-describedby="title-hassan-chi24" href="https://dl.acm.org/doi/10.1145/3613904.3642710">ACM DL</a>
+                    <a aria-describedby="title-hassan-chi24" href="papers/hassan-chi24/slides.pdf">Slides</a>
+                    <a aria-describedby="title-hassan-chi24" href="https://www.youtube.com/watch?v=etSQo4Aj6ow">Video</a>
+                    <a aria-describedby="title-hassan-chi24" href="https://dl.acm.org/doi/10.1145/3613904.3642710#supplementary-materials">Video Figure</a>
+                    <a aria-describedby="title-hassan-chi24" href="papers/hassan-chi24/hassan24.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="chi long">
-                <img class="thumb" src="papers/pataca-chi24/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/pataca-chi24/featured.png" alt="Diagram turning a speech transcript and audio into per-word emotion values for captions." loading="lazy">
                 <div>
                   <div class="venue">CHI 2024 · <span class="award">Best Paper Honorable Mention</span>
                   </div>
-                  <a class="title" href="papers/pataca-chi24/pataca-chi24.pdf">Caption Royale: Exploring the Design Space of Affective Captions from the Perspective of Deaf and Hard-of-Hearing Individuals</a>
+                  <a class="title" id="title-pataca-chi24" href="papers/pataca-chi24/pataca-chi24.pdf">Caption Royale: Exploring the Design Space of Affective Captions from the Perspective of Deaf and Hard-of-Hearing Individuals</a>
                   <div class="authors">
                     <a href="https://www.caluapataca.com/">Caluã de Lacerda Pataca</a>, <b>Saad Hassan</b>, Nathan Tinker, <a href="https://www.rit.edu/directory/rxpics-roshan-peiris">Roshan Lalintha Peiris</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
                   </div>
                   <div class="links">
-                    <a href="papers/pataca-chi24/pataca-chi24.pdf">PDF</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3613904.3642258">ACM DL</a>
-                    <a href="papers/pataca-chi24/slides.pdf">Slides</a>
-                    <a href="https://www.youtube.com/watch?v=zVfec86Oaf4&amp;t=2s">Video</a>
-                    <a href="papers/pataca-chi24/pataca24.bib">BibTeX</a>
+                    <a aria-describedby="title-pataca-chi24" href="papers/pataca-chi24/pataca-chi24.pdf">PDF</a>
+                    <a aria-describedby="title-pataca-chi24" href="https://dl.acm.org/doi/10.1145/3613904.3642258">ACM DL</a>
+                    <a aria-describedby="title-pataca-chi24" href="papers/pataca-chi24/slides.pdf">Slides</a>
+                    <a aria-describedby="title-pataca-chi24" href="https://www.youtube.com/watch?v=zVfec86Oaf4&amp;t=2s">Video</a>
+                    <a aria-describedby="title-pataca-chi24" href="papers/pataca-chi24/pataca24.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
@@ -1199,120 +1199,120 @@
             <div class="year">
               <h3>2023</h3>
               <div class="paper" data-tags="pacm journal">
-                <img class="thumb" src="papers/hassan-mobilehci23/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/hassan-mobilehci23/featured.png" alt="Three phone screens of a person signing to type “we drive on parkways.”" loading="lazy">
                 <div>
                   <div class="venue">MobileHCI 2023</div>
-                  <a class="title" href="https://dl.acm.org/doi/10.1145/3604274">Tap to Sign: Towards using American Sign Language for Text Entry on Smartphones</a>
+                  <a class="title" id="title-hassan-mobilehci23" href="https://dl.acm.org/doi/10.1145/3604274">Tap to Sign: Towards using American Sign Language for Text Entry on Smartphones</a>
                   <div class="authors">
                     <b>Saad Hassan</b>, <a href="https://abrahamglasser.com/">Abraham Glasser</a>, Max Shengelia, <a href="https://sites.cc.gatech.edu/home/thad/">Thad Starner</a>, <a href="https://www.deafandloud.com/">Sean Forbes</a>, Nathan Qualls, <a href="https://www.linkedin.com/in/samsepah/">Sam S. Sepah</a>
                   </div>
                   <div class="links">
-                    <a href="papers/hassan-mobilehci23/hassan-mhci23.pdf">PDF</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3604274">ACM DL</a>
-                    <a href="https://docs.google.com/presentation/d/1qPtowSdv61h5odrORvFZah2Q7W98ZIr5RTFdApKjWeU/edit?usp=sharing">Slides</a>
-                    <a href="https://www.youtube.com/watch?v=hyDtfJhe_aU">Video</a>
-                    <a href="papers/hassan-mobilehci23/hassan23.bib">BibTeX</a>
+                    <a aria-describedby="title-hassan-mobilehci23" href="papers/hassan-mobilehci23/hassan-mhci23.pdf">PDF</a>
+                    <a aria-describedby="title-hassan-mobilehci23" href="https://dl.acm.org/doi/10.1145/3604274">ACM DL</a>
+                    <a aria-describedby="title-hassan-mobilehci23" href="https://docs.google.com/presentation/d/1qPtowSdv61h5odrORvFZah2Q7W98ZIr5RTFdApKjWeU/edit?usp=sharing">Slides</a>
+                    <a aria-describedby="title-hassan-mobilehci23" href="https://www.youtube.com/watch?v=hyDtfJhe_aU">Video</a>
+                    <a aria-describedby="title-hassan-mobilehci23" href="papers/hassan-mobilehci23/hassan23.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="assets short">
-                <img class="thumb" src="papers/bohacek-assets-23/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/bohacek-assets-23/featured.png" alt="Annotated Sign Spotter interface with webcam input, the recognized sign, and its confidence." loading="lazy">
                 <div>
                   <div class="venue">ASSETS 2023 · Demo</div>
-                  <a class="title" href="papers/bohacek-assets-23/bohacek-assets23.pdf">Sign Spotter: Design and Initial Evaluation of an Automatic Video-Based American Sign Language Dictionary System</a>
+                  <a class="title" id="title-bohacek-assets-23" href="papers/bohacek-assets-23/bohacek-assets23.pdf">Sign Spotter: Design and Initial Evaluation of an Automatic Video-Based American Sign Language Dictionary System</a>
                   <div class="authors">
                     <a href="https://matybohacek.com/">Matyas Bohacek</a>, <b>Saad Hassan</b>
                   </div>
                   <div class="links">
-                    <a href="papers/bohacek-assets-23/bohacek-assets23.pdf">PDF</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3597638.3614497">ACM DL</a>
-                    <a href="https://docs.google.com/presentation/d/1UhX3Ap3oxwrLoa4rAqkLIbQ5XdsmJVEZ/edit?usp=sharing&amp;ouid=108965496603216217412&amp;rtpof=true&amp;sd=true">Slides</a>
-                    <a href="papers/bohacek-assets-23/bohacek23.bib">BibTeX</a>
+                    <a aria-describedby="title-bohacek-assets-23" href="papers/bohacek-assets-23/bohacek-assets23.pdf">PDF</a>
+                    <a aria-describedby="title-bohacek-assets-23" href="https://dl.acm.org/doi/10.1145/3597638.3614497">ACM DL</a>
+                    <a aria-describedby="title-bohacek-assets-23" href="https://docs.google.com/presentation/d/1UhX3Ap3oxwrLoa4rAqkLIbQ5XdsmJVEZ/edit?usp=sharing&amp;ouid=108965496603216217412&amp;rtpof=true&amp;sd=true">Slides</a>
+                    <a aria-describedby="title-bohacek-assets-23" href="papers/bohacek-assets-23/bohacek23.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="other">
-                <img class="thumb" src="papers/hassan-dissertation23/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/hassan-dissertation23/featured.png" alt="Sketches of human figures in motion behind the title “Searching for Unfamiliar Structured Human Movements.”" loading="lazy">
                 <div>
                   <div class="venue">RIT · PhD Dissertation</div>
-                  <a class="title" href="https://www.proquest.com/docview/2821576919">Exploring Search-by-Video Technology for Searching Structured Human Movements: Insights From Sign Language Look-Up Systems</a>
+                  <a class="title" id="title-hassan-dissertation23" href="https://www.proquest.com/docview/2821576919">Exploring Search-by-Video Technology for Searching Structured Human Movements: Insights From Sign Language Look-Up Systems</a>
                   <div class="authors">
                     <b>Saad Hassan</b>
                   </div>
                   <div class="links">
-                    <a href="https://www.proquest.com/docview/2821576919">ProQuest</a>
-                    <a href="https://docs.google.com/presentation/d/1Uy1cv94HqWisvXNhfgVT4d_UUg7p7WiDuXAGDecy4xc/edit?usp=sharing">Slides</a>
-                    <a href="papers/hassan-dissertation23/hassan23.bib">BibTeX</a>
+                    <a aria-describedby="title-hassan-dissertation23" href="https://www.proquest.com/docview/2821576919">ProQuest</a>
+                    <a aria-describedby="title-hassan-dissertation23" href="https://docs.google.com/presentation/d/1Uy1cv94HqWisvXNhfgVT4d_UUg7p7WiDuXAGDecy4xc/edit?usp=sharing">Slides</a>
+                    <a aria-describedby="title-hassan-dissertation23" href="papers/hassan-dissertation23/hassan23.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="w4a long">
-                <img class="thumb" src="papers/amin-w4a23-1/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/amin-w4a23-1/featured.png" alt="Four line charts of where viewers looked over time while watching captioned TV news." loading="lazy">
                 <div>
                   <div class="venue">W4A 2023</div>
-                  <a class="title" href="papers/amin-w4a23-1/amin-w4a23-1.pdf">Understanding How Deaf and Hard of Hearing Viewers Visually Explore Captioned Live TV News</a>
+                  <a class="title" id="title-amin-w4a23-1" href="papers/amin-w4a23-1/amin-w4a23-1.pdf">Understanding How Deaf and Hard of Hearing Viewers Visually Explore Captioned Live TV News</a>
                   <div class="authors">
                     <a href="https://akhteramin.github.io/">Akhter Al Amin</a>, <b>Saad Hassan</b>, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
                   </div>
                   <div class="links">
-                    <a href="papers/amin-w4a23-1/amin-w4a23-1.pdf">PDF</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3587281.3587287">ACM DL</a>
-                    <a href="https://docs.google.com/presentation/d/1_UndCsi5Ah6HulV-DaRSQFH0eRwZQwJl1v1L01C-r20/edit?usp=sharing">Slides</a>
-                    <a href="papers/amin-w4a23-1/amin23.bib">BibTeX</a>
+                    <a aria-describedby="title-amin-w4a23-1" href="papers/amin-w4a23-1/amin-w4a23-1.pdf">PDF</a>
+                    <a aria-describedby="title-amin-w4a23-1" href="https://dl.acm.org/doi/10.1145/3587281.3587287">ACM DL</a>
+                    <a aria-describedby="title-amin-w4a23-1" href="https://docs.google.com/presentation/d/1_UndCsi5Ah6HulV-DaRSQFH0eRwZQwJl1v1L01C-r20/edit?usp=sharing">Slides</a>
+                    <a aria-describedby="title-amin-w4a23-1" href="papers/amin-w4a23-1/amin23.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="w4a short">
-                <img class="thumb" src="papers/amin-w4a23-2/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/amin-w4a23-2/featured.png" alt="Two bar charts of part-of-speech frequencies for high- and low-importance words." loading="lazy">
                 <div>
                   <div class="venue">W4A 2023 · Communication Paper</div>
-                  <a class="title" href="papers/amin-w4a23-2/amin-w4a23-2.pdf">Modeling Word Importance in Conversational Transcripts: Toward improved live captioning for Deaf and hard of hearing viewers</a>
+                  <a class="title" id="title-amin-w4a23-2" href="papers/amin-w4a23-2/amin-w4a23-2.pdf">Modeling Word Importance in Conversational Transcripts: Toward improved live captioning for Deaf and hard of hearing viewers</a>
                   <div class="authors">
                     <a href="https://akhteramin.github.io/">Akhter Al Amin</a>, <b>Saad Hassan</b>, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
                   </div>
                   <div class="links">
-                    <a href="papers/amin-w4a23-2/amin-w4a23-2.pdf">PDF</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3587281.3587290">ACM DL</a>
-                    <a href="https://docs.google.com/presentation/d/1omKtOHKiuz7M3VaR5xetQSULFL1yb17Z/edit?usp=sharing&amp;ouid=108965496603216217412&amp;rtpof=true&amp;sd=true">Slides</a>
-                    <a href="papers/amin-w4a23-2/amin23.bib">BibTeX</a>
+                    <a aria-describedby="title-amin-w4a23-2" href="papers/amin-w4a23-2/amin-w4a23-2.pdf">PDF</a>
+                    <a aria-describedby="title-amin-w4a23-2" href="https://dl.acm.org/doi/10.1145/3587281.3587290">ACM DL</a>
+                    <a aria-describedby="title-amin-w4a23-2" href="https://docs.google.com/presentation/d/1omKtOHKiuz7M3VaR5xetQSULFL1yb17Z/edit?usp=sharing&amp;ouid=108965496603216217412&amp;rtpof=true&amp;sd=true">Slides</a>
+                    <a aria-describedby="title-amin-w4a23-2" href="papers/amin-w4a23-2/amin23.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="chi short">
-                <img class="thumb" src="papers/hassan-chiea23/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/hassan-chiea23/featured.png" alt="Animation software showing a cartoon character with an emotive caption on screen." loading="lazy">
                 <div>
                   <div class="venue">CHI 2023 · Late-Breaking Work</div>
-                  <a class="title" href="papers/hassan-chiea23/hassan-chiea23.pdf">Exploring the Design Space of Automatically Generated Emotive Captions for Deaf or Hard of Hearing Users</a>
+                  <a class="title" id="title-hassan-chiea23" href="papers/hassan-chiea23/hassan-chiea23.pdf">Exploring the Design Space of Automatically Generated Emotive Captions for Deaf or Hard of Hearing Users</a>
                   <div class="authors">
                     <b>Saad Hassan</b>, <a href="https://www.linkedin.com/in/dingyao/">Yao Ding</a>, <a href="https://www.linkedin.com/in/agneyakerure/">Agneya Abhimanyu Kerure</a>, <a href="https://www.linkedin.com/in/christi-miller-094ab8/">Christi Miller</a>, John Burnett, <a href="https://www.linkedin.com/in/emily-biondo/">Emily Biondo</a>, <a href="https://about.me/brendengilbert">Brenden Gilbert</a>
                   </div>
                   <div class="links">
-                    <a href="papers/hassan-chiea23/hassan-chiea23.pdf">PDF</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3544549.3585880">ACM DL</a>
-                    <a href="https://docs.google.com/presentation/d/1iuJ14YzmUzI8xP_VErb1owBkrE5IxV6XqfmRbBzPwzc/edit?usp=sharing">Slides</a>
-                    <a href="https://youtu.be/luiGg3el-L0">Video</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3544549.3585880#supplementary-materials">Code + Supplement</a>
-                    <a href="papers/hassan-chiea23/hassan23.bib">BibTeX</a>
+                    <a aria-describedby="title-hassan-chiea23" href="papers/hassan-chiea23/hassan-chiea23.pdf">PDF</a>
+                    <a aria-describedby="title-hassan-chiea23" href="https://dl.acm.org/doi/10.1145/3544549.3585880">ACM DL</a>
+                    <a aria-describedby="title-hassan-chiea23" href="https://docs.google.com/presentation/d/1iuJ14YzmUzI8xP_VErb1owBkrE5IxV6XqfmRbBzPwzc/edit?usp=sharing">Slides</a>
+                    <a aria-describedby="title-hassan-chiea23" href="https://youtu.be/luiGg3el-L0">Video</a>
+                    <a aria-describedby="title-hassan-chiea23" href="https://dl.acm.org/doi/10.1145/3544549.3585880#supplementary-materials">Code + Supplement</a>
+                    <a aria-describedby="title-hassan-chiea23" href="papers/hassan-chiea23/hassan23.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="neurips long dataset">
-                <img class="thumb" src="papers/starner-neurips23/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/starner-neurips23/featured.png" alt="PopSign game screens with instructions, a practice sign video, and a bubble-shooter board." loading="lazy">
                 <div>
                   <div class="venue">NeurIPS 2023 · Datasets and Benchmarks</div>
-                  <a class="title" href="papers/starner-neurips23/starner-neurips23.pdf">PopSign ASL v1.0: An Isolated American Sign Language Dataset Collected via Smartphones</a>
+                  <a class="title" id="title-starner-neurips23" href="papers/starner-neurips23/starner-neurips23.pdf">PopSign ASL v1.0: An Isolated American Sign Language Dataset Collected via Smartphones</a>
                   <div class="authors">
                     <a href="https://sites.cc.gatech.edu/home/thad/">Thad Starner</a>, <a href="https://www.deafandloud.com/">Sean Forbes</a>, Matthew So, David R. Martin, Rohit Sridhar, Gururaj Deshpande, <a href="https://www.linkedin.com/in/samsepah/">Sam Sepah</a>, Sahir Shahryar, Khushi Bhardwaj, Tyler Kwok, Daksh Sehgal, <b>Saad Hassan</b>, Bill Neubauer, Sofia Vempala, Alec Tan, Jocelyn Heath, Unnathi Kumar, Priyanka Mosur, Tavenner Hall, Rajandeep Singh, Christopher Cui, Glenn Cameron, Sohier Dane, <a href="https://scholar.google.com/citations?user=Wg58ZR4AAAAJ">Garrett Tanzer</a>
                   </div>
                   <div class="links">
-                    <a href="papers/starner-neurips23/starner-neurips23.pdf">PDF</a>
-                    <a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/00dada608b8db212ea7d9d92b24c68de-Abstract-Datasets_and_Benchmarks.html">NeurIPS</a>
-                    <a href="https://neurips.cc/virtual/2023/poster/73414">Presentation</a>
-                    <a href="https://neurips.cc/media/PosterPDFs/NeurIPS%202023/73414.png?t=1702252482.7126098">Poster</a>
-                    <a href="https://github.com/matthew-so/Mobile-Data-Processing-Pipeline">Code</a>
-                    <a href="https://www.kaggle.com/competitions/asl-signs/data">Kaggle</a>
-                    <a href="https://signdata.cc.gatech.edu/view/datasets/popsign_v1_0/index.html#:~:text=Table_title%3A%20Dataset%20Snapshot%20Table_content%3A%20%7C%20Category%20%7C,of%20Video%20Quality%20Categories%20%7C%203%20%7C">Data Card</a>
-                    <a href="papers/starner-neurips23/starner23.bib">BibTeX</a>
+                    <a aria-describedby="title-starner-neurips23" href="papers/starner-neurips23/starner-neurips23.pdf">PDF</a>
+                    <a aria-describedby="title-starner-neurips23" href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/00dada608b8db212ea7d9d92b24c68de-Abstract-Datasets_and_Benchmarks.html">NeurIPS</a>
+                    <a aria-describedby="title-starner-neurips23" href="https://neurips.cc/virtual/2023/poster/73414">Presentation</a>
+                    <a aria-describedby="title-starner-neurips23" href="https://neurips.cc/media/PosterPDFs/NeurIPS%202023/73414.png?t=1702252482.7126098">Poster</a>
+                    <a aria-describedby="title-starner-neurips23" href="https://github.com/matthew-so/Mobile-Data-Processing-Pipeline">Code</a>
+                    <a aria-describedby="title-starner-neurips23" href="https://www.kaggle.com/competitions/asl-signs/data">Kaggle</a>
+                    <a aria-describedby="title-starner-neurips23" href="https://signdata.cc.gatech.edu/view/datasets/popsign_v1_0/index.html#:~:text=Table_title%3A%20Dataset%20Snapshot%20Table_content%3A%20%7C%20Category%20%7C,of%20Video%20Quality%20Categories%20%7C%203%20%7C">Data Card</a>
+                    <a aria-describedby="title-starner-neurips23" href="papers/starner-neurips23/starner23.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
@@ -1320,126 +1320,126 @@
             <div class="year">
               <h3>2022</h3>
               <div class="paper" data-tags="assets short">
-                <img class="thumb" src="papers/hassan-assets-22-2/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/hassan-assets-22-2/featured.png" alt="Three people demonstrating ASL signs used as feedback examples for learners." loading="lazy">
                 <div>
                   <div class="venue">ASSETS 2022 · Poster</div>
-                  <a class="title" href="papers/hassan-assets-22-2/hassan-assets22-2.pdf">Understanding ASL Learners’ Preferences for a Sign Language Recording and Automatic Feedback System to Support Self-Study</a>
+                  <a class="title" id="title-hassan-assets-22-2" href="papers/hassan-assets-22-2/hassan-assets22-2.pdf">Understanding ASL Learners’ Preferences for a Sign Language Recording and Automatic Feedback System to Support Self-Study</a>
                   <div class="authors">
                     <b>Saad Hassan</b>, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, <a href="https://people.cs.rutgers.edu/~dnm/">Dimitris Metaxas</a>, <a href="https://www.bu.edu/asllrp/carol.html">Carol Neidle</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
                   </div>
                   <div class="links">
-                    <a href="papers/hassan-assets-22-2/hassan-assets22-2.pdf">PDF</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3517428.3550367">ACM DL</a>
-                    <a href="https://docs.google.com/presentation/d/1uum0_yJpn0QLFBSSqaI7S3cvBJzZYBN9j8Y2IFjLS_s/edit?usp=sharing">Slides</a>
-                    <a href="papers/hassan-assets-22-2/hassan22.bib">BibTeX</a>
+                    <a aria-describedby="title-hassan-assets-22-2" href="papers/hassan-assets-22-2/hassan-assets22-2.pdf">PDF</a>
+                    <a aria-describedby="title-hassan-assets-22-2" href="https://dl.acm.org/doi/10.1145/3517428.3550367">ACM DL</a>
+                    <a aria-describedby="title-hassan-assets-22-2" href="https://docs.google.com/presentation/d/1uum0_yJpn0QLFBSSqaI7S3cvBJzZYBN9j8Y2IFjLS_s/edit?usp=sharing">Slides</a>
+                    <a aria-describedby="title-hassan-assets-22-2" href="papers/hassan-assets-22-2/hassan22.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="assets long">
-                <img class="thumb" src="papers/hassan-assets-22-1/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/hassan-assets-22-1/featured.png" alt="Annotated video player for selecting part of a sign language video and searching for the sign." loading="lazy">
                 <div>
                   <div class="venue">ASSETS 2022 · <span class="award">Best Paper Nominee</span>
                   </div>
-                  <a class="title" href="papers/hassan-assets-22-1/hassan-assets22-1.pdf">Support in the Moment: Benefits and use of video-span selection and search for sign-language video comprehension among ASL learners</a>
+                  <a class="title" id="title-hassan-assets-22-1" href="papers/hassan-assets-22-1/hassan-assets22-1.pdf">Support in the Moment: Benefits and use of video-span selection and search for sign-language video comprehension among ASL learners</a>
                   <div class="authors">
                     <b>Saad Hassan</b>, <a href="https://akhteramin.github.io/">Akhter Al Amin</a>, <a href="https://www.caluapataca.com/">Caluã de Lacerda Pataca</a>, <a href="https://www.linkedin.com/in/diego-navarro-306b9a229/">Diego Navarro</a>, Alexis Gordon, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
                   </div>
                   <div class="links">
-                    <a href="papers/hassan-assets-22-1/hassan-assets22-1.pdf">PDF</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3517428.3544883">ACM DL</a>
-                    <a href="https://docs.google.com/presentation/d/19UV6yc0je7aykxbKVO-pURzjn0dc6-QYt2tjNbhlQyY/edit?usp=sharing">Slides</a>
-                    <a href="https://docs.google.com/spreadsheets/d/1hMR_k7yt4wYNfzZCRK5PE6mfgrQVUHGt0yf6YF3DI5g/edit?usp=sharing">Supplement</a>
-                    <a href="papers/hassan-assets-22-1/hassan22.bib">BibTeX</a>
+                    <a aria-describedby="title-hassan-assets-22-1" href="papers/hassan-assets-22-1/hassan-assets22-1.pdf">PDF</a>
+                    <a aria-describedby="title-hassan-assets-22-1" href="https://dl.acm.org/doi/10.1145/3517428.3544883">ACM DL</a>
+                    <a aria-describedby="title-hassan-assets-22-1" href="https://docs.google.com/presentation/d/19UV6yc0je7aykxbKVO-pURzjn0dc6-QYt2tjNbhlQyY/edit?usp=sharing">Slides</a>
+                    <a aria-describedby="title-hassan-assets-22-1" href="https://docs.google.com/spreadsheets/d/1hMR_k7yt4wYNfzZCRK5PE6mfgrQVUHGt0yf6YF3DI5g/edit?usp=sharing">Supplement</a>
+                    <a aria-describedby="title-hassan-assets-22-1" href="papers/hassan-assets-22-1/hassan22.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="ai-other workshop">
-                <img class="thumb" src="papers/amin-ltedi22/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/amin-ltedi22/featured.png" alt="Confusion matrix for classifying words into six importance levels using BERT embeddings." loading="lazy">
                 <div>
                   <div class="venue">LT-EDI @ ACL 2022</div>
-                  <a class="title" href="papers/amin-ltedi22/amin-ltedi22.pdf">Using BERT Embeddings to Model Word Importance in Conversational Transcripts for Deaf and Hard of Hearing Users</a>
+                  <a class="title" id="title-amin-ltedi22" href="papers/amin-ltedi22/amin-ltedi22.pdf">Using BERT Embeddings to Model Word Importance in Conversational Transcripts for Deaf and Hard of Hearing Users</a>
                   <div class="authors">
                     <a href="https://akhteramin.github.io/">Akhter Al Amin</a>, <b>Saad Hassan</b>, <a href="https://www.rit.edu/directory/coagla-cecilia-alm">Cecilia Alm</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
                   </div>
                   <div class="links">
-                    <a href="papers/amin-ltedi22/amin-ltedi22.pdf">PDF</a>
-                    <a href="https://aclanthology.org/2022.ltedi-1.5/">ACL Anthology</a>
-                    <a href="https://docs.google.com/presentation/d/1b-099o97AvphFHzwVz6CxCjYjhfNwyEk/edit?usp=sharing&amp;ouid=104913367015461668120&amp;rtpof=true&amp;sd=true">Slides</a>
-                    <a href="https://underline.io/lecture/51442-using-bert-embeddings-to-model-word-importance-in-conversational-transcripts-for-deaf-and-hard-of-hearing-users">Video</a>
-                    <a href="https://latlab.ist.rit.edu/lrec2018/">Supplement</a>
-                    <a href="https://nyu.databrary.org/volume/1447">Databrary</a>
-                    <a href="papers/amin-ltedi22/amin22.bib">BibTeX</a>
+                    <a aria-describedby="title-amin-ltedi22" href="papers/amin-ltedi22/amin-ltedi22.pdf">PDF</a>
+                    <a aria-describedby="title-amin-ltedi22" href="https://aclanthology.org/2022.ltedi-1.5/">ACL Anthology</a>
+                    <a aria-describedby="title-amin-ltedi22" href="https://docs.google.com/presentation/d/1b-099o97AvphFHzwVz6CxCjYjhfNwyEk/edit?usp=sharing&amp;ouid=104913367015461668120&amp;rtpof=true&amp;sd=true">Slides</a>
+                    <a aria-describedby="title-amin-ltedi22" href="https://underline.io/lecture/51442-using-bert-embeddings-to-model-word-importance-in-conversational-transcripts-for-deaf-and-hard-of-hearing-users">Video</a>
+                    <a aria-describedby="title-amin-ltedi22" href="https://latlab.ist.rit.edu/lrec2018/">Supplement</a>
+                    <a aria-describedby="title-amin-ltedi22" href="https://nyu.databrary.org/volume/1447">Databrary</a>
+                    <a aria-describedby="title-amin-ltedi22" href="papers/amin-ltedi22/amin22.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="lrec dataset workshop">
-                <img class="thumb" src="papers/hassan-slrp22/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/hassan-slrp22/featured.png" alt="Table comparing sign language video datasets by year, type, size, and number of signers." loading="lazy">
                 <div>
                   <div class="venue">SLRP @ LREC 2022</div>
-                  <a class="title" href="papers/hassan-slrp22/hassan-slrp22.pdf">ASL-Homework-RGBD Dataset: An Annotated Dataset of 45 Fluent and Non-fluent Signers Performing American Sign Language Homeworks</a>
+                  <a class="title" id="title-hassan-slrp22" href="papers/hassan-slrp22/hassan-slrp22.pdf">ASL-Homework-RGBD Dataset: An Annotated Dataset of 45 Fluent and Non-fluent Signers Performing American Sign Language Homeworks</a>
                   <div class="authors">
                     <b>Saad Hassan</b>, <a href="https://mss4296.github.io/">Matthew Seita</a>, <a href="https://larwan.com/">Larwan Berke</a>, <a href="https://media-lab.ccny.cuny.edu/YLTCCNYHomepage/home.html">Yingli Tian</a>, <a href="https://education.hunter.cuny.edu/about/faculty-staff/elaine-gale/">Elaine Gale</a>, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
                   </div>
                   <div class="links">
-                    <a href="papers/hassan-slrp22/hassan-slrp22.pdf">PDF</a>
-                    <a href="https://aclanthology.org/2022.signlang-1.11/">ACL Anthology</a>
-                    <a href="https://docs.google.com/presentation/d/1HUN_ElOAUkH7qFrg26IJh3ecu861fHjl-vOTPSDq1K0/edit?usp=sharing">Slides</a>
-                    <a href="https://latlab.ist.rit.edu/lrec2022/">Supplement</a>
-                    <a href="https://databrary.org/volume/1249">Databrary</a>
-                    <a href="papers/hassan-slrp22/hassan22.bib">BibTeX</a>
+                    <a aria-describedby="title-hassan-slrp22" href="papers/hassan-slrp22/hassan-slrp22.pdf">PDF</a>
+                    <a aria-describedby="title-hassan-slrp22" href="https://aclanthology.org/2022.signlang-1.11/">ACL Anthology</a>
+                    <a aria-describedby="title-hassan-slrp22" href="https://docs.google.com/presentation/d/1HUN_ElOAUkH7qFrg26IJh3ecu861fHjl-vOTPSDq1K0/edit?usp=sharing">Slides</a>
+                    <a aria-describedby="title-hassan-slrp22" href="https://latlab.ist.rit.edu/lrec2022/">Supplement</a>
+                    <a aria-describedby="title-hassan-slrp22" href="https://databrary.org/volume/1249">Databrary</a>
+                    <a aria-describedby="title-hassan-slrp22" href="papers/hassan-slrp22/hassan22.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="chi long">
-                <img class="thumb" src="papers/amin-chi22/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/amin-chi22/featured.png" alt="Four captioned clips of the same Boston emergency briefing with captions in different positions." loading="lazy">
                 <div>
                   <div class="venue">CHI 2022</div>
-                  <a class="title" href="papers/amin-chi22/amin-chi22.pdf">Watch It, Don’t Imagine It: Creating a Better Caption-Occlusion Metric by Collecting More Ecologically Valid Judgments from DHH Viewers</a>
+                  <a class="title" id="title-amin-chi22" href="papers/amin-chi22/amin-chi22.pdf">Watch It, Don’t Imagine It: Creating a Better Caption-Occlusion Metric by Collecting More Ecologically Valid Judgments from DHH Viewers</a>
                   <div class="authors">
                     <a href="https://akhteramin.github.io/">Akhter Al Amin</a>*, <b>Saad Hassan</b>*, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
                   </div>
                   <div class="links">
-                    <a href="papers/amin-chi22/amin-chi22.pdf">PDF</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3491102.3517681">ACM DL</a>
-                    <a href="https://docs.google.com/presentation/d/1wzmV8wsQkDTlgKMLcEO9aswQ_Dz1yevxw0x0cje5vyQ/edit?usp=sharing">Slides</a>
-                    <a href="https://www.youtube.com/watch?v=Fg6g3SdXCGI">Video</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3491102.3517681#supplementary-materials">Supplement</a>
-                    <a href="https://github.com/akhteramin/Holistic-Model">Code</a>
-                    <a href="papers/amin-chi22/amin22.bib">BibTeX</a>
+                    <a aria-describedby="title-amin-chi22" href="papers/amin-chi22/amin-chi22.pdf">PDF</a>
+                    <a aria-describedby="title-amin-chi22" href="https://dl.acm.org/doi/10.1145/3491102.3517681">ACM DL</a>
+                    <a aria-describedby="title-amin-chi22" href="https://docs.google.com/presentation/d/1wzmV8wsQkDTlgKMLcEO9aswQ_Dz1yevxw0x0cje5vyQ/edit?usp=sharing">Slides</a>
+                    <a aria-describedby="title-amin-chi22" href="https://www.youtube.com/watch?v=Fg6g3SdXCGI">Video</a>
+                    <a aria-describedby="title-amin-chi22" href="https://dl.acm.org/doi/10.1145/3491102.3517681#supplementary-materials">Supplement</a>
+                    <a aria-describedby="title-amin-chi22" href="https://github.com/akhteramin/Holistic-Model">Code</a>
+                    <a aria-describedby="title-amin-chi22" href="papers/amin-chi22/amin22.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="chi long">
-                <img class="thumb" src="papers/hassan-chi22/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/hassan-chi22/featured.png" alt="Sign dictionary results filtered by handshape, with videos of two signers." loading="lazy">
                 <div>
                   <div class="venue">CHI 2022</div>
-                  <a class="title" href="papers/hassan-chi22/hassan-chi22.pdf">Design and Evaluation of Hybrid Search for American Sign Language to English Dictionaries: Making the Most of Imperfect Sign Recognition</a>
+                  <a class="title" id="title-hassan-chi22" href="papers/hassan-chi22/hassan-chi22.pdf">Design and Evaluation of Hybrid Search for American Sign Language to English Dictionaries: Making the Most of Imperfect Sign Recognition</a>
                   <div class="authors">
                     <b>Saad Hassan</b>*, <a href="https://akhteramin.github.io/">Akhter Al Amin</a>*, Alexis Gordon, <a href="https://people.njit.edu/profile/sl287">Sooyeon Lee</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
                   </div>
                   <div class="links">
-                    <a href="papers/hassan-chi22/hassan-chi22.pdf">PDF</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3491102.3501986">ACM DL</a>
-                    <a href="https://docs.google.com/presentation/d/1Xit9_hZWOaeB7DxGEysPpnwQkeLeoMbSs947w1jhOMw/edit?usp=sharing">Slides</a>
-                    <a href="https://www.youtube.com/watch?v=zNj7O2u8-AE">Video</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3491102.3501986#supplementary-materials">Video Figure + Supplement</a>
-                    <a href="papers/hassan-chi22/hassan22.bib">BibTeX</a>
+                    <a aria-describedby="title-hassan-chi22" href="papers/hassan-chi22/hassan-chi22.pdf">PDF</a>
+                    <a aria-describedby="title-hassan-chi22" href="https://dl.acm.org/doi/10.1145/3491102.3501986">ACM DL</a>
+                    <a aria-describedby="title-hassan-chi22" href="https://docs.google.com/presentation/d/1Xit9_hZWOaeB7DxGEysPpnwQkeLeoMbSs947w1jhOMw/edit?usp=sharing">Slides</a>
+                    <a aria-describedby="title-hassan-chi22" href="https://www.youtube.com/watch?v=zNj7O2u8-AE">Video</a>
+                    <a aria-describedby="title-hassan-chi22" href="https://dl.acm.org/doi/10.1145/3491102.3501986#supplementary-materials">Video Figure + Supplement</a>
+                    <a aria-describedby="title-hassan-chi22" href="papers/hassan-chi22/hassan22.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="hci-other other">
-                <img class="thumb" src="papers/hassan-chiir22/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/hassan-chiir22/featured.png" alt="Study protocol diagram: calibrate screen, view video, record the sign, view results." loading="lazy">
                 <div>
                   <div class="venue">CHIIR 2022 · Doctoral Consortium</div>
-                  <a class="title" href="papers/hassan-chiir22/hassan-chiir22.pdf">Designing and Experimentally Evaluating a Video-based American Sign Language Look-up System</a>
+                  <a class="title" id="title-hassan-chiir22" href="papers/hassan-chiir22/hassan-chiir22.pdf">Designing and Experimentally Evaluating a Video-based American Sign Language Look-up System</a>
                   <div class="authors">
                     <b>Saad Hassan</b>
                   </div>
                   <div class="links">
-                    <a href="papers/hassan-chiir22/hassan-chiir22.pdf">PDF</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3498366.3505804">ACM DL</a>
-                    <a href="https://docs.google.com/presentation/d/1XXwXpP8jlAq9S-goEzHyq_M8ejrZyieH53F4FEJ-ggE/edit?usp=sharing">Slides</a>
-                    <a href="papers/hassan-chiir22/hassan22.bib">BibTeX</a>
+                    <a aria-describedby="title-hassan-chiir22" href="papers/hassan-chiir22/hassan-chiir22.pdf">PDF</a>
+                    <a aria-describedby="title-hassan-chiir22" href="https://dl.acm.org/doi/10.1145/3498366.3505804">ACM DL</a>
+                    <a aria-describedby="title-hassan-chiir22" href="https://docs.google.com/presentation/d/1XXwXpP8jlAq9S-goEzHyq_M8ejrZyieH53F4FEJ-ggE/edit?usp=sharing">Slides</a>
+                    <a aria-describedby="title-hassan-chiir22" href="papers/hassan-chiir22/hassan22.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
@@ -1447,68 +1447,68 @@
             <div class="year">
               <h3>2021</h3>
               <div class="paper" data-tags="emnlp long">
-                <img class="thumb" src="papers/hassan-emnlp21/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/hassan-emnlp21/featured.png" alt="Tables of sentence templates and ANOVA results on sentiment bias toward disability terms in BERT." loading="lazy">
                 <div>
                   <div class="venue">EMNLP 2021 · Findings</div>
-                  <a class="title" href="papers/hassan-emnlp21/hassan-emnlp21.pdf">Unpacking the Interdependent Systems of Discrimination: Ableist Bias in NLP Systems through an Intersectional Lens</a>
+                  <a class="title" id="title-hassan-emnlp21" href="papers/hassan-emnlp21/hassan-emnlp21.pdf">Unpacking the Interdependent Systems of Discrimination: Ableist Bias in NLP Systems through an Intersectional Lens</a>
                   <div class="authors">
                     <b>Saad Hassan</b>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>, <a href="https://www.rit.edu/directory/coagla-cecilia-alm">Cecilia Ovesdotter Alm</a>
                   </div>
                   <div class="links">
-                    <a href="papers/hassan-emnlp21/hassan-emnlp21.pdf">PDF</a>
-                    <a href="https://aclanthology.org/2021.findings-emnlp.267/">ACL Anthology</a>
-                    <a href="https://docs.google.com/presentation/d/1D-1fNmP1CIaPBMMp8YJLA-jF5TDN3isWUmd202rlFJI/edit?usp=sharing">Slides</a>
-                    <a href="https://underline.io/lecture/38289-unpacking-the-interdependent-systems-of-discrimination-ableist-bias-in-nlp-systems-through-an-intersectional-lens">Video</a>
-                    <a href="https://github.com/saadhassan96/ableist-bias">Sentences</a>
-                    <a href="papers/hassan-emnlp21/hassan21.bib">BibTeX</a>
+                    <a aria-describedby="title-hassan-emnlp21" href="papers/hassan-emnlp21/hassan-emnlp21.pdf">PDF</a>
+                    <a aria-describedby="title-hassan-emnlp21" href="https://aclanthology.org/2021.findings-emnlp.267/">ACL Anthology</a>
+                    <a aria-describedby="title-hassan-emnlp21" href="https://docs.google.com/presentation/d/1D-1fNmP1CIaPBMMp8YJLA-jF5TDN3isWUmd202rlFJI/edit?usp=sharing">Slides</a>
+                    <a aria-describedby="title-hassan-emnlp21" href="https://underline.io/lecture/38289-unpacking-the-interdependent-systems-of-discrimination-ableist-bias-in-nlp-systems-through-an-intersectional-lens">Video</a>
+                    <a aria-describedby="title-hassan-emnlp21" href="https://github.com/saadhassan96/ableist-bias">Sentences</a>
+                    <a aria-describedby="title-hassan-emnlp21" href="papers/hassan-emnlp21/hassan21.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="taccess journal">
-                <img class="thumb" src="papers/hassan-taccess21/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/hassan-taccess21/featured.png" alt="Study flowchart above a diverging bar chart of satisfaction with ranked results." loading="lazy">
                 <div>
                   <div class="venue">TACCESS 2021</div>
-                  <a class="title" href="papers/hassan-taccess21/hassan-taccess21.pdf">Effect of Sign-recognition Performance on the Usability of Sign-language Dictionary Search</a>
+                  <a class="title" id="title-hassan-taccess21" href="papers/hassan-taccess21/hassan-taccess21.pdf">Effect of Sign-recognition Performance on the Usability of Sign-language Dictionary Search</a>
                   <div class="authors">
                     <b>Saad Hassan</b>, <a href="https://oliveralonzo.com/">Oliver Alonzo</a>, <a href="https://abrahamglasser.com/">Abraham Glasser</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
                   </div>
                   <div class="links">
-                    <a href="papers/hassan-taccess21/hassan-taccess21.pdf">PDF</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3470650">ACM DL</a>
-                    <a href="https://latlab.ist.rit.edu/taccess2020/">Supplement</a>
-                    <a href="papers/hassan-taccess21/hassan21.bib">BibTeX</a>
+                    <a aria-describedby="title-hassan-taccess21" href="papers/hassan-taccess21/hassan-taccess21.pdf">PDF</a>
+                    <a aria-describedby="title-hassan-taccess21" href="https://dl.acm.org/doi/10.1145/3470650">ACM DL</a>
+                    <a aria-describedby="title-hassan-taccess21" href="https://latlab.ist.rit.edu/taccess2020/">Supplement</a>
+                    <a aria-describedby="title-hassan-taccess21" href="papers/hassan-taccess21/hassan21.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="w4a long">
-                <img class="thumb" src="papers/amin-w4a21/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/amin-w4a21/featured.png" alt="Labeled frame of a COVID-19 announcement marking the announcer, on-screen text, logo, and chart." loading="lazy">
                 <div>
                   <div class="venue">W4A 2021</div>
-                  <a class="title" href="papers/amin-w4a21/amin-w4a21.pdf">Caption-occlusion Severity Judgments across Live-television Genres from Deaf and Hard-of-hearing Viewers</a>
+                  <a class="title" id="title-amin-w4a21" href="papers/amin-w4a21/amin-w4a21.pdf">Caption-occlusion Severity Judgments across Live-television Genres from Deaf and Hard-of-hearing Viewers</a>
                   <div class="authors">
                     <a href="https://akhteramin.github.io/">Akhter Al Amin</a>, <b>Saad Hassan</b>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
                   </div>
                   <div class="links">
-                    <a href="papers/amin-w4a21/amin-w4a21.pdf">PDF</a>
-                    <a href="https://dl.acm.org/doi/10.1145/3430263.3452429">ACM DL</a>
-                    <a href="https://docs.google.com/presentation/d/1sG7UGWJxRbz3gGneNMSm5RdJf6MIoedQMSaHSC810UA/edit?usp=sharing">Slides</a>
-                    <a href="papers/amin-w4a21/amin21.bib">BibTeX</a>
+                    <a aria-describedby="title-amin-w4a21" href="papers/amin-w4a21/amin-w4a21.pdf">PDF</a>
+                    <a aria-describedby="title-amin-w4a21" href="https://dl.acm.org/doi/10.1145/3430263.3452429">ACM DL</a>
+                    <a aria-describedby="title-amin-w4a21" href="https://docs.google.com/presentation/d/1sG7UGWJxRbz3gGneNMSm5RdJf6MIoedQMSaHSC810UA/edit?usp=sharing">Slides</a>
+                    <a aria-describedby="title-amin-w4a21" href="papers/amin-w4a21/amin21.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="hci-other long bookchapter">
-                <img class="thumb" src="papers/amin-uahci21/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/amin-uahci21/featured.png" alt="Six frames of TV video where captions overlap speakers and on-screen text." loading="lazy">
                 <div>
                   <div class="venue">UAHCI 2021</div>
-                  <a class="title" href="papers/amin-uahci21/amin-uahci21.pdf">Effect of Occlusion on Deaf and Hard of Hearing Users’ Perception of Captioned Video Quality</a>
+                  <a class="title" id="title-amin-uahci21" href="papers/amin-uahci21/amin-uahci21.pdf">Effect of Occlusion on Deaf and Hard of Hearing Users’ Perception of Captioned Video Quality</a>
                   <div class="authors">
                     <a href="https://akhteramin.github.io/">Akhter Al Amin</a>, <b>Saad Hassan</b>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
                   </div>
                   <div class="links">
-                    <a href="papers/amin-uahci21/amin-uahci21.pdf">PDF</a>
-                    <a href="https://link.springer.com/chapter/10.1007/978-3-030-78095-1_16">Springer</a>
-                    <a href="https://docs.google.com/presentation/d/1zbUjxnEb6HNeEny0FAMO5WMiJGFTwMxBRIM2nsYZjls/edit?usp=sharing">Slides</a>
-                    <a href="papers/amin-uahci21/amin21.bib">BibTeX</a>
+                    <a aria-describedby="title-amin-uahci21" href="papers/amin-uahci21/amin-uahci21.pdf">PDF</a>
+                    <a aria-describedby="title-amin-uahci21" href="https://link.springer.com/chapter/10.1007/978-3-030-78095-1_16">Springer</a>
+                    <a aria-describedby="title-amin-uahci21" href="https://docs.google.com/presentation/d/1zbUjxnEb6HNeEny0FAMO5WMiJGFTwMxBRIM2nsYZjls/edit?usp=sharing">Slides</a>
+                    <a aria-describedby="title-amin-uahci21" href="papers/amin-uahci21/amin21.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
@@ -1516,34 +1516,34 @@
             <div class="year">
               <h3>2020</h3>
               <div class="paper" data-tags="ai-other workshop">
-                <img class="thumb" src="papers/hassan-slrtp20/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/hassan-slrtp20/featured.png" alt="Study flowchart above diverging bar charts of satisfaction and relevance ratings." loading="lazy">
                 <div>
                   <div class="venue">SLRTP @ ECCV 2020</div>
-                  <a class="title" href="papers/hassan-slrtp20/hassan-slrtp20.pdf">Effect of Ranking and Precision of Results on Users’ Satisfaction with Search-by-video Sign-language Dictionaries</a>
+                  <a class="title" id="title-hassan-slrtp20" href="papers/hassan-slrtp20/hassan-slrtp20.pdf">Effect of Ranking and Precision of Results on Users’ Satisfaction with Search-by-video Sign-language Dictionaries</a>
                   <div class="authors">
                     <b>Saad Hassan</b>, <a href="https://oliveralonzo.com/">Oliver Alonzo</a>, <a href="https://abrahamglasser.com/">Abraham Glasser</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
                   </div>
                   <div class="links">
-                    <a href="papers/hassan-slrtp20/hassan-slrtp20.pdf">Preprint</a>
-                    <a href="https://docs.google.com/presentation/d/1_nuU1GpLbVSzfkV-av5OsPbFzRUNC_0M/edit?usp=sharing&amp;ouid=108965496603216217412&amp;rtpof=true&amp;sd=true">Slides</a>
-                    <a href="papers/hassan-slrtp20/hassan20.bib">BibTeX</a>
+                    <a aria-describedby="title-hassan-slrtp20" href="papers/hassan-slrtp20/hassan-slrtp20.pdf">Preprint</a>
+                    <a aria-describedby="title-hassan-slrtp20" href="https://docs.google.com/presentation/d/1_nuU1GpLbVSzfkV-av5OsPbFzRUNC_0M/edit?usp=sharing&amp;ouid=108965496603216217412&amp;rtpof=true&amp;sd=true">Slides</a>
+                    <a aria-describedby="title-hassan-slrtp20" href="papers/hassan-slrtp20/hassan20.bib">BibTeX</a>
                   </div>
                 </div>
               </div>
               <div class="paper" data-tags="lrec dataset workshop">
-                <img class="thumb" src="papers/hassan-slrp20/featured.png" alt="" loading="lazy">
+                <img class="thumb" src="papers/hassan-slrp20/featured.png" alt="Grid of dataset video channels beside face and hand keypoints extracted with OpenPose." loading="lazy">
                 <div>
                   <div class="venue">SLRP @ LREC 2020</div>
-                  <a class="title" href="papers/hassan-slrp20/hassan-slrp20.pdf">An Isolated-Signing RGBD Dataset of 100 American Sign Language Signs Produced by Fluent ASL Signers</a>
+                  <a class="title" id="title-hassan-slrp20" href="papers/hassan-slrp20/hassan-slrp20.pdf">An Isolated-Signing RGBD Dataset of 100 American Sign Language Signs Produced by Fluent ASL Signers</a>
                   <div class="authors">
                     <b>Saad Hassan</b>, <a href="https://larwan.com/">Larwan Berke</a>, <a href="https://elahevahd.github.io/main/">Elahe Vahdani</a>, <a href="https://longlong-jing.github.io/">Longlong Jing</a>, <a href="https://media-lab.ccny.cuny.edu/YLTCCNYHomepage/home.html">Yingli Tian</a>, <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a>
                   </div>
                   <div class="links">
-                    <a href="papers/hassan-slrp20/hassan-slrp20.pdf">PDF</a>
-                    <a href="https://aclanthology.org/2020.signlang-1.14/">ACL Anthology</a>
-                    <a href="https://docs.google.com/presentation/d/1ca1sBcPWTQ5_zJfU4R0vGPIWq92EpK_nCw3_m1b_V3E/edit?usp=sharing">Slides</a>
-                    <a href="https://databrary.org/volume/1062">Databrary</a>
-                    <a href="papers/hassan-slrp20/hassan20.bib">BibTeX</a>
+                    <a aria-describedby="title-hassan-slrp20" href="papers/hassan-slrp20/hassan-slrp20.pdf">PDF</a>
+                    <a aria-describedby="title-hassan-slrp20" href="https://aclanthology.org/2020.signlang-1.14/">ACL Anthology</a>
+                    <a aria-describedby="title-hassan-slrp20" href="https://docs.google.com/presentation/d/1ca1sBcPWTQ5_zJfU4R0vGPIWq92EpK_nCw3_m1b_V3E/edit?usp=sharing">Slides</a>
+                    <a aria-describedby="title-hassan-slrp20" href="https://databrary.org/volume/1062">Databrary</a>
+                    <a aria-describedby="title-hassan-slrp20" href="papers/hassan-slrp20/hassan20.bib">BibTeX</a>
                   </div>
                 </div>
               </div>

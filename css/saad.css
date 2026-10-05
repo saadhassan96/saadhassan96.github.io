@@ -143,10 +143,32 @@ h1, h2, h3, h4 {
   align-items: baseline;
   justify-content: space-between;
   gap: 12px 32px;
-  padding-bottom: 20px;
+  padding-top: 12px;
+  padding-bottom: 16px;
   margin-bottom: 36px;
   border-bottom: 1px solid var(--rule);
+  /* Stays pinned to the top while scrolling */
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--bg);
 }
+/* Leave room for the pinned header when jumping to a section */
+html { scroll-padding-top: 110px; }
+
+/* Skip link: hidden until focused with the keyboard */
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  z-index: 30;
+  background: var(--panel);
+  color: var(--accent);
+  padding: 10px 14px;
+  border-radius: 4px;
+}
+.skip-link:focus { top: 12px; }
+#content:focus { outline: none; }
 .site-header h1 {
   font-size: clamp(2.3rem, 5vw, 3.1rem);
   font-weight: 400;
@@ -229,6 +251,17 @@ h1, h2, h3, h4 {
 }
 
 @media (max-width: 560px) {
+  /* Compact pinned header on phones: smaller name, links in one row
+     that scrolls sideways if it runs out of room */
+  .site-header { gap: 6px; padding-top: 8px; padding-bottom: 10px; }
+  .site-header h1 { font-size: 1.8rem; }
+  .site-header nav {
+    flex-wrap: nowrap; overflow-x: auto; width: 100%;
+    gap: 18px; padding-bottom: 2px; scrollbar-width: none;
+  }
+  .site-header nav::-webkit-scrollbar { display: none; }
+  .site-header nav > * { flex: 0 0 auto; }
+  html { scroll-padding-top: 100px; }
   .intro { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .intro .photo { width: 120px; }
 }
