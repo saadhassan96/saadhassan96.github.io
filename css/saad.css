@@ -170,7 +170,7 @@ html { scroll-padding-top: 110px; }
 .skip-link:focus { top: 12px; }
 #content:focus { outline: none; }
 .site-header h1 {
-  font-size: clamp(2.3rem, 5vw, 3.1rem);
+  font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 400;
   letter-spacing: -0.01em;
 }
@@ -254,7 +254,7 @@ html { scroll-padding-top: 110px; }
   /* Compact pinned header on phones: smaller name, links in one row
      that scrolls sideways if it runs out of room */
   .site-header { gap: 6px; padding-top: 8px; padding-bottom: 10px; }
-  .site-header h1 { font-size: 1.8rem; }
+  .site-header h1 { font-size: 1.6rem; }
   .site-header nav {
     flex-wrap: nowrap; overflow-x: auto; width: 100%;
     gap: 18px; padding-bottom: 2px; scrollbar-width: none;
