@@ -521,3 +521,14 @@ footer {
   cursor: pointer;
 }
 #service details.sub { margin-top: 2px; }
+
+/* ---------- Research and social icons (sidebar, under email) ---------- */
+.side ul.icon-links { display: flex; flex-wrap: wrap; gap: 2px; margin: 0 0 0 -10px; }
+.side ul.icon-links.research { margin-top: 4px; }
+.icon-links a {
+  display: grid; place-items: center;
+  width: 40px; height: 40px; border-radius: 50%;
+  color: var(--accent);
+}
+.icon-links a:hover { background: var(--panel); color: var(--ink); text-decoration: none; }
+.icon-links svg { width: 20px; height: 20px; fill: currentColor; }
