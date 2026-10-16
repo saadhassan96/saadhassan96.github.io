@@ -135,19 +135,19 @@ h1, h2, h3, h4 {
   .side > div:nth-child(1) { order: 2; padding-bottom: 12px; } /* Contact Info */
   .side > div:nth-child(2) { order: 3; } /* Previously */
   #news                    { order: 4; }
-  #funding                 { order: 5; }
-  #team                    { order: 6; }
-  #teaching                { order: 7; }
-  #publications            { order: 8; }
+  #team                    { order: 5; }
+  #publications            { order: 6; }
+  #funding                 { order: 7; }
+  #teaching                { order: 8; }
   #talks                   { order: 9; }
   #service                 { order: 10; } /* Kept strictly at the end */
 
   /* Nav links follow the same order as the sections above */
   .site-header nav a[href="#news"]         { order: 1; }
-  .site-header nav a[href="#funding"]      { order: 2; }
-  .site-header nav a[href="#team"]         { order: 3; }
-  .site-header nav a[href="#teaching"]     { order: 4; }
-  .site-header nav a[href="#publications"] { order: 5; }
+  .site-header nav a[href="#team"]         { order: 2; }
+  .site-header nav a[href="#publications"] { order: 3; }
+  .site-header nav a[href="#funding"]      { order: 4; }
+  .site-header nav a[href="#teaching"]     { order: 5; }
   .site-header nav a[href="#talks"]        { order: 6; }
   .site-header nav a[href="#service"]      { order: 7; }
   .site-header nav a[href$=".pdf"]         { order: 8; } /* CV */
