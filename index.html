@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400&display=swap">
-    <link rel="stylesheet" href="css/saad.css?v=2026-10-16">
+    <link rel="stylesheet" href="css/saad.css?v=2026-10-18">
     <!-- Apply the saved light/dark choice before the page paints -->
     <script>
       try {
@@ -34,67 +34,6 @@
       gtag('js', new Date());
       gtag('config', 'G-6ZWKLB5M50');
     </script>
-    <style>
-      /* Compact hierarchy scoped to Team only. */
-      #team {
-        padding-bottom: 8px;
-      }
-
-      #team>h2 {
-        margin-bottom: 6px;
-      }
-
-      #team .team-status,
-      #team>details.more>summary {
-        font-family: inherit;
-        font-size: 14px;
-        font-weight: 600;
-        line-height: 1.4;
-        margin: 0;
-      }
-
-      #team .team-status {
-        color: var(--ink);
-      }
-
-      #team .team-category {
-        font-family: inherit;
-        font-size: 12.5px;
-        font-weight: 400;
-        color: var(--muted);
-        line-height: 1.4;
-        margin: 8px 0 4px;
-      }
-
-      #team .team-status+.team-category {
-        margin-top: 4px;
-      }
-
-      #team .people {
-        margin: 0;
-        gap: 4px;
-      }
-
-      #team>details.more {
-        margin: 8px 0 0;
-      }
-
-      #team>details.more>summary {
-        border: 0;
-        padding: 0;
-        font-size: 15px;
-        font-weight: 400;
-      }
-
-      #team .team-mentoring {
-        margin: 6px 0 0;
-        line-height: 1.3;
-      }
-
-      #team .team-mentoring small {
-        font-size: 12px;
-      }
-    </style>
   </head>
   <body>
     <a class="skip-link" href="#content" target="_self">Skip to content</a>
@@ -111,8 +50,9 @@
           <a href="#talks" target="_self">Talks</a>
           <a href="#service" target="_self">Service</a>
           <a href="files/hassan_cv.pdf">CV</a>
-          <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode">Dark</button>
         </nav>
+        <!-- Outside the nav so it stays on screen when the nav scrolls sideways on phones -->
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode">Dark</button>
       </header>
       <div class="grid" id="content" tabindex="-1">
         <!-- ================= INTRO ================= -->
@@ -188,13 +128,13 @@
           </div>
           <div id="teaching">
             <h2>Teaching</h2>
-            <p class="sub">Currently</p>
+            <p class="label">Currently</p>
             <ul>
               <li>
                 <a href="https://saadh.info/hci/">Human-Computer Interaction</a>
               </li>
             </ul>
-            <p class="sub">Also taught</p>
+            <p class="label">Also taught</p>
             <ul>
               <li>
                 <a href="https://nmattei.github.io/cmps3160/">Introduction to Data Science</a>
@@ -206,9 +146,7 @@
           </div>
           <div id="team">
             <h2>Team</h2>
-            <p class="sub">Present <small>( <a href="https://docs.google.com/document/d/1PlC1mQJPcq4YMG34wW_Bmpcsm9bLJDrz9s5XFTm602I/edit?usp=sharing">Mentoring plan</a>) </small>
-            </p>
-            <h4 class="team-category">PhD students</h4>
+            <h3 class="label">PhD students</h3>
             <!-- Year = expected graduation -->
             <ul class="people">
               <li>
@@ -233,7 +171,7 @@
                 </span>
               </li>
             </ul>
-            <h4 class="team-category">Undergraduate students</h4>
+            <h3 class="label">Undergraduate students</h3>
             <ul class="people">
               <li>
                 <img src="images/students/evelyn.png" alt="Evelyn Nguyen smiling, with long dark hair, in front of a stone building.">
@@ -242,7 +180,7 @@
                 </span>
               </li>
             </ul>
-            <h4 class="team-category">Capstone students</h4>
+            <h3 class="label">Capstone students</h3>
             <ul class="people">
               <li>
                 <img src="images/students/jaret.jpeg" alt="Jaret Solomon smiling in a navy suit and tie.">
@@ -262,7 +200,7 @@
             <details class="more">
               <summary>Alumni</summary>
               <!-- Year = final year working with the lab -->
-              <h4 class="team-category">PhD students</h4>
+              <h3 class="label">PhD students</h3>
               <ul class="people">
                 <li>
                   <span>
@@ -271,7 +209,7 @@
                   </span>
                 </li>
               </ul>
-              <h4 class="team-category">Master's students</h4>
+              <h3 class="label">Master's students</h3>
               <ul class="people">
                 <li>
                   <span>
@@ -286,7 +224,7 @@
                   </span>
                 </li>
               </ul>
-              <h4 class="team-category">Undergraduate students</h4>
+              <h3 class="label">Undergraduate students</h3>
               <ul class="people">
                 <li>
                   <span>
@@ -349,7 +287,7 @@
                   </span>
                 </li>
               </ul>
-              <h4 class="team-category">Capstone students</h4>
+              <h3 class="label">Capstone students</h3>
               <ul class="people">
                 <li>
                   <span>
@@ -434,7 +372,7 @@
                   </span>
                 </li>
               </ul>
-              <h4 class="team-category">High school students</h4>
+              <h3 class="label">High school students</h3>
               <ul class="people">
                 <li>
                   <span>Emile H. Mattei <span class="sub">2026</span>
@@ -447,13 +385,14 @@
                   </span>
                 </li>
               </ul>
-              <button type="button" onclick="this.closest('details').open = false; document.getElementById('team').scrollIntoView({behavior: 'smooth'});" style="background: none; border: none; padding: 0; font: inherit; font-size: 13.5px; color: var(--muted); cursor: pointer; margin-top: 12px; display: block;">▲ Show less</button>
+              <button type="button" class="show-less">▲ Show less</button>
             </details>
+            <p class="side-more"><a href="https://docs.google.com/document/d/1PlC1mQJPcq4YMG34wW_Bmpcsm9bLJDrz9s5XFTm602I/edit?usp=sharing">Mentoring plan</a></p>
           </div>
           <div id="funding">
             <h2>Funding</h2>
-            <p class="sub" style="font-size: 13px;">$642,258 total · $550,912 external as PI</p>
-            <ul class="grants" style="gap: 8px;">
+            <p class="sub small">$642,258 total · $550,912 external as PI</p>
+            <ul class="grants">
               <li>
                 <img class="icon" src="images/icons/nsf.ico" alt="">
                 <div>
@@ -488,7 +427,7 @@
                 <img class="icon" src="images/icons/favicon.ico" alt="">
                 <div> Tulane University <div class="sub">Research &amp; teaching grants · $61,110</div>
                   <details class="sub">
-                    <summary style="cursor: pointer;">Awards</summary>
+                    <summary>Awards</summary>
                     <div>CEAI (2025–2027); Lavin-Bernick (2025–2027); Jurist AI (2026); COR (2024–2025); TUII (2024); CELT (2023–2024, 2026).</div>
                   </details>
                 </div>
@@ -499,7 +438,7 @@
                Conference talks link to the paper below. Only talks I gave myself. -->
           <div id="talks">
             <h2>Talks</h2>
-            <p class="sub">Upcoming</p>
+            <p class="label">Upcoming</p>
             <ul class="talks">
               <li><a href="#title-hassan-assets26" target="_self">Accessible Data Visualization: A Scoping Review</a> <div class="sub">ASSETS 2026 · Vila Nova de Gaia, Portugal · Oct. 25–28</div></li>
               <li><a href="https://fest.philosophers.group/p/ai-together-service-learning-and-community-engaged-ai-in-new-orleans-by-nicholas-mattei/?day=2026-11-12">Participatory AI for Community Engagement</a> <div class="sub">NOAI Arts &amp; Ideas Festival · New Orleans · Nov. 12</div></li>
@@ -559,20 +498,20 @@
           </div>
           <div id="service">
             <h2>Service</h2>
-            <p class="sub">Tulane University</p>
+            <p class="label">Tulane University</p>
             <ul>
               <li>
                 <a href="https://sse.tulane.edu/committee-memberships-2026-2027">SSE Curriculum Committee</a>
               </li>
               <li>
                 <details>
-                  <summary style="cursor: pointer;">Department Committees</summary>
-                  <div class="sub" style="padding-top: 4px;">Communications &amp; Social Chair, Undergraduate Studies Committee, CS Curriculum Committee, Awards Committee.</div>
+                  <summary>Department Committees</summary>
+                  <div class="sub">Communications &amp; Social Chair, Undergraduate Studies Committee, CS Curriculum Committee, Awards Committee.</div>
                 </details>
               </li>
             </ul>
-            <p class="sub">Outside</p>
-            <h4 class="service-category">CHI</h4>
+            <p class="label">Outside</p>
+            <h3 class="service-category">CHI</h3>
             <ul>
               <li> Associate Chair <div class="sub">
                   <a href="https://chi2027.acm.org/authors/papers/program-committee/">2027</a>, <a href="https://chi2026.acm.org/authors/papers/selecting-a-subcommittee/">2026</a>, <a href="https://chi2025.acm.org/subcommittees/selecting-a-subcommittee/">2025</a>, <a href="https://chi2024.acm.org/subcommittees/selecting-a-subcommittee/">2024</a>, 2023 <small>(LBW)</small>
@@ -581,7 +520,7 @@
               <li>Best Paper Committee <span class="sub">2024–2026</span>
               </li>
             </ul>
-            <h4 class="service-category">ASSETS</h4>
+            <h3 class="service-category">ASSETS</h3>
             <ul>
               <li> Org. Committee <div class="sub">
                   <a href="https://assets24.sigaccess.org/committees/organizing/">Workshops '24</a>, <a href="https://assets23.sigaccess.org/organizing-committee.html">Proceedings '23</a>
@@ -592,7 +531,7 @@
                 </div>
               </li>
             </ul>
-            <h4 class="service-category">Other Roles</h4>
+            <h3 class="service-category">Other Roles</h3>
             <ul>
               <li>EMNLP Area Chair <span class="sub">
                   <a href="https://aclanthology.org/2023.emnlp-main.0.pdf">2023</a>
@@ -609,8 +548,8 @@
               </li>
               <li>
                 <details>
-                  <summary style="cursor: pointer;">Peer Review</summary>
-                  <div class="sub" style="line-height: 1.4; margin-top: 4px;">
+                  <summary>Peer Review</summary>
+                  <div class="sub">
                     <strong>Journals:</strong> ACM TACCESS, PACM IMWUT, IEEE TVCG, IJHCI, Research in Developmental Disabilities. <br>
                     <strong>Conferences:</strong> CHI, CSCW, ASSETS, DIS, IUI, HRI, VR, ICWSM, ISWC, ETRA, CHI PLAY, NORDICHI, OzCHI, IDC. <br>
                     <strong>Ethics:</strong> ACL, NAACL.
@@ -903,9 +842,7 @@
                   <p>Moved to Rochester, NY to start my PhD with <a href="https://huenerfauth.ist.rit.edu/">Matt Huenerfauth</a> at the <a href="http://cair.rit.edu/">CAIR Lab</a>. Had a great week road tripping and hiking in beautiful finger lakes region. </p>
                 </li>
               </ul>
-              <p style="margin-top: 12px; margin-bottom: 0;">
-                <button type="button" onclick="this.closest('details').open = false; document.getElementById('news').scrollIntoView({behavior: 'smooth'});" style="background: none; border: none; padding: 0; font: inherit; font-size: 13.5px; color: var(--muted); cursor: pointer; margin-top: 12px; display: block;">▲ Show less</button>
-              </p>
+              <button type="button" class="show-less">▲ Show less</button>
             </details>
           </section>
           <!-- ---------- Publications ----------
@@ -1643,6 +1580,6 @@
         </span>
       </footer>
     </div>
-    <script src="js/saad.js?v=2026-10-16"></script>
+    <script src="js/saad.js?v=2026-10-18"></script>
   </body>
 </html>

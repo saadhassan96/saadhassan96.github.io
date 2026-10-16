@@ -1,3 +1,8 @@
+// Respect "reduce motion" for scripted scrolling
+function motionOK() {
+  return !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
 // Publication filters.
 // Each paper has data-tags="chi full" etc. Each button has data-tag="chi".
 // Selecting several buttons shows papers that match ANY of them.
@@ -110,7 +115,64 @@ document.querySelectorAll('.show-less').forEach(function (btn) {
   btn.addEventListener('click', function () {
     const details = btn.closest('details');
     details.open = false;
-    details.parentElement.scrollIntoView({ behavior: 'smooth' });
+    details.parentElement.scrollIntoView({ behavior: motionOK() ? 'smooth' : 'auto' });
     details.querySelector('summary').focus({ preventScroll: true });
   });
 });
+
+// Mark the nav link for the section being read.
+// The reading line sits a third of the way down the window, below the pinned
+// header. On a wide screen the main column and the sidebar each get one mark
+// (so two links can be marked); on a phone, where everything is one column,
+// only one link is marked.
+const navLinks = [...document.querySelectorAll('.site-header nav a[href^="#"]')];
+const navBar = document.querySelector('.site-header nav');
+const header = document.querySelector('.site-header');
+const linkFor = {};
+navLinks.forEach(a => { linkFor[a.getAttribute('href').slice(1)] = a; });
+const mainSections = [...document.querySelectorAll('.main > section[id]')].filter(s => linkFor[s.id]);
+const sideSections = [...document.querySelectorAll('.side > div[id]')].filter(s => linkFor[s.id]);
+let lastFirst = null;
+
+function sectionAt(sections, line) {
+  return sections.find(s => {
+    const r = s.getBoundingClientRect();
+    return r.top <= line && r.bottom > line;
+  });
+}
+
+function updateNav() {
+  const line = header.offsetHeight + window.innerHeight / 3;
+  const oneColumn = window.matchMedia('(max-width: 860px)').matches;
+  const marked = oneColumn
+    ? [sectionAt(mainSections.concat(sideSections), line)]
+    : [sectionAt(mainSections, line), sectionAt(sideSections, line)];
+  const ids = marked.filter(Boolean).map(s => s.id);
+  // On a wide screen the sidebar's section is the second, fainter mark
+  const secondary = oneColumn ? null : (marked[1] && marked[1].id);
+
+  navLinks.forEach(a => {
+    const id = a.getAttribute('href').slice(1);
+    if (ids.includes(id)) a.setAttribute('aria-current', 'location');
+    else a.removeAttribute('aria-current');
+    a.classList.toggle('nav-secondary', id === secondary && ids.length > 1);
+  });
+
+  // On phones the nav scrolls sideways; keep the marked link in view
+  const first = ids.length ? linkFor[ids[0]] : null;
+  if (first && first !== lastFirst && navBar.scrollWidth > navBar.clientWidth) {
+    navBar.scrollTo({ left: first.offsetLeft - navBar.offsetLeft - 16, behavior: motionOK() ? 'smooth' : 'auto' });
+  }
+  lastFirst = first;
+}
+
+let navTicking = false;
+function onScroll() {
+  if (navTicking) return;
+  navTicking = true;
+  requestAnimationFrame(() => { updateNav(); navTicking = false; });
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('resize', onScroll);
+document.addEventListener('toggle', onScroll, true);
+updateNav();

@@ -77,14 +77,20 @@ h1, h2, h3, h4 {
   margin: 0;
 }
 
-/* Small uppercase labels: dates, venues, year headings, sidebar headings */
-.news time, .venue, .year h3, .side h2 {
+/* Type hierarchy, top to bottom:
+   1. Section titles (h2): display serif. Main column 1.75rem, sidebar 1.3rem.
+   2. Group labels (.label): small mono caps, muted. "Currently", "PhD students".
+   3. Item text: body face. Secondary details use .sub (muted).
+   Dates and venues share the mono face with group labels. */
+.news time, .venue, .label {
   font-family: var(--font-mono);
-  font-size: 12.5px;
-  letter-spacing: -0.03em;
-  word-spacing: -0.5em;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  word-spacing: -0.3em;
   text-transform: uppercase;
   font-variant-numeric: tabular-nums;
+  line-height: 1.4;
 }
 
 /* ---------- Page layout ---------- */
@@ -135,6 +141,13 @@ h1, h2, h3, h4 {
   #publications            { order: 8; }
   #talks                   { order: 9; }
   #service                 { order: 10; } /* Kept strictly at the end */
+
+  /* .grid prefix: these must beat the desktop sidebar rules further down */
+  .grid .side > div { padding: 0; border-top: 0; margin-top: 64px; }
+  .grid .side > div:first-child { margin-top: 24px; }
+  .grid .side > div:nth-child(2) { margin-top: 28px; }
+  .grid .side h2 { font-size: 1.75rem; margin-bottom: 18px; }
+  .grid .side > div:nth-child(2) h2 { font-size: 1.3rem; margin-bottom: 12px; }
 }
 
 /* ---------- Header ---------- */
@@ -143,7 +156,7 @@ h1, h2, h3, h4 {
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  gap: 12px 32px;
+  gap: 12px 20px;
   padding-top: 12px;
   padding-bottom: 16px;
   margin-bottom: 36px;
@@ -171,6 +184,7 @@ html { scroll-padding-top: 110px; }
 .skip-link:focus { top: 12px; }
 #content:focus { outline: none; }
 .site-header h1 {
+  margin-right: auto;
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 400;
   letter-spacing: -0.01em;
@@ -182,8 +196,30 @@ html { scroll-padding-top: 110px; }
   align-items: baseline;
   font-size: 15px;
 }
-.site-header nav a { color: var(--ink); }
+.site-header nav a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+  transition: color 0.15s, text-decoration-color 0.15s;
+}
 .site-header nav a:hover { color: var(--accent); }
+/* Sections on screen right now. Both columns scroll together, so on a wide
+   screen a main-column and a sidebar section can be marked at the same time. */
+.site-header nav a[aria-current] {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
+/* The sidebar's section gets a fainter mark than the main column's */
+.site-header nav a[aria-current].nav-secondary {
+  color: var(--ink);
+  text-decoration-color: var(--muted);
+  text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header nav a { transition: none; }
+}
 
 /* Light/dark switch */
 .theme-toggle {
@@ -193,7 +229,8 @@ html { scroll-padding-top: 110px; }
   background: transparent;
   border: 1px solid var(--rule);
   border-radius: 999px;
-  padding: 1px 12px;
+  padding: 4px 14px;
+  min-height: 32px;
   cursor: pointer;
 }
 .theme-toggle:hover { color: var(--ink); border-color: var(--muted); }
@@ -254,12 +291,19 @@ html { scroll-padding-top: 110px; }
 @media (max-width: 560px) {
   /* Compact pinned header on phones: smaller name, links in one row
      that scrolls sideways if it runs out of room */
-  .site-header { gap: 6px; padding-top: 8px; padding-bottom: 10px; }
+  .site-header { gap: 4px 12px; padding-top: 8px; padding-bottom: 4px; align-items: center; }
   .site-header h1 { font-size: 1.6rem; }
+  .theme-toggle { order: 2; }
   .site-header nav {
+    order: 3;
     flex-wrap: nowrap; overflow-x: auto; width: 100%;
-    gap: 18px; padding-bottom: 2px; scrollbar-width: none;
+    gap: 18px; scrollbar-width: none;
+    /* Fade the right edge so it's clear the row scrolls */
+    -webkit-mask-image: linear-gradient(to right, #000 85%, transparent);
+    mask-image: linear-gradient(to right, #000 85%, transparent);
   }
+  /* Taller tap targets for the nav links */
+  .site-header nav a { padding-block: 8px; text-underline-offset: 4px; }
   .site-header nav::-webkit-scrollbar { display: none; }
   .site-header nav > * { flex: 0 0 auto; }
   html { scroll-padding-top: 100px; }
@@ -268,7 +312,7 @@ html { scroll-padding-top: 110px; }
 }
 
 /* ---------- Sections ---------- */
-section { margin-top: 48px; }
+section { margin-top: 64px; }
 #news { margin-top: 28px; }
 section > h2 {
   font-size: 1.75rem;
@@ -286,9 +330,20 @@ section > h2 {
 }
 .news li p { margin: 0; }
 .news time { color: var(--muted); padding-top: 3px; }
-details.more summary {
+/* Every expandable uses the same toggle as "Short bio +" */
+details:not(.menu) > summary {
+  list-style: none;
   cursor: pointer;
   color: var(--accent);
+  width: fit-content;
+}
+details:not(.menu) > summary::-webkit-details-marker { display: none; }
+details:not(.menu) > summary::after { content: " +"; }
+details:not(.menu)[open] > summary::after { content: " \2212"; }
+details:not(.menu) > summary:hover { text-decoration: underline; text-underline-offset: 3px; }
+details:not(.menu)[open] > summary { margin-bottom: 6px; }
+#news > details.more > summary {
+  width: auto;
   padding: 10px 0;
   border-top: 1px solid var(--rule);
   font-size: 15px;
@@ -329,11 +384,10 @@ details.more summary {
   border-color: var(--accent);
   color: var(--bg);
 }
-.altbar .count { opacity: 0.65; margin-left: 4px; font-variant-numeric: tabular-nums; }
+.altbar .count { opacity: 0.85; margin-left: 4px; font-variant-numeric: tabular-nums; }
 .barlabel {
   font-size: 12px;
   color: var(--muted);
-  opacity: 0.7;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   margin-right: 2px;
@@ -391,14 +445,19 @@ details.more summary {
   background: var(--accent);
   color: var(--bg);
 }
-.menupanel .count { opacity: 0.65; font-variant-numeric: tabular-nums; }
+.menupanel .count { opacity: 0.85; font-variant-numeric: tabular-nums; }
 
 @media (max-width: 560px) {
   .altbar { row-gap: 10px; }
   .menupanel { max-width: calc(100vw - 48px); }
 }
 
-.year h3 { color: var(--muted); padding: 28px 0 6px; }
+.year h3 {
+  font-size: 1.1rem;
+  color: var(--ink);
+  padding: 36px 0 10px;
+}
+.year:first-of-type h3 { padding-top: 20px; }
 
 /* One paper = fixed thumbnail + text */
 .paper {
@@ -457,19 +516,35 @@ details.more summary {
 }
 
 /* ---------- Funding (sidebar) ---------- */
-.side .grants { gap: 12px; }
+.side .grants { gap: 14px; }
 .grants li { display: grid; grid-template-columns: 26px minmax(0, 1fr); line-height: 1.4; }
 .grants .icon { margin-top: 3px; }
 .grants .sub { font-size: 13.5px; margin-top: 2px; }
 
 /* ---------- Sidebar ---------- */
 .side { font-size: 15px; }
-.side > div { padding: 18px 0; border-top: 1px solid var(--rule); }
+.side > div { padding: 24px 0; border-top: 1px solid var(--rule); }
 .side > div:first-child { border-top: 0; padding-top: 4px; }
-.side h2 { color: var(--muted); margin-bottom: 8px; font-weight: 400; }
-.side ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.side h2 { font-size: 1.3rem; color: var(--ink); margin-bottom: 12px; }
+.side ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
 .sub { color: var(--muted); }
-.side p.sub { margin: 10px 0 4px; }
+.small { font-size: 13.5px; }
+.side p.sub { margin: 0 0 10px; }
+.side .label { color: var(--muted); margin: 16px 0 8px; }
+.side h2 + .label { margin-top: 0; }
+.side-more { margin: 14px 0 0; font-size: 14px; }
+
+/* Sidebar links read as text with a quiet underline, so the green is
+   saved for things you act on (toggles, icons) and the section titles lead. */
+.side a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.side a:hover { color: var(--accent); text-decoration-color: currentColor; }
+.side .sub a, .side .label a { color: inherit; }
 .footnote { font-size: 14px; color: var(--muted); margin-top: 16px; }
 .icon {
   /* Same size as the profile icons below the email (18px) */
@@ -480,7 +555,9 @@ details.more summary {
   margin-right: 7px;
 }
 
-.people li { display: flex; align-items: center; gap: 10px; }
+.people li { display: flex; align-items: center; gap: 10px; line-height: 1.35; }
+.side .people { gap: 6px; }
+#team > details { margin-top: 16px; }
 .people img {
   width: 34px;
   height: 34px;
@@ -503,8 +580,6 @@ footer {
 }
 
 /* ---------- Service (sidebar) ---------- */
-#service { padding-bottom: 8px; }
-#service > h2 { margin-bottom: 6px; }
 #service .service-category {
   font-family: inherit;
   font-size: 14px;
@@ -513,17 +588,10 @@ footer {
   margin: 0;
   color: var(--ink);
 }
-#service ul { margin: 0 0 12px 0; gap: 4px; }
-#service > details.more { margin: 8px 0 0; }
-#service > details.more > summary { 
-  border: 0; 
-  padding: 0; 
-  font-size: 15px; 
-  font-weight: 400; 
-  color: var(--accent); 
-  cursor: pointer;
-}
-#service details.sub { margin-top: 2px; }
+#service ul { margin: 0 0 12px 0; }
+#service details .sub { margin-top: 2px; line-height: 1.45; }
+#service h3.service-category + ul { margin-top: 2px; }
+#service ul + .label { margin-top: 18px; }
 
 /* ---------- Research and social icons (sidebar, under email) ---------- */
 .side ul.icon-links { display: flex; flex-wrap: wrap; gap: 2px; margin: 0 0 0 -10px; }
@@ -537,22 +605,20 @@ footer {
 .icon-links svg { width: 18px; height: 18px; fill: currentColor; }
 
 /* ---------- Talks (sidebar) ---------- */
-#talks { padding-bottom: 8px; }
-#talks > h2 { margin-bottom: 6px; }
-#talks p.sub { margin-top: 0; }
-#talks .talks { gap: 8px; }
+#talks .talks { gap: 10px; }
 #talks .talks li { line-height: 1.35; }
-#talks .talks .sub { font-size: 13.5px; margin-top: 1px; }
+#talks .talks .sub { font-size: 13.5px; margin-top: 2px; }
 #talks .talk-year {
   font-family: var(--font-mono);
-  font-size: 12.5px;
-  letter-spacing: -0.03em;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   color: var(--muted);
-  margin: 14px 0 6px;
+  margin: 18px 0 8px;
 }
-#talks > details.more { margin: 10px 0 0; }
-#talks > details.more > summary { border: 0; padding: 0; }
+#talks > details { margin-top: 14px; }
 .show-less {
+  display: block;
   font: inherit;
   font-size: 13.5px;
   color: var(--muted);
