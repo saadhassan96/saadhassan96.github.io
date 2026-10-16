@@ -104,3 +104,13 @@ bioToggle.addEventListener('click', function () {
   bioToggle.setAttribute('aria-expanded', open);
 });
 
+// "Show less" buttons at the bottom of long expandables (e.g., past talks):
+// close the expandable and bring its section back into view
+document.querySelectorAll('.show-less').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    const details = btn.closest('details');
+    details.open = false;
+    details.parentElement.scrollIntoView({ behavior: 'smooth' });
+    details.querySelector('summary').focus({ preventScroll: true });
+  });
+});

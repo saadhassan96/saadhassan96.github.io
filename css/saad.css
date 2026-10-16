@@ -133,7 +133,8 @@ h1, h2, h3, h4 {
   #team                    { order: 6; }
   #teaching                { order: 7; }
   #publications            { order: 8; }
-  #service                 { order: 9; } /* Kept strictly at the end */
+  #talks                   { order: 9; }
+  #service                 { order: 10; } /* Kept strictly at the end */
 }
 
 /* ---------- Header ---------- */
@@ -534,3 +535,31 @@ footer {
 }
 .icon-links a:hover { background: var(--panel); color: var(--ink); text-decoration: none; }
 .icon-links svg { width: 18px; height: 18px; fill: currentColor; }
+
+/* ---------- Talks (sidebar) ---------- */
+#talks { padding-bottom: 8px; }
+#talks > h2 { margin-bottom: 6px; }
+#talks p.sub { margin-top: 0; }
+#talks .talks { gap: 8px; }
+#talks .talks li { line-height: 1.35; }
+#talks .talks .sub { font-size: 13.5px; margin-top: 1px; }
+#talks .talk-year {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: -0.03em;
+  color: var(--muted);
+  margin: 14px 0 6px;
+}
+#talks > details.more { margin: 10px 0 0; }
+#talks > details.more > summary { border: 0; padding: 0; }
+.show-less {
+  font: inherit;
+  font-size: 13.5px;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  padding: 0;
+  margin-top: 12px;
+  cursor: pointer;
+}
+.show-less:hover { color: var(--ink); }
