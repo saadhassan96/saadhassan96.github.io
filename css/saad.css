@@ -142,6 +142,16 @@ h1, h2, h3, h4 {
   #talks                   { order: 9; }
   #service                 { order: 10; } /* Kept strictly at the end */
 
+  /* Nav links follow the same order as the sections above */
+  .site-header nav a[href="#news"]         { order: 1; }
+  .site-header nav a[href="#funding"]      { order: 2; }
+  .site-header nav a[href="#team"]         { order: 3; }
+  .site-header nav a[href="#teaching"]     { order: 4; }
+  .site-header nav a[href="#publications"] { order: 5; }
+  .site-header nav a[href="#talks"]        { order: 6; }
+  .site-header nav a[href="#service"]      { order: 7; }
+  .site-header nav a[href$=".pdf"]         { order: 8; } /* CV */
+
   /* .grid prefix: these must beat the desktop sidebar rules further down */
   .grid .side > div { padding: 0; border-top: 0; margin-top: 64px; }
   .grid .side > div:first-child { margin-top: 24px; }
